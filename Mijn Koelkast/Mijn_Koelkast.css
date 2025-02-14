@@ -1,12 +1,15 @@
+/*Fonts*/
 @font-face{
     font-family: VarelaRound;
     src: url(./Fonts/VarelaRound-Regular.ttf);
 }
+
+/*Achtergrond*/
 body{
     background-image: url(./Photos/Background.png);
 }
 
-/*Navigatiebalk*/
+/*Navigatiebalk opmaak*/
 .nav a{
     display: block;
     overflow: hidden;
@@ -67,6 +70,8 @@ body{
     margin-top: auto;
     margin-right: auto ;
 }
+
+/*Logo opmaak*/
 @media(max-width: 800px){
     #logo{
         display: none;
