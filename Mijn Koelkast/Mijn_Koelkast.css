@@ -1,12 +1,15 @@
+/*Fonts*/
 @font-face{
     font-family: VarelaRound;
     src: url(./Fonts/VarelaRound-Regular.ttf);
 }
+
+/*Achtergrond*/
 body{
     background-image: url(./Photos/Background.png);
 }
 
-/*Navigatiebalk*/
+/*Navigatiebalk opmaak*/
 .nav a{
     display: block;
     overflow: hidden;
@@ -62,8 +65,18 @@ body{
     font-family: VarelaRound;
     font-size: 20px;
 }
+<<<<<<< HEAD
 
 /*Logo layout*/
+=======
+.blok{
+    margin-left: 300px;
+    margin-top: auto;
+    margin-right: auto ;
+}
+
+/*Logo opmaak*/
+>>>>>>> d4babb1ae41b890ac81d23d342a4ddf57befefc9
 @media(max-width: 800px){
     #logo{
         display: none;
@@ -72,6 +85,7 @@ body{
 #logo{
     margin-right: 70px;
 }
+<<<<<<< HEAD
 
 /*Blok element*/
 .blok{
@@ -113,3 +127,5 @@ body{
 #grid{
     margin-right: 20px;
 }
+=======
+>>>>>>> d4babb1ae41b890ac81d23d342a4ddf57befefc9
