@@ -62,11 +62,8 @@ body{
     font-family: VarelaRound;
     font-size: 20px;
 }
-.blok{
-    margin-left: 300px;
-    margin-top: auto;
-    margin-right: auto ;
-}
+
+/*Logo layout*/
 @media(max-width: 800px){
     #logo{
         display: none;
@@ -74,4 +71,45 @@ body{
 }
 #logo{
     margin-right: 70px;
+}
+
+/*Blok element*/
+.blok{
+    height: 90px;
+    width: 200px;
+    border-radius: 16px;
+    margin: auto;
+}
+
+.knop{
+    display: inline-block;
+    width: 200px;
+    height: 30px;
+    border-radius: 16px;
+    padding: 30px 20px;
+    text-align: center;
+    font-family: VarelaRound;
+    font-size: 25px;
+    text-decoration: none;
+    color: black;
+    margin-left: 300px;
+    margin-top: 30px;
+}
+#groenten{
+    background-color: rgb(71, 156, 71);
+}
+#melk{
+    background-color: beige;
+}
+#fruit{
+    background-color: rgb(247, 188, 79); 
+}
+#graan{
+    background-color: rgb(215, 131, 15); 
+}
+#vleesvis{
+    background-color: rgb(225, 73, 171); 
+}
+#grid{
+    margin-right: 20px;
 }
