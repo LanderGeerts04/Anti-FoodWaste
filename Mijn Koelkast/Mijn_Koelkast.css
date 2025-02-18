@@ -98,7 +98,7 @@ body{
     width: 80px;
 }
 .menulogos{
-    width: 30px;
+    width: 50px;
     float: left;
     margin-right: 10px;
 }
@@ -106,13 +106,12 @@ body{
 /*Blok element*/
 .knop{
     display: inline-block;
-    width: 200px;
-    height: 30px;
+    width: 300px;
+    height: 40px;
     border-radius: 16px;
     padding: 30px 20px;
-    
     font-family: VarelaRound;
-    font-size: 25px;
+    font-size: 40px;
     text-decoration: none;
     color: black;
 }
@@ -121,6 +120,8 @@ body{
     outline-color: black;
     outline-style: solid;
 }
+
+/*Blok tabel*/
 table{
     margin-left: 350px;
     margin-top: 30px;
@@ -130,8 +131,13 @@ tr{
     margin-top: 20px;
 }
 td{
-    margin-left: 5px;
+    vertical-align: middle;
 }
+#keuzemenu{
+    overflow-x: auto;
+}
+
+/*Opmaak specifieke blokken*/
 #groenten{
     background-color: rgb(71, 156, 71);
 }
