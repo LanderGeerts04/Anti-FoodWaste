@@ -9,7 +9,7 @@ body{
     background-image: url(./Photos/Background.png);
 }
 
-/*Navigatiebalk opmaak*/
+/*Navigatie elementen*/
 .nav a{
     display: block;
     overflow: hidden;
@@ -35,6 +35,23 @@ body{
     font-family: VarelaRound;
     position: fixed;
 }
+.backbutton{
+    border-style: none;
+    font-family: VarelaRound;
+    display: block;
+    overflow: hidden;
+    text-decoration: none;
+    color: black;
+    width: 100px;
+    padding: 30px 20px;
+    border-radius: 50px;
+    background-color: white;
+    text-align: center;
+}
+.backbutton:hover{
+    background-color: black;
+    color: white;
+}
 #active{
     background-color: black;
 }
@@ -52,6 +69,7 @@ body{
     background-color: black;
 }
 
+
 /*Tekst layout*/
 #title{
     font-family: VarelaRound;
@@ -64,6 +82,9 @@ body{
 .artikel{
     font-family: VarelaRound;
     font-size: 20px;
+    margin-left: 500px;
+    margin-right: 400px;
+    display: block;
 }
 
 /*Logo layout*/
@@ -74,38 +95,51 @@ body{
 }
 #logo{
     margin-right: 70px;
+    width: 80px;
+}
+.menulogos{
+    width: 30px;
+    float: left;
+    margin-right: 10px;
 }
 
 /*Blok element*/
-.blok{
-    height: 90px;
-    width: 200px;
-    border-radius: 16px;
-    margin: auto;
-}
-
 .knop{
     display: inline-block;
     width: 200px;
     height: 30px;
     border-radius: 16px;
     padding: 30px 20px;
-    text-align: center;
+    
     font-family: VarelaRound;
     font-size: 25px;
     text-decoration: none;
     color: black;
-    margin-left: 300px;
+}
+.knop:hover{
+    outline: 5px;
+    outline-color: black;
+    outline-style: solid;
+}
+table{
+    margin-left: 350px;
     margin-top: 30px;
+    border-spacing: 50px;
+}
+tr{
+    margin-top: 20px;
+}
+td{
+    margin-left: 5px;
 }
 #groenten{
     background-color: rgb(71, 156, 71);
 }
 #melk{
-    background-color: beige;
+    background-color: rgb(245, 245, 177);
 }
 #fruit{
-    background-color: rgb(247, 188, 79); 
+    background-color: rgb(247, 79, 79); 
 }
 #graan{
     background-color: rgb(215, 131, 15); 
@@ -113,6 +147,6 @@ body{
 #vleesvis{
     background-color: rgb(225, 73, 171); 
 }
-#grid{
-    margin-right: 20px;
+#rest{
+    background-color: rgb(125, 66, 6);
 }
