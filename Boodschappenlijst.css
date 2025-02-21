@@ -1,7 +1,7 @@
 /*Fonts*/
-@font-face {
-  font-family: VarelaRound;
-  src: url(./Fonts/VarelaRound-Regular.ttf);
+@font-face{
+    font-family: VarelaRound;
+    src: url(./VarelaRound-Regular.ttf);
 }
 
 /*Achtergrond*/
@@ -96,6 +96,7 @@ body {
 }
 
 /*Blok element*/
+
 
 /*Blok tabel*/
 #keuzemenu {
