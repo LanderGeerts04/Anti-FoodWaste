@@ -5,75 +5,37 @@
 body {
   background-image: url(/Homepage/photos/Background.png);
 }
-
-.nav a {
-  display: block;
-  overflow: hidden;
-  color: black;
-  width: 230px;
-  padding: 30px 20px;
-  text-decoration: none;
-}
-.nav a:hover {
-  background-color: black;
-  color: white;
-  border-top-right-radius: 16px;
-  border-bottom-right-radius: 16px;
-}
-.nav {
-  list-style-type: none;
+* {
+  margin: 0;
   padding: 0;
-  background-color: white;
-  width: 250px;
-  height: 400px;
-  border-radius: 16px;
-  border-style: none;
-  font-family: VarelaRound;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+header {
   position: fixed;
-}
-#active {
-  background-color: black;
-  color: white;
-}
-#active a {
-  color: white;
-}
-.title {
+  top: 0;
+  left: 0;
+  background-color: red;
+  width: 100%;
   display: flex;
   justify-content: space-between;
-  font-family: VarelaRound;
-  font-size: 30px;
-  padding-top: auto;
+  align-items: center;
+  padding: 20px 100px;
+  z-index: 99;
 }
-#logo {
-  width: 150px;
-  height: 150px;
-  padding-top: auto;
-}
-.Intro {
-  font-family: VarelaRound;
-  font-size: 30px;
-}
-.content {
-  padding-left: 350px;
-}
-.button {
-  background-color: black;
-  color: white;
-  border: none;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-}
-button:hover {
-  background-color: gray;
-  color: white;
-}
-.button:active {
-  background-color: white;
+.title {
   color: black;
+  font-size: 2em;
+  user-select: none;
+}
+.navigation a {
+  position: relative;
+  font-size: 1.1em;
+  font-weight: 500;
+  color: black;
+  text-decoration: none;
+  padding-left: 20px;
+}
+.navigation a:hover {
+  color: #fff;
 }
