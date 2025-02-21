@@ -1,136 +1,159 @@
 /*Fonts*/
-@font-face{
-    font-family: VarelaRound;
-    src: url(./Fonts/VarelaRound-Regular.ttf);
+@font-face {
+  font-family: VarelaRound;
+  src: url(./Fonts/VarelaRound-Regular.ttf);
 }
 
 /*Achtergrond*/
-body{
-    background-image: url(./Background.png);
+body {
+  background-image: url(./Background.png);
 }
 
 /*Navigatie elementen*/
-.nav a{
-    display: block;
-    overflow: hidden;
-    width: 230px;
-    padding: 30px 20px;
-    text-decoration: none;
-    color: black;
+.nav a {
+  display: block;
+  overflow: hidden;
+  width: 230px;
+  padding: 30px 20px;
+  text-decoration: none;
+  color: black;
 }
-.nav a:hover{
-    background-color: black ;
-    border-top-right-radius: 16px;
-    border-bottom-right-radius: 16px;
-    color: white;
+.nav a:hover {
+  background-color: black;
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+  color: white;
 }
-.nav{
-    list-style-type: none;
-    padding: 0;
-    background-color: white;
-    width: 250px;
-    height: 400px;
-    border-radius: 16px;
-    border-style: none;
-    font-family: VarelaRound;
-    position: fixed;
+.nav {
+  list-style-type: none;
+  padding: 0;
+  background-color: white;
+  width: 250px;
+  height: 400px;
+  border-radius: 16px;
+  border-style: none;
+  font-family: VarelaRound;
+  position: fixed;
 }
-.backbutton{
-    border-style: none;
-    font-family: VarelaRound;
-    display: block;
-    overflow: hidden;
-    text-decoration: none;
-    color: black;
-    width: 100px;
-    padding: 30px 20px;
-    border-radius: 50px;
-    background-color: white;
-    text-align: center;
+.backbutton {
+  border-style: none;
+  font-family: VarelaRound;
+  display: block;
+  overflow: hidden;
+  text-decoration: none;
+  color: black;
+  width: 100px;
+  padding: 30px 20px;
+  border-radius: 50px;
+  background-color: white;
+  text-align: center;
 }
-.backbutton:hover{
-    background-color: black;
-    color: white;
+.backbutton:hover {
+  background-color: black;
+  color: white;
 }
-#active{
-    background-color: black;
+#active {
+  background-color: black;
 }
-#active a{
-    color: white;
+#active a {
+  color: white;
 }
-#top a:hover{
-    border-top-right-radius: 16px;
-    border-top-left-radius: 16px;
-    background-color: black;
+#top a:hover {
+  border-top-right-radius: 16px;
+  border-top-left-radius: 16px;
+  background-color: black;
 }
-#bottom a:hover{
-    border-bottom-right-radius: 16px;
-    border-bottom-left-radius: 16px;
-    background-color: black;
+#bottom a:hover {
+  border-bottom-right-radius: 16px;
+  border-bottom-left-radius: 16px;
+  background-color: black;
 }
-
 
 /*Tekst layout*/
-#title{
-    font-family: VarelaRound;
-    font-size: 60px;
+#title {
+  font-family: VarelaRound;
+  font-size: 60px;
 }
-.Intro{
-    font-family: VarelaRound;
-    font-size: 30px;
+.Intro {
+  font-family: VarelaRound;
+  font-size: 30px;
 }
 
 /*Logo layout*/
-@media(max-width: 800px){
-    #logo{
-        display: none;
-    }
+@media (max-width: 800px) {
+  #logo {
+    display: none;
+  }
 }
-#logo{
-    margin-right: 70px;
-    width: 80px;
+#logo {
+  margin-right: 70px;
+  width: 80px;
 }
-.menulogos{
-    width: 50px;
-    float: left;
-    margin-right: 10px;
+.menulogos {
+  width: 50px;
+  float: left;
+  margin-right: 10px;
 }
 
 /*Blok element*/
 
-
 /*Blok tabel*/
-#keuzemenu{
-    overflow-x: auto;
+#keuzemenu {
+  overflow-x: auto;
 }
 
 /*Opmaak specifieke blokken*/
-#groenten{
-    background-color: rgb(71, 156, 71);
+#veg {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  background-color: rgb(71, 156, 71);
+  border-radius: 20px;
+  padding: 10px;
+  height: 50px;
 }
-#melk{
-    background-color: rgb(245, 245, 177);
+#Dairy {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  background-color: rgb(245, 245, 177);
+  border-radius: 20px;
+  padding: 10px;
+  height: 50px;
 }
-#fruit{
-    background-color: rgb(247, 79, 79); 
+#fru {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  background-color: rgb(247, 79, 79);
+  border-radius: 20px;
+  padding: 10px;
+  height: 50px;
 }
-#graan{
-    background-color: rgb(215, 131, 15); 
+#wheat {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  background-color: rgb(215, 131, 15);
+  border-radius: 20px;
+  padding: 10px;
+  height: 50px;
 }
-#vleesvis{
-    background-color: rgb(225, 73, 171); 
+#meat {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  background-color: rgb(225, 73, 171);
+  border-radius: 20px;
+  padding: 10px;
+  height: 50px;
 }
-#rest{
-    background-color: rgb(125, 66, 6);
-}
-
-h2{
-    height: 50px;
-    display: block;
-    border-radius: 20px;
-    padding-top: 10px;
-}
-#div{
-    display: flex;
-    align-items: center;
+#varia {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  background-color: rgb(125, 66, 6);
+  border-radius: 20px;
+  padding: 10px;
+  height: 50px;
 }
