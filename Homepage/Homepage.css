@@ -16,7 +16,9 @@ h2{
     vertical-align: bottom;
 }
 .knop:hover{
-    text-decoration: underline;
+    outline-color: black;
+    outline: 5px;
+    outline-style: solid;
 }
 tr{
     height: 250px;
@@ -89,3 +91,4 @@ body{
     gap: 20px;
     flex-wrap: wrap;
 }
+
