@@ -71,13 +71,14 @@ body{
     border-radius: 16px;
     border-style: none;
     font-family: VarelaRound;
+    margin-right: 17px;
 }
 .logoutHolder{
     width: 100vw;
     display: flex;
     justify-content: end;
 }
-#logout:hover{
+.logout:hover{
     text-decoration: underline;
 }
 
