@@ -29,7 +29,7 @@ if (isset($_POST['login'])){
         if (password_verify($password,$user['password'])){
             $_SESSION['name'] = $user['name'];
             $_SESSION['email'] = $user['email'];
-            header("location: weekmenu.php");
+            header("location: ../Homepage/Homepage.html");
             exit();
         }
         
