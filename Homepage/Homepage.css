@@ -1,0 +1,56 @@
+@font-face{
+    font-family: VarelaRound;
+    src: url(./VarelaRound-Regular.ttf);
+}
+
+h1{
+    text-align: center;
+    font-size: 60px;
+}
+
+table{
+    border-spacing: 50px;
+}
+td{
+    text-align: center;
+    vertical-align: bottom;
+}
+tr{
+    height: 250px;
+    width: 250px;
+}
+#keuzemenu{
+    overflow-x: auto;
+}
+
+#koelkast{
+    background-color: limegreen;
+}
+#menu{
+    background-color: crimson;
+}
+#boodschappen{
+    background-color: dodgerblue; 
+}
+#recept{
+    background-color: peru;
+}
+
+.knop{
+    display: inline-block;
+    width: 250px;
+    height: 250px;
+    border-radius: 16px;
+    padding: 30px 20px;
+    font-family: VarelaRound;
+    font-size: 25px;
+    text-decoration: none;
+    color: black;
+}
+body{
+    background-image: url(./Background.png);
+}
+
+.menulogos{
+    width: 225px;
+}
