@@ -11,12 +11,12 @@ h2{
     text-align: center;
 }
 
-table{
-    border-spacing: 50px;
-}
-td{
+#knop{
     text-align: center;
     vertical-align: bottom;
+}
+.knop:hover{
+    text-decoration: underline;
 }
 tr{
     height: 250px;
@@ -30,7 +30,7 @@ tr{
     background-color: limegreen;
 }
 #menu{
-    background-color: crimson;
+    background-color: firebrick;
 }
 #boodschappen{
     background-color: dodgerblue; 
@@ -58,20 +58,33 @@ body{
     width: 225px;
 }
 
-#logout{
+.logout{
     width: 100px;
     height: 30px;
     display: flex;
     align-items: center;
+
     color: black;
     list-style-type: none;
-    padding: 0;
+    padding: 1px;
     background-color: white;
     border-radius: 16px;
     border-style: none;
     font-family: VarelaRound;
-    float: right;
+}
+.logoutHolder{
+    width: 100vw;
+    display: flex;
+    justify-content: end;
 }
 #logout:hover{
     text-decoration: underline;
+}
+
+.knoppen{
+    display: flex;
+    margin-top: 75px;
+
+    gap: 20px;
+    flex-wrap: wrap;
 }

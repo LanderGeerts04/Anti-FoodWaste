@@ -2,59 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="initial-scale=1.0">
     <title>Homepage</title>
     <link href="Homepage.css" rel="stylesheet" />
 </head>
 <body>
     <h1>Home</h1>
-    <h2>Navigeer van hieruit naar alle pagina's</h2>
     <hr/>
-    <div id="logout">
+    <div class="logoutHolder">
+      <div class="logout">
         <img src="./Photos/log-out.svg" class="logging">
         Logout
+      </div>
     </div>
-    <table>
-        <tr>
-            <td>
-              <a class="knop" id="koelkast" href="/Mijn Koelkast/Mijn_Koelkast.html"
-                ><img
-                  class="menulogos"
-                  src="/Mijn Koelkast/Photos/Icons/refrigerator.svg"
-                  alt="$"
-                />Mijn Koelkast</a
-              >
-            </td>
-            <td>
-              <a class="knop" id="menu" href="/Weekmenu/Weekmenu.html"
-                ><img
-                  class="menulogos"
-                  src="/Weekmenu/Photos/Icons/calendar-days.svg"
-                  alt="$"
-                />Weekmenu</a
-              >
-            </td>
-            <td>
-              <a class="knop" id="boodschappen" href="/Boodschappenlijst/Boodschappenlijst.html"
-                ><img
-                  class="menulogos"
-                  src="/Boodschappenlijst/Photos/list-check.svg"
-                  alt="$"
-                />Boodschappenlijstje</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <a class="knop" id="recept" href="#recepten"
-                ><img
-                  class="menulogos"
-                  src="/Recepten/Photos/cooking-pot.svg"
-                  alt="$"
-                />Recepten</a
-              >
-            </td>
-        </tr>
-    </table>
+    <div class="knoppen">
+      <div id="knop">
+        <a class="knop" id="koelkast" href="../Mijn Koelkast/Mijn_Koelkast.html">
+          <img
+            class="menulogos"
+            src="../Mijn Koelkast/Photos/Icons/refrigerator.svg"
+            alt="$"/>Mijn Koelkast</a>
+      </div>
+      <div id="knop">
+        <a class="knop" id="menu" href="../Weekmenu/Weekmenu.html">
+          <img
+            class="menulogos"
+            src="../Weekmenu/Photos/Icons/calendar-days.svg"
+            alt="$"/>Weekmenu</a>
+      </div>
+      <div id="knop">
+        <a class="knop" id="boodschappen" href="../Boodschappenlijst/Boodschappenlijst.html">
+          <img
+            class="menulogos"
+            src="../Boodschappenlijst/Photos/list-check.svg"
+            alt="$"/>Boodschappenlijstje</a>
+      </div>
+      <div id="knop">
+        <a class="knop" id="recept" href="../Recepten.html">
+          <img
+            class="menulogos"
+            src="../Recepten/Photos/cooking-pot.svg"
+            alt="$"/>Recepten</a>
+      </div>
+     </div>
 </body>
 </html>
