@@ -105,7 +105,7 @@ body{
 
 /*Blok element*/
 .knop{
-    display: inline-block;
+    display: block;
     width: 300px;
     height: 40px;
     border-radius: 16px;
@@ -114,27 +114,18 @@ body{
     font-size: 40px;
     text-decoration: none;
     color: black;
+    float:left;
+    margin-left: 20px;
+    margin-bottom: 20px;
 }
 .knop:hover{
     outline: 5px;
     outline-color: black;
     outline-style: solid;
 }
-
-/*Blok tabel*/
-table{
-    margin-left: 350px;
-    margin-top: 30px;
-    border-spacing: 50px;
-}
-tr{
-    margin-top: 20px;
-}
-td{
-    vertical-align: middle;
-}
 #keuzemenu{
-    overflow-x: auto;
+    margin-left: 300px;
+    margin-top: 30px;
 }
 
 /*Opmaak specifieke blokken*/
