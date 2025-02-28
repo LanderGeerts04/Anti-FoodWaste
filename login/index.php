@@ -28,6 +28,6 @@
         </form>
       </div>
     </div>
-    <script src="/Homepage/script.js"></script>
+    <script src="/login/script.js"></script>
   </body>
 </html>
