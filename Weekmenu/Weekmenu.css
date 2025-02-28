@@ -126,43 +126,27 @@ body{
     border-color: rgb(95, 95, 95);
 }
 
-/*recepten elementen*/
-.items{
-    margin-top: 30px;
-    border-collapse: collapse;
-    font-family: VarelaRound;
-    font-size: 20px;
-    margin-left: 5px;
-    margin-right: 5px;
-}
-.items td{
+/*Recepten elementen*/
+.Recept{
+    display: block;
+    width: 270px;
+    height: 250px;
     background-color: white;
-    vertical-align: bottom;
-    text-align: center;
-    width: 300px;
+    border-radius: 16px;
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 20px;
 }
-.items img{
-    width: 300px;
+#Recepten_block{
+    margin-left: 300px;
+}
+.recept_img{
+    width: 270px;
     height: 200px;
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
 }
-.column{
-    float:left;
-    padding-bottom: 20px;
-    padding-right: 10px;
+.Recept p{
+    text-align: center;
+    font-family: VarelaRound;
 }
-.boven td{
-    border-top-left-radius: 16px;
-    border-top-right-radius: 16px;
-}
-.onder td{
-    height: 30px;
-    border-bottom-right-radius: 16px;
-    border-bottom-left-radius: 16px;
-    padding-bottom: 5px;
-}
-#recept1{
-   margin-left: 300px;
-}
-
