@@ -10,7 +10,7 @@ body{
 }
 
 /*Navigatie elementen*/
-.nav a{
+#nav a{
     display: block;
     overflow: hidden;
     width: 230px;
@@ -18,13 +18,13 @@ body{
     text-decoration: none;
     color: black;
 }
-.nav a:hover{
+#nav a:hover{
     background-color: black ;
     border-top-right-radius: 16px;
     border-bottom-right-radius: 16px;
     color: white;
 }
-.nav{
+#nav{
     list-style-type: none;
     padding: 0;
     background-color: white;
@@ -35,22 +35,23 @@ body{
     font-family: VarelaRound;
     position: fixed;
 }
-.backbutton{
+.hamburger{
     border-style: none;
     font-family: VarelaRound;
     display: block;
     overflow: hidden;
     text-decoration: none;
     color: black;
-    width: 100px;
-    padding: 30px 20px;
+    width: 80px;
+    padding: 20px 20px;
     border-radius: 50px;
     background-color: white;
     text-align: center;
 }
-.backbutton:hover{
-    background-color: black;
-    color: white;
+.hamburger:hover{
+    outline: 3px;
+    outline-color: black;
+    outline-style: solid;
 }
 #active{
     background-color: black;
@@ -99,50 +100,43 @@ body{
 }
 
 /*agenda element*/
-#agenda{
-    background-color: rgb(255, 255, 255);
-    margin-left: 300px;
-    margin-top: 40px;
+table{
+    background-color: rgb(242, 224, 224);
     border-radius: 16px;
+    margin-left: 300px;
     font-family: VarelaRound;
-    font-size: 30px;
-    border-collapse: collapse;
-    width: 100%;
-    max-width: 800px;
-    overflow-x: auto;
 }
-#agenda th,#agenda td{
-    width: 14.28%;
-    padding: 50px;
+#tabel_dagen td{
+    width: 270px;
+    padding: 10px;
     text-align: center;
 }
-#dagen{
-    height: 60px;
+#tabel_drop_posities td {
+    height: 250px;
+    width: 270px;
 }
-#recepten td{
-    height: 500px;
-    border-left: solid;
-    border-width: 5px;
-    border-color: rgb(95, 95, 95);
-}
+
 
 /*Recepten elementen*/
 .Recept{
     display: block;
-    width: 270px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
     background-color: white;
     border-radius: 16px;
     float: left;
     margin-right: 20px;
     margin-bottom: 20px;
+   
 }
 #Recepten_block{
     margin-left: 300px;
+    width: auto;
+    height: 220px;
 }
 .recept_img{
-    width: 270px;
-    height: 200px;
+    width: 200px;
+    height: 150px;
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
 }

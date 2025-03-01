@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weekmenu</title>
     <link rel="stylesheet" href="./Weekmenu.css">
+    <script src="../Algemene files/Navigatieverberg.js"></script>
+    <script src="../Algemene files/Draging.js"></script>
 </head>
 <body>
     <div>
@@ -16,45 +18,66 @@
     <hr/>
     <p class="Intro">Dit is een overzicht van je week</p>
     <hr />
-    <ul class="nav">
+    <button class="hamburger" type="button" onclick="verberg()"><img src="../Algemene files/Algemen iconen/menu.svg" alt="$"></button>
+    <ul id="nav">
         <li id="top"><a href="/Homepage/Homepage.html">HOME</a></li>
         <li><a href="../Mijn Koelkast/Mijn_Koelkast.html">MIJN KOELKAST</a></li>
         <li id="active"><a href="./Weekmenu.html">WEEKMENU</a></li>
         <li><a href="/Boodschappenlijst/Boodschappenlijst.html">BOODSCHAPPENLIJST</a></li>
         <li id="bottom"><a href="#Recepten">RECEPTEN</a></li>
     </ul>
-    <div id="Recepten_block">
-        <div class="Recept" id="recept1">
+    <div id="Recepten_block" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <div class="Recept" id="recept1" draggable="true" ondragstart="drag(event)">
             <img src="./Photos/Spaghetti.avif" alt="$" class="recept_img">
             <p>Spaghetti</p>
         </div>
-        <div class="Recept" id="recept1">
+        <div class="Recept" id="recept2" draggable="true" ondragstart="drag(event)">
+            <img src="./Photos/stoofvlees.jpg" alt="$" class="recept_img">
+            <p>Stoofvlees</p>
+        </div>
+        <div class="Recept" id="recept3" draggable="true" ondragstart="drag(event)">
+            <img src="./Photos/stoofvlees.jpg" alt="$" class="recept_img">
+            <p>Stoofvlees</p>
+        </div>
+        <div class="Recept" id="recept4" draggable="true" ondragstart="drag(event)">
+            <img src="./Photos/stoofvlees.jpg" alt="$" class="recept_img">
+            <p>Stoofvlees</p>
+        </div>
+        <div class="Recept" id="recept5" draggable="true" ondragstart="drag(event)">
+            <img src="./Photos/stoofvlees.jpg" alt="$" class="recept_img">
+            <p>Stoofvlees</p>
+        </div>
+        <div class="Recept" id="recept6" draggable="true" ondragstart="drag(event)">
+            <img src="./Photos/stoofvlees.jpg" alt="$" class="recept_img">
+            <p>Stoofvlees</p>
+        </div>
+        <div class="Recept" id="recept7" draggable="true" ondragstart="drag(event)">
             <img src="./Photos/stoofvlees.jpg" alt="$" class="recept_img">
             <p>Stoofvlees</p>
         </div>
     </div>
-    
-    
-
-    <table id="agenda">
-        <tr id="dagen">
-            <th>Maandag</th>
-            <th>Dinsdag</th>
-            <th>Woensdag</th>
-            <th>Donderdag</th>
-            <th>Vrijdag</th>
-            <th>Zaterdag</th>
-            <th>Zondag</th>
+    <table>
+        <tr id="tabel_dagen">
+            <td>Maandag</td>
+            <td>Dinsdag</td>
+            <td>Woensdag</td>
+            <td>Donderdag</td>
+            <td>Vrijdag</td>
+            <td>Zaterdag</td>
+            <td>Zondag</td>
         </tr>
-        <tr id="recepten">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+        <tr id="tabel_drop_posities">
+            <td ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+            <td ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+            <td ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+            <td ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+            <td ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+            <td ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+            <td ondrop="drop(event)" ondragover="allowDrop(event)"></td>
         </tr>
     </table>
+    
+
+    
 </body>
 </html>

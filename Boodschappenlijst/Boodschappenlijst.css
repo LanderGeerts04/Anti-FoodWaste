@@ -10,7 +10,25 @@ body {
 }
 
 /*Navigatie elementen*/
-.nav a {
+.hamburger{
+  border-style: none;
+  font-family: VarelaRound;
+  display: block;
+  overflow: hidden;
+  text-decoration: none;
+  color: black;
+  width: 80px;
+  padding: 20px 20px;
+  border-radius: 50px;
+  background-color: white;
+  text-align: center;
+}
+.hamburger:hover{
+  outline: 3px;
+  outline-color: black;
+  outline-style: solid;
+}
+#nav a {
   display: block;
   overflow: hidden;
   width: 230px;
@@ -18,13 +36,13 @@ body {
   text-decoration: none;
   color: black;
 }
-.nav a:hover {
+#nav a:hover {
   background-color: black;
   border-top-right-radius: 16px;
   border-bottom-right-radius: 16px;
   color: white;
 }
-.nav {
+#nav {
   list-style-type: none;
   padding: 0;
   background-color: white;
@@ -34,23 +52,6 @@ body {
   border-style: none;
   font-family: VarelaRound;
   position: fixed;
-}
-.backbutton {
-  border-style: none;
-  font-family: VarelaRound;
-  display: block;
-  overflow: hidden;
-  text-decoration: none;
-  color: black;
-  width: 100px;
-  padding: 30px 20px;
-  border-radius: 50px;
-  background-color: white;
-  text-align: center;
-}
-.backbutton:hover {
-  background-color: black;
-  color: white;
 }
 #active {
   background-color: black;

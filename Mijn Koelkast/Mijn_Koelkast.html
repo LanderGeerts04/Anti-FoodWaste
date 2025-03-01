@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mijne Frigo</title>
     <link rel="stylesheet" href="./Mijn_Koelkast.css" />
+    <script src="../Algemene files/Navigatieverberg.js"></script>
   </head>
   <body>
     <div>
@@ -22,14 +23,14 @@
     <hr />
     <p class="Intro">Hier kan je zien wat er in je koelkast zit</p>
     <hr />
-    <ul class="nav">
+    <button class="hamburger" type="button" onclick="verberg()"><img src="../Algemene files/Algemen iconen/menu.svg" alt="$"></button>
+    <ul id="nav">
       <li id="top"><a href="/Homepage/Homepage.html">HOME</a></li>
       <li id="active"><a href="./Mijn_Koelkast.html">MIJN KOELKAST</a></li>
       <li><a href="../Weekmenu/Weekmenu.html">WEEKMENU</a></li>
       <li><a href="/Boodschappenlijst/Boodschappenlijst.html">BOODSCHAPPENLIJST</a></li>
       <li id="bottom"><a href="#Recepten">RECEPTEN</a></li>
     </ul>
-    
     <div id="keuzemenu">
       <div id="zoekbalk">
         <form action="action" method="POST">
