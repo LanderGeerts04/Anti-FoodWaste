@@ -100,7 +100,7 @@ body{
 }
 
 /*agenda element*/
-table{
+#agenda{
     background-color: rgb(242, 224, 224);
     border-radius: 16px;
     margin-left: 300px;

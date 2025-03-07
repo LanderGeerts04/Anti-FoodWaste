@@ -92,6 +92,11 @@ body{
 @media(max-width: 800px){
     #logo{
         display: none;
+    }   
+}
+@media(max-width: 1200px){
+    #zoekbalk{
+        display: none;
     }
 }
 #logo{
@@ -126,7 +131,6 @@ body{
 }
 #keuzemenu{
     margin-left: 300px;
-    margin-top: 30px;
 }
 
 /*Opmaak specifieke blokken*/
@@ -150,6 +154,14 @@ body{
 }
 
 /*Zoekelementen*/
+#zoekbalk{
+    display: block;
+    width: 620px;
+    height: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
 .zoek{
     border-radius: 16px;
     border: none;
@@ -157,8 +169,6 @@ body{
     font-family: VarelaRound;
 }
 #zoekbalk_mijn_koelkast{
-    margin-left: 300px;
-    margin-bottom: 20px;
     width: 500px;
     height: 40px;
 }
