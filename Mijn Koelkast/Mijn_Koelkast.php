@@ -32,8 +32,8 @@
       <li id="bottom"><a href="#Recepten">RECEPTEN</a></li>
     </ul>
     <div id="zoekbalk">
-      <form action="action" method="POST">
-        <input type="text" name="zoekveld" class="zoek" id="zoekbalk_mijn_koelkast" placeholder="Zoek hier">
+      <form action="./Mijn_Koelkast_FormHandeler.php" method="POST">
+        <input type="text" name="Naam" class="zoek" id="zoekbalk_mijn_koelkast" placeholder="Zoek hier">
         <input type="submit" name="submitknop" class="zoek" id="submitknop" value="ZOEK">
       </form>
     </div>
