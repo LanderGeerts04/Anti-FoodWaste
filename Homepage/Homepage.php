@@ -1,3 +1,13 @@
+<?php
+
+session_start();
+if (!isset($_SESSION['email'])){
+  header("location: ../login/index.php");
+  exit();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +20,7 @@
     <h1>Home</h1>
     <hr/>
     <div class="logoutHolder">
-      <div class="logout">
+      <div class="logout" onclick="window.location.href='../login/logout.php'">
         <img src="./Photos/log-out.svg" class="logging">
         Logout
       </div>
