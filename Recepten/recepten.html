@@ -9,10 +9,29 @@
 <body>
     <h1>ZOEK EEN RECEPT</h1>
     <hr/>
-    <form>
-        <input type="text" placeholder="recept..">
-    </form>
-    <br/>
-    <button type="submit" form="recept">Zoek</button>
+    <div class="navigatie">
+        <button class="hamburger" type="button" onclick="verberg()"><img src="../Algemene files/Algemen iconen/menu.svg" alt="$"></button>
+        <ul id="nav">
+            <li id="top"><a href="../Homepage/Homepage.php">HOME</a></li>
+            <li><a href="../Mijn Koelkast/Mijn_Koelkast.php">MIJN KOELKAST</a></li>
+            <li><a href="../Weekmenu/Weekmenu.html">WEEKMENU</a></li>
+            <li><a href="../Boodschappenlijst/Boodschappenlijst.html">BOODSCHAPPENLIJST</a></li>
+            <li id="active"><a href="../Recepten/recepten.html">RECEPTEN</a></li>
+        </ul>
+    </div>
+    <div class="main">
+        <form id="recept">
+            <input class="form1" type="text" placeholder="Recept..">
+        </form>
+        <br/>
+        <button class="knop" type="submit" form="recept">Zoek</button>
+        <form id="ingred">
+            <input class="form2" type="text" placeholder="Ingrediënt..">
+        </form>
+        <form id="hvl">
+            <input class="form3" type="number" placeholder="0">
+        </form>
+    </div>
+    
 </body>
 </html>

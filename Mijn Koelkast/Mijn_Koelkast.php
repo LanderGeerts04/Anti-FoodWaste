@@ -25,11 +25,11 @@
     <hr />
     <button class="hamburger" type="button" onclick="verberg()"><img src="../Algemene files/Algemen iconen/menu.svg" alt="$"></button>
     <ul id="nav">
-      <li id="top"><a href="/Homepage/Homepage.html">HOME</a></li>
-      <li id="active"><a href="./Mijn_Koelkast.html">MIJN KOELKAST</a></li>
+      <li id="top"><a href="../Homepage/Homepage.php">HOME</a></li>
+      <li id="active"><a href="../Mijn Koelkast/Mijn_Koelkast.php">MIJN KOELKAST</a></li>
       <li><a href="../Weekmenu/Weekmenu.html">WEEKMENU</a></li>
-      <li><a href="/Boodschappenlijst/Boodschappenlijst.html">BOODSCHAPPENLIJST</a></li>
-      <li id="bottom"><a href="#Recepten">RECEPTEN</a></li>
+      <li><a href="../Boodschappenlijst/Boodschappenlijst.html">BOODSCHAPPENLIJST</a></li>
+      <li id="bottom"><a href="../Recepten/recepten.html">RECEPTEN</a></li>
     </ul>
     <div id="zoekbalk">
       <form action="./Mijn_Koelkast_FormHandeler.php" method="POST">
