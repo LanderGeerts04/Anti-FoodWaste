@@ -8,7 +8,7 @@
     <script src="../Algemene files/Navigatieverberg.js"></script>
   </head>
   <body>
-    <div>
+  <div>
       <h1 id="title">
         Mijn Koelkast
         <a href="/Homepage/index.html"
@@ -31,37 +31,62 @@
       <li><a href="/Boodschappenlijst/Boodschappenlijst.html">BOODSCHAPPENLIJST</a></li>
       <li id="bottom"><a href="#Recepten">RECEPTEN</a></li>
     </ul>
-    <div id="zoekbalk">
-      <form action="./Mijn_Koelkast_FormHandeler.php" method="POST">
-        <input type="text" name="Naam" class="zoek" id="zoekbalk_mijn_koelkast" placeholder="Zoek hier">
-        <input type="submit" name="submitknop" class="zoek" id="submitknop" value="ZOEK">
-      </form>
-    </div>
-    <div id="keuzemenu">
-      <a class="knop" id="groenten" href="./Subpagina's/Groenten.html">
-        <img class="menulogos" src="./Photos/Icons/carrot.svg" alt="$"/>
-        Groenten
-      </a>
-      <a class="knop" id="melk" href="./Subpagina's/Zuivel.html">
-        <img class="menulogos" src="./Photos/Icons/egg.svg" alt="$"/>
-        Zuivel
-      </a>
-      <a class="knop" id="fruit" href="./Subpagina's/Fruit.html">
-              <img class="menulogos" src="./Photos/Icons/apple.svg" alt="$"/>
-              Fruit
-      </a>
-      <a class="knop" id="graan" href="./Subpagina's/Deegwaren.html">
-        <img class="menulogos" src="./Photos/Icons/wheat.svg" alt="$"/>
-        Deegwaren
-      </a>
-      <a class="knop" id="vleesvis" href="./Subpagina's/Vlees_en_vis.html">
-        <img class="menulogos" src="./Photos/Icons/ham.svg" alt="$"/>
-        Vlees en vis
-      </a>
-      <a class="knop" id="rest" href="./Subpagina's/Overige_producten.html">
-        <img class="menulogos" src="./Photos/Icons/chef-hat.svg" alt="$"/>
-        Diversen
-      </a>
+    <div class="artikel">
+      <div class="toevoegen">
+        <button id="ADD">ADD</button>
+        <div id="informatie">
+          <form action="">
+            <ul>
+              <li><input type="text" id="Naam" class="formdesign"></li>
+              <li>
+                <select name="Categorie" id="Categorie" class="formdesign">
+                  <option value="GR">Groenten</option>
+                  <option value="FR">Fruit</option>
+                  <option value="VV">Vlees of vis</option>
+                  <option value="ZU">Zuivel</option>
+                  <option value="DE">Deegwaren</option>
+                  <option value="OV">Overige producten</option>
+                </select>
+              </li>
+              <li><input type="number" id="Hoeveelheid" class="formdesign"></li>
+              <li><button type="submit" class="formdesign" id="Toevoegen">Toevoegen</button></li>
+            </ul>
+          </form>
+        </div>
+      </div>
+      <div class="overzicht">
+        <form action="">
+          <select name="Categorie" id="Categorie">
+            <option value="GR">Groenten</option>
+            <option value="FR">Fruit</option>
+            <option value="VV">Vlees of vis</option>
+            <option value="ZU">Zuivel</option>
+            <option value="DE">Deegwaren</option>
+            <option value="OV">Overige producten</option>
+          </select>
+        </form>
+        <div id="Kader">
+          <ul>
+            <?php
+              require_once("../Algemene files/DatabaseConnectie.php");
+              $conn->select_db("AntiFoodwaste");
+
+              $sql="SELECT i.IngrediëntNaam,k.Hoeveelheid from ingrediënten i INNER JOIN koelkast k ON (i.IngrediëntID=k.IngrediëntID);";
+              
+              $result = $conn->query($sql);
+              
+              if ($result->num_rows > 0) {
+                // output data of each row
+                while($row = $result->fetch_assoc()) {
+                  echo "<li>".$row["IngrediëntNaam"]."<ol>".$row["Hoeveelheid"]."</ol></li>";
+                }
+              }
+
+              $conn->close();
+            ?>
+          </ul>
+        </div>
+      </div>
     </div>
   </body>
 </html>

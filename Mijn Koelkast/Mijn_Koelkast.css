@@ -83,11 +83,102 @@ body{
 .artikel{
     font-family: VarelaRound;
     font-size: 20px;
-    margin-left: 500px;
-    margin-right: 400px;
+    margin-left: 300px;
+    margin-right: 0px;
     display: block;
+    display: flex
 }
-
+.toevoegen{
+    width: 30%;
+    height: auto
+    font-family: VarelaRound;
+}
+.overzicht{
+    width: 70%;
+    height: auto;
+}
+.overzicht #Categorie{
+    margin-left: 20px;
+    background-color: white;
+    border: solid white;
+    border-radius: 16px;
+    width: 120px;
+    height: 50px;
+    font-size: 20px;
+}
+.overzicht #Kader{
+    background-color: white;
+    margin: 20px;
+    border-radius: 16px;
+    padding: 10px;
+    height: auto;
+}
+.overzicht #Kader li{
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: solid black;
+    border-radius: 16px;
+    padding: 20px;
+}
+.overzicht #Kader ol{
+    float: right;
+    color: red;
+}
+.toevoegen #informatie{
+    margin: 20px;
+    border-radius: 16px;
+    background-color: white;
+}
+.toevoegen #informatie li{
+    padding: 20px;
+    list-style-type: none;
+}
+.formdesign{
+    border-color: black;
+    border-style: solid;
+    border-radius: 16px;
+    text-align: center;
+}
+.toevoegen #Hoeveelheid{
+    width: 20%;
+    padding: 5px;
+    height: 40px;
+    font-size: 30px;
+}
+.toevoegen #Naam{
+    height: 20px;
+    width: 80%;
+}
+.toevoegen #Categorie{
+    background-color: white;
+    height: 30px;
+}
+.toevoegen #Toevoegen{
+    background-color: white;
+    height: 45px;
+    padding: 10px;
+    font-size: 20px;
+}
+.toevoegen #Toevoegen:hover{
+    outline: 5px;
+    outline-style: solid;
+    outline-color: black;
+}
+.toevoegen #ADD{
+    margin-left: 20px;
+    background-color: white;
+    border: solid white;
+    border-radius: 16px;
+    width: 100px;
+    height: 50px;
+    font-size: 20px;
+}
+.toevoegen #ADD:hover{
+    outline: 5px;
+    outline-style: solid;
+    outline-color: black;
+}
 /*Logo layout*/
 @media(max-width: 800px){
     #logo{
@@ -107,50 +198,6 @@ body{
     width: 50px;
     float: left;
     margin-right: 10px;
-}
-
-/*Blok element*/
-.knop{
-    display: block;
-    width: 300px;
-    height: 40px;
-    border-radius: 16px;
-    padding: 30px 20px;
-    font-family: VarelaRound;
-    font-size: 40px;
-    text-decoration: none;
-    color: black;
-    float:left;
-    margin-left: 20px;
-    margin-bottom: 20px;
-}
-.knop:hover{
-    outline: 5px;
-    outline-color: black;
-    outline-style: solid;
-}
-#keuzemenu{
-    margin-left: 300px;
-}
-
-/*Opmaak specifieke blokken*/
-#groenten{
-    background-color: rgb(71, 156, 71);
-}
-#melk{
-    background-color: rgb(245, 245, 177);
-}
-#fruit{
-    background-color: rgb(247, 79, 79); 
-}
-#graan{
-    background-color: rgb(215, 131, 15); 
-}
-#vleesvis{
-    background-color: rgb(225, 73, 171); 
-}
-#rest{
-    background-color: rgb(125, 66, 6);
 }
 
 /*Zoekelementen*/
