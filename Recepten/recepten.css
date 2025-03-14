@@ -5,10 +5,52 @@
 
 body{
     background-image: url(../Homepage/Photos/Background.png);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+}
+
+.main{
+    display: block;
+    margin-left: 400px;
+    margin-top: 100px;
+}
+
+.knop{
+    height: 50px;
+    width: 100px;
+    font-size: larger;
+    border-radius: 15px;
+    border-style: solid;
+    background-color: white;
+    margin-left: 200px;
+}
+
+.knop:hover{
+    border: 3px solid black;
+}
+
+.form1{
+    width: 500px;
+    height: 50px;
+    font-size: larger;
+    border-radius: 15px;
+    border-style: solid;
+}
+
+.form2{
+    width: 250px;
+    height: 50px;
+    font-size: larger;
+    border-radius: 15px;
+    border-style: solid;
+    margin-top: 20px;
+}
+
+.form3{
+    width: 50px;
+    height: 50px;
+    font-size: larger;
+    border-radius: 15px;
+    border-style: solid;
+    margin-top: 20px;
 }
 
 h1{
@@ -16,12 +58,67 @@ h1{
     text-align: center;
 }
 
-form{
-    font-family: VarelaRound;
-    height: 60px;
+div{
+    display: inline-block;
 }
 
-button{
+#nav a{
+    display: block;
+    overflow: hidden;
+    width: 230px;
+    padding: 30px 20px;
+    text-decoration: none;
+    color: black;
+}
+#nav a:hover{
+    background-color: black ;
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+    color: white;
+}
+#nav{
+    list-style-type: none;
+    padding: 0;
+    background-color: white;
+    width: 250px;
+    height: 400px;
+    border-radius: 16px;
+    border-style: none;
     font-family: VarelaRound;
-    display: flex;
+    position: fixed;
+}
+
+.hamburger{
+    border-style: none;
+    font-family: VarelaRound;
+    display: block;
+    overflow: hidden;
+    text-decoration: none;
+    color: black;
+    width: 80px;
+    padding: 20px 20px;
+    border-radius: 50px;
+    background-color: white;
+    text-align: center;
+}
+.hamburger:hover{
+    outline: 3px;
+    outline-color: black;
+    outline-style: solid;
+}
+#active{
+    background-color: black;
+}
+#active a{
+    color: white;
+}
+#top a:hover{
+    border-top-right-radius: 16px;
+    border-top-left-radius: 16px;
+    background-color: black;
+}
+#bottom a:hover{
+    border-bottom-right-radius: 16px;
+    border-bottom-left-radius: 16px;
+    background-color: black;
 }
