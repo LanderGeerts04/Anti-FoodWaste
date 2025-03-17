@@ -7,11 +7,6 @@ if (!isset($_SESSION['email'])){
 }
 
 ?>
-<?php
-  require_once("../Algemene files/DatabaseConnectie.php");
-  require_once("../Algemene files/DatabaseCreatie.php");
-  require_once("../Algemene files/DatabaseTables.php");
-?>
 
 <!DOCTYPE html>
 <html lang="en">
