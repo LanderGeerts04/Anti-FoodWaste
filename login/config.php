@@ -2,7 +2,7 @@
 $host = "localhost";
 $user = "root";
 $password = "";
-$database = "users_db";
+$database = "antifoodwaste";
 
 $conn = new mysqli($host, $user, $password, $database);
 

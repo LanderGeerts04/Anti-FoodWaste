@@ -3,16 +3,16 @@ session_start();
 require_once 'config.php';
 
 if (isset($_POST['register'])){
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    $name = $_POST['Naam'];
+    $email = $_POST['Email'];
+    $password = password_hash($_POST['Wachtwoord'], PASSWORD_DEFAULT);
 
-    $checkEmail = $conn->query("SELECT email FROM users WHERE email = '$email'");
+    $checkEmail = $conn->query("SELECT Email FROM inlog WHERE Email = '$email'");
     if ($checkEmail->num_rows > 0){
     $_SESSION['register_error'] = 'Email is already registered!';
     $_SESSION['active_form'] = 'register';
     }else{
-    $conn->query("INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$password')");
+    $conn->query("INSERT INTO inlog (Naam, Email, Wachtwoord) VALUES ('$name', '$email', '$password')");
     }
 
     header("location: index.php");
@@ -20,15 +20,15 @@ if (isset($_POST['register'])){
 }
 
 if (isset($_POST['login'])){
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+    $email = $_POST['Email'];
+    $password = $_POST['Wachtwoord'];
 
-    $result = $conn->query("SELECT * FROM users WHERE email = '$email'");
+    $result = $conn->query("SELECT * FROM inlog WHERE Email = '$email'");
     if ($result->num_rows > 0){
         $user = $result->fetch_assoc();
-        if (password_verify($password,$user['password'])){
-            $_SESSION['name'] = $user['name'];
-            $_SESSION['email'] = $user['email'];
+        if (password_verify($password,$user['Wachtwoord'])){
+            $_SESSION['Naam'] = $user['Naam'];
+            $_SESSION['Email'] = $user['Email'];
             header("location: ../Homepage/Homepage.php");
             exit();
         }
