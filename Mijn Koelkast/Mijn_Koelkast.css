@@ -90,7 +90,7 @@ body{
 }
 .toevoegen{
     width: 30%;
-    height: auto
+    height: auto;
     font-family: VarelaRound;
 }
 .overzicht{
@@ -124,6 +124,18 @@ body{
 .overzicht #Kader ol{
     float: right;
     color: red;
+}
+.overzicht #Kader a{
+    display: block;
+    background-color: white;
+    border: black solid 1px;
+    border-radius: 10px;
+    padding: 5px;
+    text-decoration: none;
+    color: black;
+}
+.overzicht #Kader a:hover{
+    outline: 2px black solid;
 }
 .toevoegen #informatie{
     margin: 20px;

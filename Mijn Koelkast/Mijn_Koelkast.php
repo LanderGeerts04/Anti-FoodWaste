@@ -35,11 +35,11 @@
       <div class="toevoegen">
         <button id="ADD">ADD</button>
         <div id="informatie">
-          <form action="">
+          <form action="./Toevoegen.php" method="POST">
             <ul>
-              <li><input type="text" id="Naam" class="formdesign"></li>
+              <li><input type="text" id="Naam" name="Naam" class="formdesign"></li>
               <li>
-                <select name="Categorie" id="Categorie" class="formdesign">
+                <select name="Categorie" id="Categorie" name="Categorie" class="formdesign">
                   <option value="GR">Groenten</option>
                   <option value="FR">Fruit</option>
                   <option value="VV">Vlees of vis</option>
@@ -48,41 +48,65 @@
                   <option value="OV">Overige producten</option>
                 </select>
               </li>
-              <li><input type="number" id="Hoeveelheid" class="formdesign"></li>
+              <li><input type="number" id="Hoeveelheid" name="Hoeveelheid" class="formdesign"></li>
               <li><button type="submit" class="formdesign" id="Toevoegen">Toevoegen</button></li>
             </ul>
           </form>
         </div>
       </div>
       <div class="overzicht">
-        <form action="">
+        <form method="POST" action="?">
           <select name="Categorie" id="Categorie">
+            <option disabled selected value>Filter</option>
             <option value="GR">Groenten</option>
             <option value="FR">Fruit</option>
             <option value="VV">Vlees of vis</option>
             <option value="ZU">Zuivel</option>
             <option value="DE">Deegwaren</option>
             <option value="OV">Overige producten</option>
+            <option value="%">Toon alle</option>
           </select>
+          <button type="submit" class="formdesign" id="Toevoegen">Pas toe</button>
         </form>
         <div id="Kader">
           <ul>
             <?php
               require_once("../Algemene files/DatabaseConnectie.php");
               $conn->select_db("AntiFoodwaste");
-
-              $sql="SELECT i.IngrediëntNaam,k.Hoeveelheid from ingrediënten i INNER JOIN koelkast k ON (i.IngrediëntID=k.IngrediëntID);";
-              
-              $result = $conn->query($sql);
-              
-              if ($result->num_rows > 0) {
-                // output data of each row
-                while($row = $result->fetch_assoc()) {
-                  echo "<li>".$row["IngrediëntNaam"]."<ol>".$row["Hoeveelheid"]."</ol></li>";
-                }
+      
+              // Verwijderen van items
+              if (isset($_GET["delete"]) && is_numeric($_GET["delete"])) {
+                  $id = $_GET["delete"];
+                  $stmt = $conn->prepare("DELETE FROM ingrediënten WHERE IngrediëntID = ?");
+                  $stmt->bind_param("i", $id);
+                  if ($stmt->execute()) {
+                      // Succesvol verwijderd
+                  } else {
+                      error_log("Fout bij verwijderen: " . $stmt->error);
+                  }
+                  $stmt->close();
               }
-
-              $conn->close();
+      
+              // UI genereren (met filter)
+              if (isset($_POST["Categorie"])) {
+                  $cat = $_POST["Categorie"];
+                  $stmt = $conn->prepare("SELECT i.IngrediëntNaam, k.Hoeveelheid, k.IngrediëntID FROM ingrediënten i INNER JOIN koelkast k ON (i.IngrediëntID = k.IngrediëntID) WHERE i.IngrediëntCategorie LIKE ?");
+                  $stmt->bind_param("s", $cat);
+                  $stmt->execute(); // Uitvoeren van de query
+                  $result = $stmt->get_result(); // Ophalen van het resultaat
+                  $stmt->close(); // Sluiten van de statement
+              } else {
+                  // UI genereren (zonder filter)
+                  $sql = "SELECT i.IngrediëntNaam, k.Hoeveelheid, k.IngrediëntID FROM ingrediënten i INNER JOIN koelkast k ON (i.IngrediëntID = k.IngrediëntID)";
+                  $result = $conn->query($sql);
+              }
+      
+              if ($result->num_rows > 0) {
+                  while ($row = $result->fetch_assoc()) {
+                      echo "<li>" . $row["IngrediëntNaam"] . "<ol><a href=\"?delete=" . $row["IngrediëntID"] . "\">DEL</a></ol><ol>" . $row["Hoeveelheid"] . "</ol></li>";
+                  }
+              }
+              $conn->close(); // Sluiten van de verbinding
             ?>
           </ul>
         </div>
