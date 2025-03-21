@@ -7,6 +7,15 @@ body{
     background-image: url(../Homepage/Photos/Background.png);
 }
 
+h1{
+    font-family: VarelaRound;
+    text-align: center;
+}
+
+div{
+    display: inline-block;
+}
+
 .main{
     display: block;
     margin-left: 400px;
@@ -27,12 +36,48 @@ body{
     border: 2px solid black;
 }
 
+#lower{
+    display: flex;
+}
+
+#upper{
+    display: flex;
+}
+
 .form1{
-    width: 500px;
+    width: 400px;
     height: 50px;
     font-size: larger;
     border-radius: 15px;
     border-style: solid;
+    margin-right: 45px;
+}
+
+.form2{
+    width: 50px;
+    height: 50px;
+    font-size: larger;
+    border-radius: 15px;
+    border-style: solid;
+}
+
+.form3{
+    width: 400px;
+    height: 50px;
+    font-size: larger;
+    border-radius: 15px;
+    border-style: solid;
+    margin-top: 20px;
+    margin-right: 45px;
+}
+
+.form4{
+    width: 50px;
+    height: 50px;
+    font-size: larger;
+    border-radius: 15px;
+    border-style: solid;
+    margin-top: 20px;
 }
 
 .form1:hover{
@@ -47,36 +92,8 @@ body{
     border: 2px solid black;
 }
 
-#lower{
-    display: flex;
-}
-
-.form2{
-    width: 400px;
-    height: 50px;
-    font-size: larger;
-    border-radius: 15px;
-    border-style: solid;
-    margin-top: 20px;
-    margin-right: 45px;
-}
-
-.form3{
-    width: 50px;
-    height: 50px;
-    font-size: larger;
-    border-radius: 15px;
-    border-style: solid;
-    margin-top: 20px;
-}
-
-h1{
-    font-family: VarelaRound;
-    text-align: center;
-}
-
-div{
-    display: inline-block;
+.form4:hover{
+    border: 2px solid black;
 }
 
 #nav a{
@@ -125,6 +142,7 @@ div{
 }
 #active{
     background-color: black;
+    border-bottom-right-radius: 15px;
 }
 #active a{
     color: white;
