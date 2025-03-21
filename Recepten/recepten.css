@@ -125,6 +125,7 @@ div{
 }
 #active{
     background-color: black;
+    border-bottom-right-radius: 15px;
 }
 #active a{
     color: white;

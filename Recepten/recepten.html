@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../Recepten/recepten.css" rel="stylesheet" />
     <title>Recept page</title>
-    <script src="recepten.js"></script>
+    <script src="ingredients.js"></script>
+    <script src="recipes.js"></script>
 </head>
 <body>
     <h1>ZOEK EEN RECEPT</h1>
@@ -22,13 +23,13 @@
     </div>
     <div class="main">
         <form id="recept">
-            <input id="ingredients" class="form1" type="text" placeholder="Recept..">
+            <input id="recepten" class="form1" type="text" placeholder="Recept..">
         </form>
         <br/>
-        <button class="knop" type="submit" >Zoek</button>
+        <button class="knop" type="submit" onclick="getData()">Zoek</button>
         <div id="lower">
             <form id="ingred">
-                <input class="form2" type="text" placeholder="Ingrediënt..">
+                <input id="ingredients" class="form2" type="text" placeholder="Ingrediënt..">
             </form>
             <form id="hvl">
                 <input class="form3" type="number" placeholder="0">
