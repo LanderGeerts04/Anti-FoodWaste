@@ -134,11 +134,12 @@ body{
     width: auto;
     height: 220px;
 }
-.recept_img{
+.Recept img{
     width: 200px;
     height: 150px;
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
+    pointer-events: none;
 }
 .Recept p{
     text-align: center;

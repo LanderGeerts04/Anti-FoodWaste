@@ -27,34 +27,21 @@
         <li id="bottom"><a href="../Recepten/recepten.html">RECEPTEN</a></li>
     </ul>
     <div id="Recepten_block" ondrop="drop(event)" ondragover="allowDrop(event)">
-        <div class="Recept" id="recept1" draggable="true" ondragstart="drag(event)">
-            <img src="./Photos/Spaghetti.avif" alt="$" class="recept_img">
-            <p>Spaghetti</p>
-        </div>
-        <div class="Recept" id="recept2" draggable="true" ondragstart="drag(event)">
-            <img src="./Photos/stoofvlees.jpg" alt="$" class="recept_img">
-            <p>Stoofvlees</p>
-        </div>
-        <div class="Recept" id="recept3" draggable="true" ondragstart="drag(event)">
-            <img src="./Photos/stoofvlees.jpg" alt="$" class="recept_img">
-            <p>Stoofvlees</p>
-        </div>
-        <div class="Recept" id="recept4" draggable="true" ondragstart="drag(event)">
-            <img src="./Photos/stoofvlees.jpg" alt="$" class="recept_img">
-            <p>Stoofvlees</p>
-        </div>
-        <div class="Recept" id="recept5" draggable="true" ondragstart="drag(event)">
-            <img src="./Photos/stoofvlees.jpg" alt="$" class="recept_img">
-            <p>Stoofvlees</p>
-        </div>
-        <div class="Recept" id="recept6" draggable="true" ondragstart="drag(event)">
-            <img src="./Photos/stoofvlees.jpg" alt="$" class="recept_img">
-            <p>Stoofvlees</p>
-        </div>
-        <div class="Recept" id="recept7" draggable="true" ondragstart="drag(event)">
-            <img src="./Photos/stoofvlees.jpg" alt="$" class="recept_img">
-            <p>Stoofvlees</p>
-        </div>
+        <ul>
+            <?php
+            require_once("../Algemene files/DatabaseConnectie.php");
+            $conn->select_db("AntiFoodwaste");
+
+            $sql = "SELECT ReceptNaam,ReceptID from recepten; ";
+            $result = $conn->query($sql);
+            
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo "<li class=\"Recept\" id=".$row["ReceptID"]." draggable=\"true\" ondragstart=\"drag(event)\"><img src=\"./Photos/Spaghetti.avif\" alt=\"Spaghetti\"><p>".$row["ReceptNaam"]."</p></li>";
+                }
+            }
+            ?>
+        </ul>
     </div>
     <table id="agenda">
         <tr id="tabel_dagen">

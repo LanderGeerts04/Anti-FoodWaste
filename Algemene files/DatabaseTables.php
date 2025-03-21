@@ -29,13 +29,20 @@ CREATE TABLE IF NOT EXISTS Boodschappenlijst (
 
 CREATE TABLE IF NOT EXISTS Recepten (
     ReceptID INT AUTO_INCREMENT PRIMARY KEY,
-    ReceptNaam VARCHAR(50) NOT NULL,
+    ReceptNaam VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS ReceptIngrediënt (
+    ReceptIngrediëntID INT AUTO_INCREMENT PRIMARY KEY,
+    ReceptID INT,
     IngrediëntID INT,
-    CONSTRAINT fk_Recepten_Ingrediënten FOREIGN KEY (IngrediëntID) REFERENCES Ingrediënten(IngrediëntID) ON DELETE CASCADE
+    CONSTRAINT fk_ReceptenIngrediënt_Recepten FOREIGN KEY (ReceptID) REFERENCES Recepten(ReceptID) ON DELETE CASCADE,
+    CONSTRAINT fk_ReceptenIngrediënt_Ingrediënten FOREIGN KEY (IngrediëntID) REFERENCES Ingrediënten(IngrediëntID) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS Weekmenu (
     MenuID INT AUTO_INCREMENT PRIMARY KEY,
+    Day VARCHAR(50),
     ReceptID INT,
     CONSTRAINT fk_Weekmenu_Recepten FOREIGN KEY (ReceptID) REFERENCES Recepten(ReceptID) ON DELETE CASCADE
 );
