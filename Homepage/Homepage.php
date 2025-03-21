@@ -27,7 +27,7 @@ if (!isset($_SESSION['email'])){
     </div>
     <div class="knoppen">
       <div id="knop">
-        <a class="knop" id="koelkast" href="../Mijn Koelkast/Mijn_Koelkast.html">
+        <a class="knop" id="koelkast" href="../Mijn Koelkast/Mijn_Koelkast.php">
           <img
             class="menulogos"
             src="../Mijn Koelkast/Photos/Icons/refrigerator.svg"
