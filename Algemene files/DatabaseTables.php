@@ -9,7 +9,8 @@ $sql = "
 CREATE TABLE IF NOT EXISTS Ingrediënten (
     IngrediëntID INT AUTO_INCREMENT PRIMARY KEY,
     IngrediëntNaam VARCHAR(50) NOT NULL,
-    IngrediëntCategorie VARCHAR(20)
+    IngrediëntCategorie VARCHAR(20),
+    IngrediëntEenheid VARCHAR(10)
 );
 
 CREATE TABLE IF NOT EXISTS Koelkast (
@@ -28,6 +29,7 @@ CREATE TABLE IF NOT EXISTS Boodschappenlijst (
 
 CREATE TABLE IF NOT EXISTS Recepten (
     ReceptID INT AUTO_INCREMENT PRIMARY KEY,
+    ReceptNaam VARCHAR(50) NOT NULL,
     IngrediëntID INT,
     CONSTRAINT fk_Recepten_Ingrediënten FOREIGN KEY (IngrediëntID) REFERENCES Ingrediënten(IngrediëntID) ON DELETE CASCADE
 );

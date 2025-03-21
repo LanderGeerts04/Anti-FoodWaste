@@ -33,11 +33,11 @@
     </ul>
     <div class="artikel">
       <div class="toevoegen">
-        <button id="ADD">ADD</button>
+        <div id="ADD">Voeg hier uw producten toe</div>
         <div id="informatie">
           <form action="./Toevoegen.php" method="POST">
             <ul>
-              <li><input type="text" id="Naam" name="Naam" class="formdesign"></li>
+              <li><input type="text" id="Naam" name="Naam" placeholder="Naam product" class="formdesign"></li>
               <li>
                 <select name="Categorie" id="Categorie" name="Categorie" class="formdesign">
                   <option value="GR">Groenten</option>
@@ -48,7 +48,14 @@
                   <option value="OV">Overige producten</option>
                 </select>
               </li>
-              <li><input type="number" id="Hoeveelheid" name="Hoeveelheid" class="formdesign"></li>
+              <li>
+                <input type="number" id="Hoeveelheid" name="Hoeveelheid" placeholder="0" class="formdesign">
+                <select name="eenheid" id="eenheid" class="formdesign">
+                  <option value="gram">gram</option>
+                  <option value="liter">liter</option>
+                  <option value="">stuks</option>
+                </select>
+              </li>
               <li><button type="submit" class="formdesign" id="Toevoegen">Toevoegen</button></li>
             </ul>
           </form>
@@ -56,7 +63,7 @@
       </div>
       <div class="overzicht">
         <form method="POST" action="?">
-          <select name="Categorie" id="Categorie">
+          <select name="Categorie" id="Categorie" class="Categorie">
             <option disabled selected value>Filter</option>
             <option value="GR">Groenten</option>
             <option value="FR">Fruit</option>
@@ -66,7 +73,7 @@
             <option value="OV">Overige producten</option>
             <option value="%">Toon alle</option>
           </select>
-          <button type="submit" class="formdesign" id="Toevoegen">Pas toe</button>
+          <button type="submit" id="Pastoe" class="Categorie">Pas toe</button>
         </form>
         <div id="Kader">
           <ul>
@@ -90,20 +97,20 @@
               // UI genereren (met filter)
               if (isset($_POST["Categorie"])) {
                   $cat = $_POST["Categorie"];
-                  $stmt = $conn->prepare("SELECT i.IngrediëntNaam, k.Hoeveelheid, k.IngrediëntID FROM ingrediënten i INNER JOIN koelkast k ON (i.IngrediëntID = k.IngrediëntID) WHERE i.IngrediëntCategorie LIKE ?");
+                  $stmt = $conn->prepare("SELECT i.IngrediëntNaam, k.Hoeveelheid, k.IngrediëntID,i.IngrediëntEenheid FROM ingrediënten i INNER JOIN koelkast k ON (i.IngrediëntID = k.IngrediëntID) WHERE i.IngrediëntCategorie LIKE ?");
                   $stmt->bind_param("s", $cat);
                   $stmt->execute(); // Uitvoeren van de query
                   $result = $stmt->get_result(); // Ophalen van het resultaat
                   $stmt->close(); // Sluiten van de statement
               } else {
                   // UI genereren (zonder filter)
-                  $sql = "SELECT i.IngrediëntNaam, k.Hoeveelheid, k.IngrediëntID FROM ingrediënten i INNER JOIN koelkast k ON (i.IngrediëntID = k.IngrediëntID)";
+                  $sql = "SELECT i.IngrediëntNaam, k.Hoeveelheid, k.IngrediëntID,i.IngrediëntEenheid FROM ingrediënten i INNER JOIN koelkast k ON (i.IngrediëntID = k.IngrediëntID)";
                   $result = $conn->query($sql);
               }
       
               if ($result->num_rows > 0) {
                   while ($row = $result->fetch_assoc()) {
-                      echo "<li>" . $row["IngrediëntNaam"] . "<ol><a href=\"?delete=" . $row["IngrediëntID"] . "\">DEL</a></ol><ol>" . $row["Hoeveelheid"] . "</ol></li>";
+                      echo "<li>" . $row["IngrediëntNaam"] . "<ol><a href=\"?delete=" . $row["IngrediëntID"] . "\">DEL</a></ol><ol>" . $row["Hoeveelheid"] ." ".$row["IngrediëntEenheid"]. "</ol></li>";
                   }
               }
               $conn->close(); // Sluiten van de verbinding

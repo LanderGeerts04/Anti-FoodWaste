@@ -88,16 +88,11 @@ body{
     display: block;
     display: flex
 }
-.toevoegen{
-    width: 30%;
-    height: auto;
-    font-family: VarelaRound;
-}
 .overzicht{
     width: 70%;
     height: auto;
 }
-.overzicht #Categorie{
+.overzicht .Categorie{
     margin-left: 20px;
     background-color: white;
     border: solid white;
@@ -105,6 +100,9 @@ body{
     width: 120px;
     height: 50px;
     font-size: 20px;
+}
+.overzicht #Pastoe:hover{
+    outline: black 2px solid;
 }
 .overzicht #Kader{
     background-color: white;
@@ -137,6 +135,12 @@ body{
 .overzicht #Kader a:hover{
     outline: 2px black solid;
 }
+.toevoegen{
+    width: 30%;
+    height: auto;
+    font-family: VarelaRound;
+    font-size: 30px;
+}
 .toevoegen #informatie{
     margin: 20px;
     border-radius: 16px;
@@ -156,15 +160,22 @@ body{
     width: 20%;
     padding: 5px;
     height: 40px;
-    font-size: 30px;
+    font-size: 20px;
 }
 .toevoegen #Naam{
-    height: 20px;
+    height: 30px;
     width: 80%;
 }
 .toevoegen #Categorie{
     background-color: white;
     height: 30px;
+    width: 80%;
+}
+.toevoegen #eenheid{
+    background-color: white;
+    width: 20%;
+    padding: 5px;
+    height: 40px;
 }
 .toevoegen #Toevoegen{
     background-color: white;
@@ -173,23 +184,20 @@ body{
     font-size: 20px;
 }
 .toevoegen #Toevoegen:hover{
-    outline: 5px;
+    outline: 2px;
     outline-style: solid;
     outline-color: black;
 }
 .toevoegen #ADD{
     margin-left: 20px;
+    margin-right: 20px;
     background-color: white;
     border: solid white;
     border-radius: 16px;
-    width: 100px;
-    height: 50px;
-    font-size: 20px;
-}
-.toevoegen #ADD:hover{
-    outline: 5px;
-    outline-style: solid;
-    outline-color: black;
+    width: 90%;
+    height: 38px;
+    font-size: 100%;
+    text-align: center;
 }
 /*Logo layout*/
 @media(max-width: 800px){

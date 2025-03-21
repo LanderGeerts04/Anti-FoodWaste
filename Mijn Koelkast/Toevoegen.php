@@ -8,9 +8,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $naam = $_POST["Naam"];
         $categorie = $_POST["Categorie"];
         $hoeveelheid = (int) $_POST["Hoeveelheid"];
+        $eenheid= $_POST["eenheid"];
 
-        $stmt=$conn->prepare("INSERT INTO ingrediënten (IngrediëntNaam,IngrediëntCategorie) VALUES (?,?)");
-        $stmt->bind_param("ss",$naam,$categorie);
+        $stmt=$conn->prepare("INSERT INTO ingrediënten (IngrediëntNaam,IngrediëntCategorie,IngrediëntEenheid) VALUES (?,?,?)");
+        $stmt->bind_param("sss",$naam,$categorie,$eenheid);
         $stmt->execute();
         $stmt->close();
 
