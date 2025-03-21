@@ -24,7 +24,7 @@ body{
 }
 
 .knop:hover{
-    border: 3px solid black;
+    border: 2px solid black;
 }
 
 .form1{
@@ -35,13 +35,30 @@ body{
     border-style: solid;
 }
 
+.form1:hover{
+    border: 2px solid black;
+}
+
+.form2:hover{
+    border: 2px solid black;
+}
+
+.form3:hover{
+    border: 2px solid black;
+}
+
+#lower{
+    display: flex;
+}
+
 .form2{
-    width: 250px;
+    width: 400px;
     height: 50px;
     font-size: larger;
     border-radius: 15px;
     border-style: solid;
     margin-top: 20px;
+    margin-right: 45px;
 }
 
 .form3{
