@@ -9,6 +9,7 @@ async function fetchData(ingredients) {
     options.append("ingredients", ingredients);
     options.append("number", "3");
     options.append("ignorePantry", "True");
+    options.append("sort", "random");
 
     console.log(options);
     const response = await fetch(
@@ -20,7 +21,20 @@ async function fetchData(ingredients) {
 
     const json = await response.json();
     console.log(json);
+    for (let i = 0; i < json.length; i++) {
+      makeDiv(json, i);
+    }
   } catch (error) {
     console.error(error.message);
   }
+}
+
+function makeDiv(json, i) {
+  var div = document.createElement("div");
+  div.setAttribute("id", "i");
+  var image = document.createElement("img");
+  document.body.append(div);
+  div.append(image);
+  div.append(json[i].title);
+  image.src = json[i].image;
 }
