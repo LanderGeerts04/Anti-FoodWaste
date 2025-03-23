@@ -1,15 +1,17 @@
-async function fetchData(ingredients) {
+async function fetchData() {
   try {
     const ingredients = document
       .getElementById("ingredients")
+      .value.toLowerCase();
+    const number = document
+      .getElementById("recept-hoeveelheid")
       .value.toLowerCase();
 
     const options = new URLSearchParams();
     options.append("apiKey", "ecba64142f2c4d04a206e6311d8d86b5");
     options.append("ingredients", ingredients);
-    options.append("number", "3");
+    options.append("number", number);
     options.append("ignorePantry", "True");
-    options.append("sort", "random");
 
     console.log(options);
     const response = await fetch(
@@ -31,10 +33,13 @@ async function fetchData(ingredients) {
 
 function makeDiv(json, i) {
   var div = document.createElement("div");
-  div.setAttribute("id", "i");
+  div.setAttribute("id", i);
+  div.setAttribute("id", "receptFoto");
   var image = document.createElement("img");
-  document.body.append(div);
+  var title = document.createElement("p");
+  document.getElementById("recept-foto").append(div);
   div.append(image);
-  div.append(json[i].title);
+  div.append(title);
+  title.append(json[i].title);
   image.src = json[i].image;
 }

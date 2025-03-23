@@ -1,159 +1,181 @@
-@font-face{
-    font-family: VarelaRound;
-    src: url(../Homepage/VarelaRound-Regular.ttf);
+@font-face {
+  font-family: VarelaRound;
+  src: url(../Homepage/VarelaRound-Regular.ttf);
 }
 
-body{
-    background-image: url(../Homepage/Photos/Background.png);
+body {
+  background-image: url(../Homepage/Photos/Background.png);
 }
 
-h1{
-    font-family: VarelaRound;
-    text-align: center;
+h1 {
+  font-family: VarelaRound;
+  text-align: center;
 }
 
-div{
-    display: inline-block;
+div {
+  display: inline-block;
 }
 
-.main{
-    display: block;
-    margin-left: 400px;
-    margin-top: 100px;
+.main {
+  display: flex;
+  flex-direction: column;
+  margin-left: 320px;
+  margin-top: 100px;
 }
 
-.knop{
-    height: 50px;
-    width: 100px;
-    font-size: larger;
-    border-radius: 15px;
-    border-style: solid;
-    background-color: white;
-    margin-left: 200px;
+#recept-foto {
+  display: flex;
+  max-width: 1100px;
+  flex-wrap: wrap;
+  margin-top: 20px;
 }
 
-.knop:hover{
-    border: 2px solid black;
+#receptFoto {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  margin: 2px;
+  min-width: 500px;
+  font-size: 16px;
+  font-family: VarelaRound;
+  text-align: center;
 }
 
-#lower{
-    display: flex;
+.knop {
+  height: 50px;
+  width: 100px;
+  font-size: larger;
+  border-radius: 15px;
+  border-style: solid;
+  background-color: white;
+  margin-left: 450px;
+  margin-top: 20px;
 }
 
-#upper{
-    display: flex;
+.knop:hover {
+  border: 2px solid black;
 }
 
-.form1{
-    width: 400px;
-    height: 50px;
-    font-size: larger;
-    border-radius: 15px;
-    border-style: solid;
-    margin-right: 45px;
+#lower {
+  display: flex;
+  margin-left: 250px;
 }
 
-.form2{
-    width: 50px;
-    height: 50px;
-    font-size: larger;
-    border-radius: 15px;
-    border-style: solid;
+#upper {
+  display: flex;
+  margin-left: 250px;
 }
 
-.form3{
-    width: 400px;
-    height: 50px;
-    font-size: larger;
-    border-radius: 15px;
-    border-style: solid;
-    margin-top: 20px;
-    margin-right: 45px;
+.form1 {
+  width: 400px;
+  height: 50px;
+  font-size: larger;
+  border-radius: 15px;
+  border-style: solid;
+  margin-right: 45px;
 }
 
-.form4{
-    width: 50px;
-    height: 50px;
-    font-size: larger;
-    border-radius: 15px;
-    border-style: solid;
-    margin-top: 20px;
+.form2 {
+  width: 50px;
+  height: 50px;
+  font-size: larger;
+  border-radius: 15px;
+  border-style: solid;
 }
 
-.form1:hover{
-    border: 2px solid black;
+.form3 {
+  width: 400px;
+  height: 50px;
+  font-size: larger;
+  border-radius: 15px;
+  border-style: solid;
+  margin-top: 20px;
+  margin-right: 45px;
 }
 
-.form2:hover{
-    border: 2px solid black;
+.form4 {
+  width: 50px;
+  height: 50px;
+  font-size: larger;
+  border-radius: 15px;
+  border-style: solid;
+  margin-top: 20px;
 }
 
-.form3:hover{
-    border: 2px solid black;
+.form1:hover {
+  border: 2px solid black;
 }
 
-.form4:hover{
-    border: 2px solid black;
+.form2:hover {
+  border: 2px solid black;
 }
 
-#nav a{
-    display: block;
-    overflow: hidden;
-    width: 230px;
-    padding: 30px 20px;
-    text-decoration: none;
-    color: black;
-}
-#nav a:hover{
-    background-color: black ;
-    border-top-right-radius: 16px;
-    border-bottom-right-radius: 16px;
-    color: white;
-}
-#nav{
-    list-style-type: none;
-    padding: 0;
-    background-color: white;
-    width: 250px;
-    height: 400px;
-    border-radius: 16px;
-    border-style: none;
-    font-family: VarelaRound;
-    position: fixed;
+.form3:hover {
+  border: 2px solid black;
 }
 
-.hamburger{
-    border-style: none;
-    font-family: VarelaRound;
-    display: block;
-    overflow: hidden;
-    text-decoration: none;
-    color: black;
-    width: 80px;
-    padding: 20px 20px;
-    border-radius: 50px;
-    background-color: white;
-    text-align: center;
+.form4:hover {
+  border: 2px solid black;
 }
-.hamburger:hover{
-    outline: 3px;
-    outline-color: black;
-    outline-style: solid;
+
+#nav a {
+  display: block;
+  overflow: hidden;
+  width: 230px;
+  padding: 30px 20px;
+  text-decoration: none;
+  color: black;
 }
-#active{
-    background-color: black;
-    border-bottom-right-radius: 15px;
+#nav a:hover {
+  background-color: black;
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+  color: white;
 }
-#active a{
-    color: white;
+#nav {
+  list-style-type: none;
+  padding: 0;
+  background-color: white;
+  width: 250px;
+  height: 400px;
+  border-radius: 16px;
+  border-style: none;
+  font-family: VarelaRound;
+  position: fixed;
 }
-#top a:hover{
-    border-top-right-radius: 16px;
-    border-top-left-radius: 16px;
-    background-color: black;
+
+.hamburger {
+  border-style: none;
+  font-family: VarelaRound;
+  display: block;
+  overflow: hidden;
+  text-decoration: none;
+  color: black;
+  width: 80px;
+  padding: 20px 20px;
+  border-radius: 50px;
+  background-color: white;
+  text-align: center;
 }
-#bottom a:hover{
-    border-bottom-right-radius: 16px;
-    border-bottom-left-radius: 16px;
-    background-color: black;
+.hamburger:hover {
+  outline: 3px;
+  outline-color: black;
+  outline-style: solid;
+}
+#active {
+  background-color: black;
+  border-bottom-right-radius: 15px;
+}
+#active a {
+  color: white;
+}
+#top a:hover {
+  border-top-right-radius: 16px;
+  border-top-left-radius: 16px;
+  background-color: black;
+}
+#bottom a:hover {
+  border-bottom-right-radius: 16px;
+  border-bottom-left-radius: 16px;
+  background-color: black;
 }
