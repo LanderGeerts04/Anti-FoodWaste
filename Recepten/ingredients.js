@@ -4,7 +4,7 @@ async function fetchData() {
       .getElementById("ingredients")
       .value.toLowerCase();
     const number = document
-      .getElementById("recept-hoeveelheid")
+      .getElementById("Ingrediënten-hoeveelheid")
       .value.toLowerCase();
 
     const options = new URLSearchParams();
@@ -32,14 +32,14 @@ async function fetchData() {
 }
 
 function makeDiv(json, i) {
-  var div = document.createElement("div");
-  div.setAttribute("id", i);
+  const div = document.createElement("div");
   div.setAttribute("id", "receptFoto");
-  var image = document.createElement("img");
-  var title = document.createElement("p");
+  const image = document.createElement("img");
+  const title = document.createElement("p");
   document.getElementById("recept-foto").append(div);
   div.append(image);
   div.append(title);
+  console.log(json);
   title.append(json[i].title);
   image.src = json[i].image;
 }

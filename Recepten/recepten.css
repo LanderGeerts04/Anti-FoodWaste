@@ -50,6 +50,7 @@ div {
   background-color: white;
   margin-left: 450px;
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .knop:hover {
@@ -66,7 +67,7 @@ div {
   margin-left: 250px;
 }
 
-.form1 {
+.input {
   width: 400px;
   height: 50px;
   font-size: larger;
@@ -75,7 +76,7 @@ div {
   margin-right: 45px;
 }
 
-.form2 {
+.numberInput {
   width: 50px;
   height: 50px;
   font-size: larger;
@@ -83,38 +84,11 @@ div {
   border-style: solid;
 }
 
-.form3 {
-  width: 400px;
-  height: 50px;
-  font-size: larger;
-  border-radius: 15px;
-  border-style: solid;
-  margin-top: 20px;
-  margin-right: 45px;
-}
-
-.form4 {
-  width: 50px;
-  height: 50px;
-  font-size: larger;
-  border-radius: 15px;
-  border-style: solid;
-  margin-top: 20px;
-}
-
-.form1:hover {
+.input:hover {
   border: 2px solid black;
 }
 
-.form2:hover {
-  border: 2px solid black;
-}
-
-.form3:hover {
-  border: 2px solid black;
-}
-
-.form4:hover {
+.numberInput:hover {
   border: 2px solid black;
 }
 

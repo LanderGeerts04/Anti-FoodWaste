@@ -29,21 +29,26 @@
     </div>
     <div class="main">
       <div id="upper">
-        <input id="recepten" class="form1" type="text" placeholder="Recept.." />
-        <input class="form2" type="number" placeholder="0" />
+        <input id="recepten" class="input" type="text" placeholder="Recept.." />
+        <input
+          class="numberInput"
+          id="recept-hoeveelheid"
+          type="number"
+          placeholder="0"
+        />
       </div>
       <br />
-      <button class="knop" onclick="getData()">Zoek</button>
+      <button class="knop" id="knop1" onclick="getData()">Zoek</button>
       <div id="lower">
         <input
           id="ingredients"
-          class="form3"
+          class="input"
           type="text"
           placeholder="Ingrediënten.."
         />
         <input
-          class="form4"
-          id="recept-hoeveelheid"
+          class="numberInput"
+          id="Ingrediënten-hoeveelheid"
           type="number"
           placeholder="0"
         />
