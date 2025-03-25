@@ -30,10 +30,15 @@ async function getData() {
 
 function showRecipe(json, i) {
   const div = document.createElement("div");
-  div.setAttribute("id", "receptFoto");
+  div.setAttribute("class", "receptFoto");
+  div.setAttribute("onclick", `sendData(${i})`);
   const image = document.createElement("img");
+  image.setAttribute("id", "img" + i);
   const title = document.createElement("p");
+  title.setAttribute("id", "title" + i);
+
   document.getElementById("recept-foto").append(div);
+
   div.append(image);
   div.append(title);
   title.append(json.results[i].title);

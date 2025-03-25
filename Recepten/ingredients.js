@@ -54,4 +54,16 @@ function sendData(number) {
   let data = { "title": text, "image": url };
   console.log(data)
  
+  fetch("databaseAdd.php",{
+    "method":"POST",
+    "headers": {
+      "Content-type": "application/json; charset=utf-8"
+    },
+    "body": JSON.stringify(data)
+  }).then(function(response){
+    return response.text();
+  }).then(function(recepten){
+    console.log(recepten);
+  })
+
 }
