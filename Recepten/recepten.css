@@ -30,7 +30,7 @@ div {
   margin-top: 20px;
 }
 
-#receptFoto {
+.receptFoto {
   display: flex;
   flex-direction: column;
   border: 1px solid black;
