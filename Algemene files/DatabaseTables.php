@@ -29,6 +29,7 @@ CREATE TABLE IF NOT EXISTS Boodschappenlijst (
 
 CREATE TABLE IF NOT EXISTS Recepten (
     ReceptID INT AUTO_INCREMENT PRIMARY KEY,
+    ReceptImage VARCHAR(2048),
     ReceptNaam VARCHAR(50) NOT NULL
 );
 
