@@ -24,8 +24,8 @@
         <li id="top"><a href="../Homepage/Homepage.php">HOME</a></li>
         <li><a href="../Mijn Koelkast/Mijn_Koelkast.php">MIJN KOELKAST</a></li>
         <li id="active"><a href="../Weekmenu/Weekmenu.php">WEEKMENU</a></li>
-        <li><a href="../Boodschappenlijst/Boodschappenlijst.html">BOODSCHAPPENLIJST</a></li>
-        <li id="bottom"><a href="../Recepten/recepten.html">RECEPTEN</a></li>
+        <li><a href="../Boodschappenlijst/Boodschappenlijst.php">BOODSCHAPPENLIJST</a></li>
+        <li id="bottom"><a href="../Recepten/recepten.php">RECEPTEN</a></li>
     </ul>
     <div id="Recepten_block">
         <ul>
