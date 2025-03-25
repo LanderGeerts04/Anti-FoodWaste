@@ -34,21 +34,21 @@ if (!isset($_SESSION['email'])){
             alt="$"/>Mijn Koelkast</a>
       </div>
       <div id="knop">
-        <a class="knop" id="menu" href="../Weekmenu/Weekmenu.html">
+        <a class="knop" id="menu" href="../Weekmenu/Weekmenu.php">
           <img
             class="menulogos"
             src="../Weekmenu/Photos/Icons/calendar-days.svg"
             alt="$"/>Weekmenu</a>
       </div>
       <div id="knop">
-        <a class="knop" id="boodschappen" href="../Boodschappenlijst/Boodschappenlijst.html">
+        <a class="knop" id="boodschappen" href="../Boodschappenlijst/Boodschappenlijst.php">
           <img
             class="menulogos"
             src="../Boodschappenlijst/Photos/list-check.svg"
             alt="$"/>Boodschappenlijstje</a>
       </div>
       <div id="knop">
-        <a class="knop" id="recept" href="../Recepten/recepten.html">
+        <a class="knop" id="recept" href="../Recepten/recepten.php">
           <img
             class="menulogos"
             src="../Recepten/Photos/cooking-pot.svg"

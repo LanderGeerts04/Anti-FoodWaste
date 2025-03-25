@@ -20,11 +20,11 @@
         <li><a href="../Mijn Koelkast/Mijn_Koelkast.php">MIJN KOELKAST</a></li>
         <li><a href="../Weekmenu/Weekmenu.php">WEEKMENU</a></li>
         <li>
-          <a href="../Boodschappenlijst/Boodschappenlijst.html"
+          <a href="../Boodschappenlijst/Boodschappenlijst.php"
             >BOODSCHAPPENLIJST</a
           >
         </li>
-        <li id="active"><a href="../Recepten/recepten.html">RECEPTEN</a></li>
+        <li id="active"><a href="../Recepten/recepten.php">RECEPTEN</a></li>
       </ul>
     </div>
     <div class="main">
