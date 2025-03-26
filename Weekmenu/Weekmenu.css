@@ -127,12 +127,19 @@ body{
     float: left;
     margin-right: 20px;
     margin-bottom: 20px;
-   
+}
+.Recept div{
+    width: 50%;
+    height: 40px;
+    overflow: auto;
+    float:  left;
+    margin-left: 10px;
 }
 #Recepten_block{
     margin-left: 300px;
     width: auto;
     height: 220px;
+    overflow: auto;
 }
 .Recept img{
     width: 200px;
@@ -143,8 +150,6 @@ body{
 }
 .Recept p{
     font-family: VarelaRound;
-    float: left;
-    margin-left: 10px;
 }
 .Recept select{
     float: right;

@@ -39,7 +39,7 @@
                 while ($row = $result->fetch_assoc()) {
                     echo "<li class=\"Recept\" id=".$row["ReceptID"].">
                         <img src=\"".$row["ReceptImage"]."\" alt=\"".$row["ReceptNaam"]."\">
-                        <p>".$row["ReceptNaam"]."</p>
+                        <div><p>".$row["ReceptNaam"]."</p></div>
                         <form name=\"DagenSelect".$row["ReceptID"]."\" action=\"./DagenAanpassen.php\" method=\"POST\">
                             <select name=\"Dagen\" id=\"\" onchange=\"DagenSelect".$row["ReceptID"].".submit()\">
                                 <option disabled selected value>DAG</option>
@@ -82,7 +82,7 @@
                     while ($row = $result->fetch_assoc()) {
                         echo "<li class=\"Recept\" id=".$row["ReceptID"].">
                             <img src=\"".$row["ReceptImage"]."\" alt=\"".$row["ReceptNaam"]."\">
-                            <p>".$row["ReceptNaam"]."</p>
+                            <div><p>".$row["ReceptNaam"]."</p></div>
                             <form name=\"DagenSelect".$row["ReceptID"]."\" action=\"./DagenTerugzetten.php\" method=\"POST\">
                                 <input type=\"hidden\"  name=\"ReceptID\" value=\"".$row["ReceptID"]."\"/>
                                 <button type=\"submit\">DEL</button>
@@ -104,7 +104,7 @@
                     while ($row = $result->fetch_assoc()) {
                         echo "<li class=\"Recept\" id=".$row["ReceptID"].">
                             <img src=\"".$row["ReceptImage"]."\" alt=\"".$row["ReceptNaam"]."\">
-                            <p>".$row["ReceptNaam"]."</p>
+                            <div><p>".$row["ReceptNaam"]."</p></div>
                             <form name=\"DagenSelect".$row["ReceptID"]."\" action=\"./DagenTerugzetten.php\" method=\"POST\">
                                 <input type=\"hidden\"  name=\"ReceptID\" value=\"".$row["ReceptID"]."\"/>
                                 <button type=\"submit\">DEL</button>
@@ -126,7 +126,7 @@
                     while ($row = $result->fetch_assoc()) {
                         echo "<li class=\"Recept\" id=".$row["ReceptID"].">
                             <img src=\"".$row["ReceptImage"]."\" alt=\"".$row["ReceptNaam"]."\">
-                            <p>".$row["ReceptNaam"]."</p>
+                            <div><p>".$row["ReceptNaam"]."</p></div>
                             <form name=\"DagenSelect".$row["ReceptID"]."\" action=\"./DagenTerugzetten.php\" method=\"POST\">
                                 <input type=\"hidden\"  name=\"ReceptID\" value=\"".$row["ReceptID"]."\"/>
                                 <button type=\"submit\">DEL</button>
@@ -148,7 +148,7 @@
                     while ($row = $result->fetch_assoc()) {
                         echo "<li class=\"Recept\" id=".$row["ReceptID"].">
                             <img src=\"".$row["ReceptImage"]."\" alt=\"".$row["ReceptNaam"]."\">
-                            <p>".$row["ReceptNaam"]."</p>
+                            <div><p>".$row["ReceptNaam"]."</p></div>
                             <form name=\"DagenSelect".$row["ReceptID"]."\" action=\"./DagenTerugzetten.php\" method=\"POST\">
                                 <input type=\"hidden\"  name=\"ReceptID\" value=\"".$row["ReceptID"]."\"/>
                                 <button type=\"submit\">DEL</button>
@@ -170,7 +170,7 @@
                     while ($row = $result->fetch_assoc()) {
                         echo "<li class=\"Recept\" id=".$row["ReceptID"].">
                             <img src=\"".$row["ReceptImage"]."\" alt=\"".$row["ReceptNaam"]."\">
-                            <p>".$row["ReceptNaam"]."</p>
+                            <div><p>".$row["ReceptNaam"]."</p></div>
                             <form name=\"DagenSelect".$row["ReceptID"]."\" action=\"./DagenTerugzetten.php\" method=\"POST\">
                                 <input type=\"hidden\"  name=\"ReceptID\" value=\"".$row["ReceptID"]."\"/>
                                 <button type=\"submit\">DEL</button>
@@ -192,7 +192,7 @@
                     while ($row = $result->fetch_assoc()) {
                         echo "<li class=\"Recept\" id=".$row["ReceptID"].">
                             <img src=\"".$row["ReceptImage"]."\" alt=\"".$row["ReceptNaam"]."\">
-                            <p>".$row["ReceptNaam"]."</p>
+                            <div><p>".$row["ReceptNaam"]."</p></div>
                             <form name=\"DagenSelect".$row["ReceptID"]."\" action=\"./DagenTerugzetten.php\" method=\"POST\">
                                 <input type=\"hidden\"  name=\"ReceptID\" value=\"".$row["ReceptID"]."\"/>
                                 <button type=\"submit\">DEL</button>
@@ -214,7 +214,7 @@
                     while ($row = $result->fetch_assoc()) {
                         echo "<li class=\"Recept\" id=".$row["ReceptID"].">
                             <img src=\"".$row["ReceptImage"]."\" alt=\"".$row["ReceptNaam"]."\">
-                            <p>".$row["ReceptNaam"]."</p>
+                            <div><p>".$row["ReceptNaam"]."</p></div>
                             <form name=\"DagenSelect".$row["ReceptID"]."\" action=\"./DagenTerugzetten.php\" method=\"POST\">
                                 <input type=\"hidden\"  name=\"ReceptID\" value=\"".$row["ReceptID"]."\"/>
                                 <button type=\"submit\">DEL</button>
