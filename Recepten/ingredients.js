@@ -39,9 +39,7 @@ function makeDiv(json, i) {
   image.setAttribute("id", "img" + i);
   const title = document.createElement("p");
   title.setAttribute("id", "title" + i);
-
   document.getElementById("recept-foto").append(div);
-
   div.append(image);
   div.append(title);
   title.append(json[i].title);
@@ -60,10 +58,6 @@ function sendData(number) {
       "Content-type": "application/json; charset=utf-8"
     },
     "body": JSON.stringify(data)
-  }).then(function(response){
-    return response.text();
-  }).then(function(recepten){
-    console.log(recepten);
   })
 
 }
