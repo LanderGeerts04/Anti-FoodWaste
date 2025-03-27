@@ -13,7 +13,7 @@
     <div>
         <h1 id="title">
             Boodschappenlijst
-            <a href="#HOME"><img id="logo" align="right" src="../Boodschappenlijst/Photos/list-check.svg" alt="Geen foto beschikbaar"></a>
+            <a href="../Homepage/Homepage.php"><img id="logo" align="right" src="../Boodschappenlijst/Photos/list-check.svg" alt="Geen foto beschikbaar"></a>
         </h1>
     </div>
     <hr />

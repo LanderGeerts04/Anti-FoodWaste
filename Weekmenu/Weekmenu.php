@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,14 +10,15 @@
     <script src="../Algemene files/Draging.js"></script>
     <script src="../Weekmenu/Dragchange.php"></script>
 </head>
+
 <body>
     <div>
         <h1 id="title">
             Weekmenu
-            <a href="#HOME"><img id="logo" align="right" src="./Photos/Icons/calendar-days.svg" alt="Geen foto beschikbaar"></a>
-        </h1> 
+            <a href="../Homepage/Homepage.php"><img id="logo" align="right" src="./Photos/Icons/calendar-days.svg" alt="Geen foto beschikbaar"></a>
+        </h1>
     </div>
-    <hr/>
+    <hr />
     <p class="Intro">Dit is een overzicht van je week</p>
     <hr />
     <button class="hamburger" type="button" onclick="verberg()"><img src="../Algemene files/Algemen iconen/menu.svg" alt="$"></button>
@@ -37,11 +39,11 @@
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
-                    echo "<li class=\"Recept\" id=".$row["ReceptID"].">
-                        <img src=\"".$row["ReceptImage"]."\" alt=\"".$row["ReceptNaam"]."\">
-                        <div><p>".$row["ReceptNaam"]."</p></div>
-                        <form name=\"DagenSelect".$row["ReceptID"]."\" action=\"./DagenAanpassen.php\" method=\"POST\">
-                            <select name=\"Dagen\" id=\"\" onchange=\"DagenSelect".$row["ReceptID"].".submit()\">
+                    echo "<li class=\"Recept\" id=" . $row["ReceptID"] . ">
+                        <img src=\"" . $row["ReceptImage"] . "\" alt=\"" . $row["ReceptNaam"] . "\">
+                        <div><p>" . $row["ReceptNaam"] . "</p></div>
+                        <form name=\"DagenSelect" . $row["ReceptID"] . "\" action=\"./DagenAanpassen.php\" method=\"POST\">
+                            <select name=\"Dagen\" id=\"\" onchange=\"DagenSelect" . $row["ReceptID"] . ".submit()\">
                                 <option disabled selected value>DAG</option>
                                 <Option value=\"MA\">MA</Option>
                                 <Option value=\"DI\">DI</Option>
@@ -51,12 +53,12 @@
                                 <Option value=\"ZA\">ZA</Option>
                                 <Option value=\"ZO\">ZO</Option>
                             </select>
-                            <input type=\"hidden\"  name=\"ReceptID\" value=\"".$row["ReceptID"]."\"/>
+                            <input type=\"hidden\"  name=\"ReceptID\" value=\"" . $row["ReceptID"] . "\"/>
                         </form>
                         </li>";
                 }
             }
-            ?> 
+            ?>
         </ul>
     </div>
     <table id="agenda">
@@ -77,20 +79,20 @@
 
                 $sql = "SELECT r.ReceptNaam,r.ReceptID,ReceptImage from recepten r INNER JOIN weekmenu w ON (r.ReceptID=w.ReceptID) WHERE w.Day='MA'; ";
                 $result = $conn->query($sql);
-                
+
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
-                        echo "<li class=\"Recept\" id=".$row["ReceptID"].">
-                            <img src=\"".$row["ReceptImage"]."\" alt=\"".$row["ReceptNaam"]."\">
-                            <div><p>".$row["ReceptNaam"]."</p></div>
-                            <form name=\"DagenSelect".$row["ReceptID"]."\" action=\"./DagenTerugzetten.php\" method=\"POST\">
-                                <input type=\"hidden\"  name=\"ReceptID\" value=\"".$row["ReceptID"]."\"/>
+                        echo "<li class=\"Recept\" id=" . $row["ReceptID"] . ">
+                            <img src=\"" . $row["ReceptImage"] . "\" alt=\"" . $row["ReceptNaam"] . "\">
+                            <div><p>" . $row["ReceptNaam"] . "</p></div>
+                            <form name=\"DagenSelect" . $row["ReceptID"] . "\" action=\"./DagenTerugzetten.php\" method=\"POST\">
+                                <input type=\"hidden\"  name=\"ReceptID\" value=\"" . $row["ReceptID"] . "\"/>
                                 <button type=\"submit\">DEL</button>
                             </form>
                             </li>";
                     }
                 }
-                ?> 
+                ?>
             </td>
             <td>
                 <?php
@@ -99,20 +101,20 @@
 
                 $sql = "SELECT r.ReceptNaam,r.ReceptID,ReceptImage from recepten r INNER JOIN weekmenu w ON (r.ReceptID=w.ReceptID) WHERE w.Day='DI'; ";
                 $result = $conn->query($sql);
-                
+
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
-                        echo "<li class=\"Recept\" id=".$row["ReceptID"].">
-                            <img src=\"".$row["ReceptImage"]."\" alt=\"".$row["ReceptNaam"]."\">
-                            <div><p>".$row["ReceptNaam"]."</p></div>
-                            <form name=\"DagenSelect".$row["ReceptID"]."\" action=\"./DagenTerugzetten.php\" method=\"POST\">
-                                <input type=\"hidden\"  name=\"ReceptID\" value=\"".$row["ReceptID"]."\"/>
+                        echo "<li class=\"Recept\" id=" . $row["ReceptID"] . ">
+                            <img src=\"" . $row["ReceptImage"] . "\" alt=\"" . $row["ReceptNaam"] . "\">
+                            <div><p>" . $row["ReceptNaam"] . "</p></div>
+                            <form name=\"DagenSelect" . $row["ReceptID"] . "\" action=\"./DagenTerugzetten.php\" method=\"POST\">
+                                <input type=\"hidden\"  name=\"ReceptID\" value=\"" . $row["ReceptID"] . "\"/>
                                 <button type=\"submit\">DEL</button>
                             </form>
                             </li>";
                     }
                 }
-                ?>    
+                ?>
             </td>
             <td>
                 <?php
@@ -121,20 +123,20 @@
 
                 $sql = "SELECT r.ReceptNaam,r.ReceptID,ReceptImage from recepten r INNER JOIN weekmenu w ON (r.ReceptID=w.ReceptID) WHERE w.Day='WO'; ";
                 $result = $conn->query($sql);
-                
+
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
-                        echo "<li class=\"Recept\" id=".$row["ReceptID"].">
-                            <img src=\"".$row["ReceptImage"]."\" alt=\"".$row["ReceptNaam"]."\">
-                            <div><p>".$row["ReceptNaam"]."</p></div>
-                            <form name=\"DagenSelect".$row["ReceptID"]."\" action=\"./DagenTerugzetten.php\" method=\"POST\">
-                                <input type=\"hidden\"  name=\"ReceptID\" value=\"".$row["ReceptID"]."\"/>
+                        echo "<li class=\"Recept\" id=" . $row["ReceptID"] . ">
+                            <img src=\"" . $row["ReceptImage"] . "\" alt=\"" . $row["ReceptNaam"] . "\">
+                            <div><p>" . $row["ReceptNaam"] . "</p></div>
+                            <form name=\"DagenSelect" . $row["ReceptID"] . "\" action=\"./DagenTerugzetten.php\" method=\"POST\">
+                                <input type=\"hidden\"  name=\"ReceptID\" value=\"" . $row["ReceptID"] . "\"/>
                                 <button type=\"submit\">DEL</button>
                             </form>
                             </li>";
                     }
                 }
-                ?>  
+                ?>
             </td>
             <td>
                 <?php
@@ -143,20 +145,20 @@
 
                 $sql = "SELECT r.ReceptNaam,r.ReceptID,ReceptImage from recepten r INNER JOIN weekmenu w ON (r.ReceptID=w.ReceptID) WHERE w.Day='DO'; ";
                 $result = $conn->query($sql);
-                
+
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
-                        echo "<li class=\"Recept\" id=".$row["ReceptID"].">
-                            <img src=\"".$row["ReceptImage"]."\" alt=\"".$row["ReceptNaam"]."\">
-                            <div><p>".$row["ReceptNaam"]."</p></div>
-                            <form name=\"DagenSelect".$row["ReceptID"]."\" action=\"./DagenTerugzetten.php\" method=\"POST\">
-                                <input type=\"hidden\"  name=\"ReceptID\" value=\"".$row["ReceptID"]."\"/>
+                        echo "<li class=\"Recept\" id=" . $row["ReceptID"] . ">
+                            <img src=\"" . $row["ReceptImage"] . "\" alt=\"" . $row["ReceptNaam"] . "\">
+                            <div><p>" . $row["ReceptNaam"] . "</p></div>
+                            <form name=\"DagenSelect" . $row["ReceptID"] . "\" action=\"./DagenTerugzetten.php\" method=\"POST\">
+                                <input type=\"hidden\"  name=\"ReceptID\" value=\"" . $row["ReceptID"] . "\"/>
                                 <button type=\"submit\">DEL</button>
                             </form>
                             </li>";
                     }
                 }
-                ?> 
+                ?>
             </td>
             <td>
                 <?php
@@ -165,20 +167,20 @@
 
                 $sql = "SELECT r.ReceptNaam,r.ReceptID,ReceptImage from recepten r INNER JOIN weekmenu w ON (r.ReceptID=w.ReceptID) WHERE w.Day='VR'; ";
                 $result = $conn->query($sql);
-                
+
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
-                        echo "<li class=\"Recept\" id=".$row["ReceptID"].">
-                            <img src=\"".$row["ReceptImage"]."\" alt=\"".$row["ReceptNaam"]."\">
-                            <div><p>".$row["ReceptNaam"]."</p></div>
-                            <form name=\"DagenSelect".$row["ReceptID"]."\" action=\"./DagenTerugzetten.php\" method=\"POST\">
-                                <input type=\"hidden\"  name=\"ReceptID\" value=\"".$row["ReceptID"]."\"/>
+                        echo "<li class=\"Recept\" id=" . $row["ReceptID"] . ">
+                            <img src=\"" . $row["ReceptImage"] . "\" alt=\"" . $row["ReceptNaam"] . "\">
+                            <div><p>" . $row["ReceptNaam"] . "</p></div>
+                            <form name=\"DagenSelect" . $row["ReceptID"] . "\" action=\"./DagenTerugzetten.php\" method=\"POST\">
+                                <input type=\"hidden\"  name=\"ReceptID\" value=\"" . $row["ReceptID"] . "\"/>
                                 <button type=\"submit\">DEL</button>
                             </form>
                             </li>";
                     }
                 }
-                ?> 
+                ?>
             </td>
             <td>
                 <?php
@@ -187,20 +189,20 @@
 
                 $sql = "SELECT r.ReceptNaam,r.ReceptID,ReceptImage from recepten r INNER JOIN weekmenu w ON (r.ReceptID=w.ReceptID) WHERE w.Day='ZA'; ";
                 $result = $conn->query($sql);
-                
+
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
-                        echo "<li class=\"Recept\" id=".$row["ReceptID"].">
-                            <img src=\"".$row["ReceptImage"]."\" alt=\"".$row["ReceptNaam"]."\">
-                            <div><p>".$row["ReceptNaam"]."</p></div>
-                            <form name=\"DagenSelect".$row["ReceptID"]."\" action=\"./DagenTerugzetten.php\" method=\"POST\">
-                                <input type=\"hidden\"  name=\"ReceptID\" value=\"".$row["ReceptID"]."\"/>
+                        echo "<li class=\"Recept\" id=" . $row["ReceptID"] . ">
+                            <img src=\"" . $row["ReceptImage"] . "\" alt=\"" . $row["ReceptNaam"] . "\">
+                            <div><p>" . $row["ReceptNaam"] . "</p></div>
+                            <form name=\"DagenSelect" . $row["ReceptID"] . "\" action=\"./DagenTerugzetten.php\" method=\"POST\">
+                                <input type=\"hidden\"  name=\"ReceptID\" value=\"" . $row["ReceptID"] . "\"/>
                                 <button type=\"submit\">DEL</button>
                             </form>
                             </li>";
                     }
                 }
-                ?> 
+                ?>
             </td>
             <td>
                 <?php
@@ -209,22 +211,23 @@
 
                 $sql = "SELECT r.ReceptNaam,r.ReceptID,ReceptImage from recepten r INNER JOIN weekmenu w ON (r.ReceptID=w.ReceptID) WHERE w.Day='ZO'; ";
                 $result = $conn->query($sql);
-                
+
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
-                        echo "<li class=\"Recept\" id=".$row["ReceptID"].">
-                            <img src=\"".$row["ReceptImage"]."\" alt=\"".$row["ReceptNaam"]."\">
-                            <div><p>".$row["ReceptNaam"]."</p></div>
-                            <form name=\"DagenSelect".$row["ReceptID"]."\" action=\"./DagenTerugzetten.php\" method=\"POST\">
-                                <input type=\"hidden\"  name=\"ReceptID\" value=\"".$row["ReceptID"]."\"/>
+                        echo "<li class=\"Recept\" id=" . $row["ReceptID"] . ">
+                            <img src=\"" . $row["ReceptImage"] . "\" alt=\"" . $row["ReceptNaam"] . "\">
+                            <div><p>" . $row["ReceptNaam"] . "</p></div>
+                            <form name=\"DagenSelect" . $row["ReceptID"] . "\" action=\"./DagenTerugzetten.php\" method=\"POST\">
+                                <input type=\"hidden\"  name=\"ReceptID\" value=\"" . $row["ReceptID"] . "\"/>
                                 <button type=\"submit\">DEL</button>
                             </form>
                             </li>";
                     }
                 }
-                ?>  
+                ?>
             </td>
         </tr>
     </table>
 </body>
+
 </html>
