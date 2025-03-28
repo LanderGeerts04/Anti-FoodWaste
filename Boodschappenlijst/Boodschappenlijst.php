@@ -34,6 +34,12 @@
 
             $sql = "SELECT i.IngrediëntNaam, (r.Hoeveelheid - k.Hoeveelheid) 'Hoeveelheid' from Ingrediënten i inner join Koelkast k on i.IngrediëntID = k.IngrediëntID inner join ReceptIngrediënt r on k.IngrediëntID = r.IngrediëntID group by i.IngrediëntNaam having (r.Hoeveelheid - k.Hoeveelheid) > 0 ;";
             $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo "<li class=\"Ingrediënt\" id=" . $row["IngrediëntNaam"] . ">
+                        </li>";
+                }
+            }
     ?>
 
     <div class="lijstje">
