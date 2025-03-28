@@ -36,6 +36,7 @@ CREATE TABLE IF NOT EXISTS Recepten (
 CREATE TABLE IF NOT EXISTS ReceptIngrediënt (
     ReceptIngrediëntID INT AUTO_INCREMENT PRIMARY KEY,
     ReceptID INT,
+    Hoeveelheid INT,
     IngrediëntID INT,
     CONSTRAINT fk_ReceptenIngrediënt_Recepten FOREIGN KEY (ReceptID) REFERENCES Recepten(ReceptID) ON DELETE CASCADE,
     CONSTRAINT fk_ReceptenIngrediënt_Ingrediënten FOREIGN KEY (IngrediëntID) REFERENCES Ingrediënten(IngrediëntID) ON DELETE CASCADE
