@@ -1,12 +1,12 @@
 /*Fonts*/
 @font-face{
     font-family: VarelaRound;
-    src: url(/Boodschappenlijst/VarelaRound-Regular.ttf);
+    src: url(../Boodschappenlijst/VarelaRound-Regular.ttf);
 }
 
 /*Achtergrond*/
 body {
-  background-image: url(/Boodschappenlijst/Photos/Background.png);
+  background-image: url(../Boodschappenlijst/Photos/Background.png);
 }
 
 /*Navigatie elementen*/
