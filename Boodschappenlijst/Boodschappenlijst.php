@@ -32,8 +32,8 @@
                 require_once("../Algemene files/DatabaseConnectie.php");
                 $conn->select_db("AntiFoodwaste");
 
-                $sql = "SELECT i.IngrediëntNaam, (r.Hoeveelheid - k.Hoeveelheid) 'Hoeveelheid' from Ingrediënten i inner join Koelkast k on i.IngrediëntID = k.IngrediëntID inner join ReceptIngrediënt r on k.IngrediëntID = r.IngrediëntID group by i.IngrediëntNaam having (r.Hoeveelheid - k.Hoeveelheid) > 0 ;";
-                $result = mysql_query($sql);
+                $sql = "SELECT i.IngrediëntNaam, (r.Hoeveelheid - k.Hoeveelheid) 'Hoeveelheid' from Ingrediënten i inner join Koelkast k on i.IngrediëntID = k.IngrediëntID inner join ReceptIngrediënt r on k.IngrediëntID = r.IngrediëntID group by i.IngrediëntNaam having (r.Hoeveelheid - k.Hoeveelheid) > 0"
+                $result = query($sql);
                 echo [$result];
         ?>
     </ul>
