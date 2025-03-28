@@ -32,9 +32,12 @@
                 require_once("../Algemene files/DatabaseConnectie.php");
                 $conn->select_db("AntiFoodwaste");
 
-                $sql = "SELECT i.IngrediëntNaam, (r.Hoeveelheid - k.Hoeveelheid) 'Hoeveelheid' from Ingrediënten i inner join Koelkast k on i.IngrediëntID = k.IngrediëntID inner join ReceptIngrediënt r on k.IngrediëntID = r.IngrediëntID group by i.IngrediëntNaam having (r.Hoeveelheid - k.Hoeveelheid) > 0"
+                $sql = "SELECT i.IngrediëntNaam, (r.Hoeveelheid - k.Hoeveelheid) 'Hoeveelheid' from Ingrediënten i inner join Koelkast k on i.IngrediëntID = k.IngrediëntID inner join receptingrediënt r on k.IngrediëntID = r.IngrediëntID group by i.IngrediëntNaam having Hoeveelheid > 0";
                 $result = $conn->query($sql);
-                echo [$result];
+                if ($result->num_rows > 0){
+                    $user = $result->fetch_assoc();
+                    echo [$user];
+                }
         ?>
     </ul>
     <div class="lijstje">
