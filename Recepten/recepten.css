@@ -40,6 +40,10 @@ div {
   font-family: VarelaRound;
   text-align: center;
 }
+.receptFoto:hover {
+  outline: 2px solid black;
+  cursor: pointer;
+}
 
 .knop {
   height: 50px;
