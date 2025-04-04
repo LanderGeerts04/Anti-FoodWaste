@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../Algemene files/Algemen iconen/garbage.png" type="image/icon type">
     <title>Boodschappenlijstje</title>
     <link rel="stylesheet" href="Boodschappenlijst.css" />
     <script src="../Algemene files/Navigatieverberg.js"></script>

@@ -104,6 +104,7 @@ body{
     background-color: rgb(242, 224, 224);
     border-radius: 16px;
     margin-left: 300px;
+    margin-top: 20px;
     font-family: VarelaRound;
 }
 #tabel_dagen td{
@@ -136,7 +137,7 @@ body{
     margin-left: 10px;
 }
 #Recepten_block{
-    margin-left: 300px;
+    margin-left: 260px;
     width: auto;
     height: 220px;
     overflow: auto;

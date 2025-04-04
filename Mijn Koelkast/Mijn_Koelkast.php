@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="../Algemene files/Algemen iconen/garbage.png" type="image/icon type">
   <title>Mijne Frigo</title>
   <link rel="stylesheet" href="./Mijn_Koelkast.css" />
   <script src="../Algemene files/Navigatieverberg.js"></script>
@@ -56,6 +57,7 @@
                 <option value="">stuks</option>
               </select>
             </li>
+            <li><input type="date" class="formdesign" id="datepicker" name="Date"></li>
             <li><button type="submit" class="formdesign" id="Toevoegen">Toevoegen</button></li>
           </ul>
         </form>
@@ -97,20 +99,20 @@
           // UI genereren (met filter)
           if (isset($_POST["Categorie"])) {
             $cat = $_POST["Categorie"];
-            $stmt = $conn->prepare("SELECT i.IngrediëntNaam, k.Hoeveelheid, k.IngrediëntID,i.IngrediëntEenheid FROM ingrediënten i INNER JOIN koelkast k ON (i.IngrediëntID = k.IngrediëntID) WHERE i.IngrediëntCategorie LIKE ?");
+            $stmt = $conn->prepare("SELECT i.IngrediëntID,i.IngrediëntNaam,k.Hoeveelheid,i.IngrediëntEenheid,DATEDIFF(k.Vervaldatum,now())'Vervaldatum' FROM koelkast k INNER JOIN ingrediënten i ON (i.IngrediëntID=k.IngrediëntID) WHERE i.IngrediëntCategorie LIKE ?");
             $stmt->bind_param("s", $cat);
             $stmt->execute(); // Uitvoeren van de query
             $result = $stmt->get_result(); // Ophalen van het resultaat
             $stmt->close(); // Sluiten van de statement
           } else {
             // UI genereren (zonder filter)
-            $sql = "SELECT i.IngrediëntNaam, k.Hoeveelheid, k.IngrediëntID,i.IngrediëntEenheid FROM ingrediënten i INNER JOIN koelkast k ON (i.IngrediëntID = k.IngrediëntID)";
+            $sql = "SELECT i.IngrediëntID,i.IngrediëntNaam,k.Hoeveelheid,i.IngrediëntEenheid,DATEDIFF(k.Vervaldatum,now())'Vervaldatum' FROM koelkast k INNER JOIN ingrediënten i ON (i.IngrediëntID=k.IngrediëntID); ";
             $result = $conn->query($sql);
           }
 
           if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-              echo "<li>" . $row["IngrediëntNaam"] . "<ol><a href=\"?delete=" . $row["IngrediëntID"] . "\">DEL</a></ol><ol>" . $row["Hoeveelheid"] . " " . $row["IngrediëntEenheid"] . "</ol></li>";
+              echo "<li>" . $row["IngrediëntNaam"] . "<ol id=\"delknop\"><a href=\"?delete=" . $row["IngrediëntID"] . "\">DEL</a></ol><ol id=\"hoeveelheid\">" . $row["Hoeveelheid"] . " " . $row["IngrediëntEenheid"] . "</ol><ol id=\"vervaldatum\">".$row["Vervaldatum"]." dagen over</ol></li>";
             }
           }
           $conn->close(); // Sluiten van de verbinding
