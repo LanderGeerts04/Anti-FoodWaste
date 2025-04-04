@@ -41,62 +41,65 @@
                 }
         ?>
     </ul>
-    <div class="lijstje">
-        <div id="veg">
-            <img class="menulogos" src="../Mijn Koelkast/Photos/Icons/carrot.svg" alt="$">
-            <h2>Groenten</h2>
+    <div class="artikel">
+        <div class="lijstje">
+            <div id="veg">
+                <img class="menulogos" src="../Mijn Koelkast/Photos/Icons/carrot.svg" alt="$">
+                <h2>Groenten</h2>
+            </div>
+            <ul>
+                <li><input type="checkbox" name="groente" value="Sla">
+                    <label>Sla</label>
+                </li>
+            </ul>
+            <div id="Dairy">
+                <img class="menulogos" src="../Mijn Koelkast/Photos/Icons/egg.svg" alt="$">
+                <h2>Zuivel</h2>
+            </div>
+            <ul>
+                <li><input type="checkbox" name="zuivel" value="melk">
+                    <label>Melk</label>
+                </li>
+            </ul>
+            <div id="fru">
+                <img class="menulogos" src="../Mijn Koelkast/Photos/Icons/apple.svg" alt="$">
+                <h2>Fruit</h2>
+            </div>
+            <ul>
+                <li><input type="checkbox" name="fruit" value="appel">
+                    <label>Appel</label>
+                </li>
+            </ul>
+            <div id="wheat">
+                <img class="menulogos" src="../Mijn Koelkast/Photos/Icons/wheat.svg" alt="$">
+                <h2>Deegwaren</h2>
+            </div>
+            <ul>
+                <li><input type="checkbox" name="deegwaren" value="Spaghetti">
+                    <label>Spaghetti</label>
+                </li>
+            </ul>
+            <div id="meat">
+                <img class="menulogos" src="../Mijn Koelkast/Photos/Icons/ham.svg" alt="$">
+                <h2>Vlees en vis</h2>
+            </div>
+            <ul>
+                <li><input type="checkbox" name="vleesvis" value="biefstuk">
+                    <label>Biefstuk</label>
+                </li>
+            </ul>
+            <div id="varia">
+                <img class="menulogos" src="../Mijn Koelkast/Photos/Icons/chef-hat.svg" alt="$">
+                <h2>Diversen</h2>
+            </div>
+            <ul>
+                <li><input type="checkbox" name="divers" value="BIER">
+                    <label>BIER</label>
+                </li>
+            </ul>
         </div>
-        <ul>
-            <li><input type="checkbox" name="groente" value="Sla">
-                <label>Sla</label>
-            </li>
-        </ul>
-        <div id="Dairy">
-            <img class="menulogos" src="../Mijn Koelkast/Photos/Icons/egg.svg" alt="$">
-            <h2>Zuivel</h2>
-        </div>
-        <ul>
-            <li><input type="checkbox" name="zuivel" value="melk">
-                <label>Melk</label>
-            </li>
-        </ul>
-        <div id="fru">
-            <img class="menulogos" src="../Mijn Koelkast/Photos/Icons/apple.svg" alt="$">
-            <h2>Fruit</h2>
-        </div>
-        <ul>
-            <li><input type="checkbox" name="fruit" value="appel">
-                <label>Appel</label>
-            </li>
-        </ul>
-        <div id="wheat">
-            <img class="menulogos" src="../Mijn Koelkast/Photos/Icons/wheat.svg" alt="$">
-            <h2>Deegwaren</h2>
-        </div>
-        <ul>
-            <li><input type="checkbox" name="deegwaren" value="Spaghetti">
-                <label>Spaghetti</label>
-            </li>
-        </ul>
-        <div id="meat">
-            <img class="menulogos" src="../Mijn Koelkast/Photos/Icons/ham.svg" alt="$">
-            <h2>Vlees en vis</h2>
-        </div>
-        <ul>
-            <li><input type="checkbox" name="vleesvis" value="biefstuk">
-                <label>Biefstuk</label>
-            </li>
-        </ul>
-        <div id="varia">
-            <img class="menulogos" src="../Mijn Koelkast/Photos/Icons/chef-hat.svg" alt="$">
-            <h2>Diversen</h2>
-        </div>
-        <ul>
-            <li><input type="checkbox" name="divers" value="BIER">
-                <label>BIER</label>
-            </li>
-        </ul>
     </div>
+    
 </body>
 
 </html>

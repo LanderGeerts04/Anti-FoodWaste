@@ -81,11 +81,8 @@ body{
     font-size: 30px;
 }
 .artikel{
-    font-family: VarelaRound;
-    font-size: 20px;
-    margin-left: 500px;
-    margin-right: 400px;
-    display: block;
+    margin-left: 300px;
+    margin-right: 0px;
 }
 
 /*Logo layout*/
@@ -103,7 +100,6 @@ body{
 #agenda{
     background-color: rgb(242, 224, 224);
     border-radius: 16px;
-    margin-left: 300px;
     margin-top: 20px;
     font-family: VarelaRound;
 }
@@ -137,7 +133,6 @@ body{
     margin-left: 10px;
 }
 #Recepten_block{
-    margin-left: 260px;
     width: auto;
     height: 220px;
     overflow: auto;

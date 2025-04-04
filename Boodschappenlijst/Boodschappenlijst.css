@@ -79,6 +79,10 @@ body {
   font-family: VarelaRound;
   font-size: 30px;
 }
+.artikel{
+  margin-left: 300px;
+  margin-right: 0px;
+}
 
 /*Logo layout*/
 @media (max-width: 800px) {
@@ -162,5 +166,4 @@ body {
 
 .lijstje{
   display: block;
-  margin-left: 300px;
 }

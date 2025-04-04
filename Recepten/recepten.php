@@ -9,6 +9,7 @@
   <title>Recept page</title>
   <script src="ingredients.js"></script>
   <script src="recipes.js"></script>
+  <script src="../Algemene files/Navigatieverberg.js"></script>
 </head>
 
 <body>
@@ -28,33 +29,33 @@
       <li id="active"><a href="../Recepten/recepten.php">RECEPTEN</a></li>
     </ul>
   </div>
-  <div class="main">
-    <div id="upper">
-      <input id="recepten" class="input" type="text" placeholder="Recept.." />
-      <input
-        class="numberInput"
-        id="recept-hoeveelheid"
-        type="number"
-        placeholder="0" />
+    <div class="main">
+      <div id="upper">
+        <input id="recepten" class="input" type="text" placeholder="Recept.." />
+        <input
+          class="numberInput"
+          id="recept-hoeveelheid"
+          type="number"
+          placeholder="0" />
+      </div>
+      <br />
+      <button class="knop" id="knop1" onclick="getData()">Zoek</button>
+      <div id="lower">
+        <input
+          id="ingredients"
+          class="input"
+          type="text"
+          placeholder="Ingrediënten.." />
+        <input
+          class="numberInput"
+          id="Ingrediënten-hoeveelheid"
+          type="number"
+          placeholder="0" />
+      </div>
+      <br />
+      <button class="knop" id="knop2" onclick="fetchData()">Zoek</button>
+      <div id="recept-foto"></div>
     </div>
-    <br />
-    <button class="knop" id="knop1" onclick="getData()">Zoek</button>
-    <div id="lower">
-      <input
-        id="ingredients"
-        class="input"
-        type="text"
-        placeholder="Ingrediënten.." />
-      <input
-        class="numberInput"
-        id="Ingrediënten-hoeveelheid"
-        type="number"
-        placeholder="0" />
-    </div>
-    <br />
-    <button class="knop" id="knop2" onclick="fetchData()">Zoek</button>
-    <div id="recept-foto"></div>
-  </div>
 </body>
 
 </html>

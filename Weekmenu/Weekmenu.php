@@ -30,205 +30,208 @@
         <li><a href="../Boodschappenlijst/Boodschappenlijst.php">BOODSCHAPPENLIJST</a></li>
         <li id="bottom"><a href="../Recepten/recepten.php">RECEPTEN</a></li>
     </ul>
-    <div id="Recepten_block">
-        <ul>
-            <?php
-            require_once("../Algemene files/DatabaseConnectie.php");
-            $conn->select_db("AntiFoodwaste");
+    <div class="artikel">
+        <div id="Recepten_block">
+            <ul>
+                <?php
+                require_once("../Algemene files/DatabaseConnectie.php");
+                $conn->select_db("AntiFoodwaste");
 
-            $sql = "SELECT ReceptID,ReceptNaam,ReceptImage from recepten where ReceptID NOT IN (SELECT ReceptID from weekmenu);";
-            $result = $conn->query($sql);
-            if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    echo "<li class=\"Recept\" id=" . $row["ReceptID"] . ">
-                        <img src=\"" . $row["ReceptImage"] . "\" alt=\"" . $row["ReceptNaam"] . "\">
-                        <div><p>" . $row["ReceptNaam"] . "</p></div>
-                        <form name=\"DagenSelect" . $row["ReceptID"] . "\" action=\"./DagenAanpassen.php\" method=\"POST\">
-                            <select name=\"Dagen\" id=\"\" onchange=\"DagenSelect" . $row["ReceptID"] . ".submit()\">
-                                <option disabled selected value>DAG</option>
-                                <Option value=\"MA\">MA</Option>
-                                <Option value=\"DI\">DI</Option>
-                                <Option value=\"WO\">WO</Option>
-                                <Option value=\"DO\">DO</Option>
-                                <Option value=\"VR\">VR</Option>
-                                <Option value=\"ZA\">ZA</Option>
-                                <Option value=\"ZO\">ZO</Option>
-                            </select>
-                            <input type=\"hidden\"  name=\"ReceptID\" value=\"" . $row["ReceptID"] . "\"/>
-                        </form>
-                        </li>";
+                $sql = "SELECT ReceptID,ReceptNaam,ReceptImage from recepten where ReceptID NOT IN (SELECT ReceptID from weekmenu);";
+                $result = $conn->query($sql);
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        echo "<li class=\"Recept\" id=" . $row["ReceptID"] . ">
+                            <img src=\"" . $row["ReceptImage"] . "\" alt=\"" . $row["ReceptNaam"] . "\">
+                            <div><p>" . $row["ReceptNaam"] . "</p></div>
+                            <form name=\"DagenSelect" . $row["ReceptID"] . "\" action=\"./DagenAanpassen.php\" method=\"POST\">
+                                <select name=\"Dagen\" id=\"\" onchange=\"DagenSelect" . $row["ReceptID"] . ".submit()\">
+                                    <option disabled selected value>DAG</option>
+                                    <Option value=\"MA\">MA</Option>
+                                    <Option value=\"DI\">DI</Option>
+                                    <Option value=\"WO\">WO</Option>
+                                    <Option value=\"DO\">DO</Option>
+                                    <Option value=\"VR\">VR</Option>
+                                    <Option value=\"ZA\">ZA</Option>
+                                    <Option value=\"ZO\">ZO</Option>
+                                </select>
+                                <input type=\"hidden\"  name=\"ReceptID\" value=\"" . $row["ReceptID"] . "\"/>
+                            </form>
+                            </li>";
+                    }
                 }
-            }
-            ?>
-        </ul>
+                ?>
+            </ul>
+        </div>
+        <table id="agenda">
+            <tr id="tabel_dagen">
+                <td>Maandag</td>
+                <td>Dinsdag</td>
+                <td>Woensdag</td>
+                <td>Donderdag</td>
+                <td>Vrijdag</td>
+                <td>Zaterdag</td>
+                <td>Zondag</td>
+            </tr>
+            <tr id="tabel_drop_posities">
+                <td>
+                    <?php
+                    require_once("../Algemene files/DatabaseConnectie.php");
+                    $conn->select_db("AntiFoodwaste");
+
+                    $sql = "SELECT r.ReceptNaam,r.ReceptID,ReceptImage from recepten r INNER JOIN weekmenu w ON (r.ReceptID=w.ReceptID) WHERE w.Day='MA'; ";
+                    $result = $conn->query($sql);
+
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<li class=\"Recept\" id=" . $row["ReceptID"] . ">
+                                <img src=\"" . $row["ReceptImage"] . "\" alt=\"" . $row["ReceptNaam"] . "\">
+                                <div><p>" . $row["ReceptNaam"] . "</p></div>
+                                <form name=\"DagenSelect" . $row["ReceptID"] . "\" action=\"./DagenTerugzetten.php\" method=\"POST\">
+                                    <input type=\"hidden\"  name=\"ReceptID\" value=\"" . $row["ReceptID"] . "\"/>
+                                    <button type=\"submit\">DEL</button>
+                                </form>
+                                </li>";
+                        }
+                    }
+                    ?>
+                </td>
+                <td>
+                    <?php
+                    require_once("../Algemene files/DatabaseConnectie.php");
+                    $conn->select_db("AntiFoodwaste");
+
+                    $sql = "SELECT r.ReceptNaam,r.ReceptID,ReceptImage from recepten r INNER JOIN weekmenu w ON (r.ReceptID=w.ReceptID) WHERE w.Day='DI'; ";
+                    $result = $conn->query($sql);
+
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<li class=\"Recept\" id=" . $row["ReceptID"] . ">
+                                <img src=\"" . $row["ReceptImage"] . "\" alt=\"" . $row["ReceptNaam"] . "\">
+                                <div><p>" . $row["ReceptNaam"] . "</p></div>
+                                <form name=\"DagenSelect" . $row["ReceptID"] . "\" action=\"./DagenTerugzetten.php\" method=\"POST\">
+                                    <input type=\"hidden\"  name=\"ReceptID\" value=\"" . $row["ReceptID"] . "\"/>
+                                    <button type=\"submit\">DEL</button>
+                                </form>
+                                </li>";
+                        }
+                    }
+                    ?>
+                </td>
+                <td>
+                    <?php
+                    require_once("../Algemene files/DatabaseConnectie.php");
+                    $conn->select_db("AntiFoodwaste");
+
+                    $sql = "SELECT r.ReceptNaam,r.ReceptID,ReceptImage from recepten r INNER JOIN weekmenu w ON (r.ReceptID=w.ReceptID) WHERE w.Day='WO'; ";
+                    $result = $conn->query($sql);
+
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<li class=\"Recept\" id=" . $row["ReceptID"] . ">
+                                <img src=\"" . $row["ReceptImage"] . "\" alt=\"" . $row["ReceptNaam"] . "\">
+                                <div><p>" . $row["ReceptNaam"] . "</p></div>
+                                <form name=\"DagenSelect" . $row["ReceptID"] . "\" action=\"./DagenTerugzetten.php\" method=\"POST\">
+                                    <input type=\"hidden\"  name=\"ReceptID\" value=\"" . $row["ReceptID"] . "\"/>
+                                    <button type=\"submit\">DEL</button>
+                                </form>
+                                </li>";
+                        }
+                    }
+                    ?>
+                </td>
+                <td>
+                    <?php
+                    require_once("../Algemene files/DatabaseConnectie.php");
+                    $conn->select_db("AntiFoodwaste");
+
+                    $sql = "SELECT r.ReceptNaam,r.ReceptID,ReceptImage from recepten r INNER JOIN weekmenu w ON (r.ReceptID=w.ReceptID) WHERE w.Day='DO'; ";
+                    $result = $conn->query($sql);
+
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<li class=\"Recept\" id=" . $row["ReceptID"] . ">
+                                <img src=\"" . $row["ReceptImage"] . "\" alt=\"" . $row["ReceptNaam"] . "\">
+                                <div><p>" . $row["ReceptNaam"] . "</p></div>
+                                <form name=\"DagenSelect" . $row["ReceptID"] . "\" action=\"./DagenTerugzetten.php\" method=\"POST\">
+                                    <input type=\"hidden\"  name=\"ReceptID\" value=\"" . $row["ReceptID"] . "\"/>
+                                    <button type=\"submit\">DEL</button>
+                                </form>
+                                </li>";
+                        }
+                    }
+                    ?>
+                </td>
+                <td>
+                    <?php
+                    require_once("../Algemene files/DatabaseConnectie.php");
+                    $conn->select_db("AntiFoodwaste");
+
+                    $sql = "SELECT r.ReceptNaam,r.ReceptID,ReceptImage from recepten r INNER JOIN weekmenu w ON (r.ReceptID=w.ReceptID) WHERE w.Day='VR'; ";
+                    $result = $conn->query($sql);
+
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<li class=\"Recept\" id=" . $row["ReceptID"] . ">
+                                <img src=\"" . $row["ReceptImage"] . "\" alt=\"" . $row["ReceptNaam"] . "\">
+                                <div><p>" . $row["ReceptNaam"] . "</p></div>
+                                <form name=\"DagenSelect" . $row["ReceptID"] . "\" action=\"./DagenTerugzetten.php\" method=\"POST\">
+                                    <input type=\"hidden\"  name=\"ReceptID\" value=\"" . $row["ReceptID"] . "\"/>
+                                    <button type=\"submit\">DEL</button>
+                                </form>
+                                </li>";
+                        }
+                    }
+                    ?>
+                </td>
+                <td>
+                    <?php
+                    require_once("../Algemene files/DatabaseConnectie.php");
+                    $conn->select_db("AntiFoodwaste");
+
+                    $sql = "SELECT r.ReceptNaam,r.ReceptID,ReceptImage from recepten r INNER JOIN weekmenu w ON (r.ReceptID=w.ReceptID) WHERE w.Day='ZA'; ";
+                    $result = $conn->query($sql);
+
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<li class=\"Recept\" id=" . $row["ReceptID"] . ">
+                                <img src=\"" . $row["ReceptImage"] . "\" alt=\"" . $row["ReceptNaam"] . "\">
+                                <div><p>" . $row["ReceptNaam"] . "</p></div>
+                                <form name=\"DagenSelect" . $row["ReceptID"] . "\" action=\"./DagenTerugzetten.php\" method=\"POST\">
+                                    <input type=\"hidden\"  name=\"ReceptID\" value=\"" . $row["ReceptID"] . "\"/>
+                                    <button type=\"submit\">DEL</button>
+                                </form>
+                                </li>";
+                        }
+                    }
+                    ?>
+                </td>
+                <td>
+                    <?php
+                    require_once("../Algemene files/DatabaseConnectie.php");
+                    $conn->select_db("AntiFoodwaste");
+
+                    $sql = "SELECT r.ReceptNaam,r.ReceptID,ReceptImage from recepten r INNER JOIN weekmenu w ON (r.ReceptID=w.ReceptID) WHERE w.Day='ZO'; ";
+                    $result = $conn->query($sql);
+
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<li class=\"Recept\" id=" . $row["ReceptID"] . ">
+                                <img src=\"" . $row["ReceptImage"] . "\" alt=\"" . $row["ReceptNaam"] . "\">
+                                <div><p>" . $row["ReceptNaam"] . "</p></div>
+                                <form name=\"DagenSelect" . $row["ReceptID"] . "\" action=\"./DagenTerugzetten.php\" method=\"POST\">
+                                    <input type=\"hidden\"  name=\"ReceptID\" value=\"" . $row["ReceptID"] . "\"/>
+                                    <button type=\"submit\">DEL</button>
+                                </form>
+                                </li>";
+                        }
+                    }
+                    ?>
+                </td>
+            </tr>
+        </table>
     </div>
-    <table id="agenda">
-        <tr id="tabel_dagen">
-            <td>Maandag</td>
-            <td>Dinsdag</td>
-            <td>Woensdag</td>
-            <td>Donderdag</td>
-            <td>Vrijdag</td>
-            <td>Zaterdag</td>
-            <td>Zondag</td>
-        </tr>
-        <tr id="tabel_drop_posities">
-            <td>
-                <?php
-                require_once("../Algemene files/DatabaseConnectie.php");
-                $conn->select_db("AntiFoodwaste");
-
-                $sql = "SELECT r.ReceptNaam,r.ReceptID,ReceptImage from recepten r INNER JOIN weekmenu w ON (r.ReceptID=w.ReceptID) WHERE w.Day='MA'; ";
-                $result = $conn->query($sql);
-
-                if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
-                        echo "<li class=\"Recept\" id=" . $row["ReceptID"] . ">
-                            <img src=\"" . $row["ReceptImage"] . "\" alt=\"" . $row["ReceptNaam"] . "\">
-                            <div><p>" . $row["ReceptNaam"] . "</p></div>
-                            <form name=\"DagenSelect" . $row["ReceptID"] . "\" action=\"./DagenTerugzetten.php\" method=\"POST\">
-                                <input type=\"hidden\"  name=\"ReceptID\" value=\"" . $row["ReceptID"] . "\"/>
-                                <button type=\"submit\">DEL</button>
-                            </form>
-                            </li>";
-                    }
-                }
-                ?>
-            </td>
-            <td>
-                <?php
-                require_once("../Algemene files/DatabaseConnectie.php");
-                $conn->select_db("AntiFoodwaste");
-
-                $sql = "SELECT r.ReceptNaam,r.ReceptID,ReceptImage from recepten r INNER JOIN weekmenu w ON (r.ReceptID=w.ReceptID) WHERE w.Day='DI'; ";
-                $result = $conn->query($sql);
-
-                if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
-                        echo "<li class=\"Recept\" id=" . $row["ReceptID"] . ">
-                            <img src=\"" . $row["ReceptImage"] . "\" alt=\"" . $row["ReceptNaam"] . "\">
-                            <div><p>" . $row["ReceptNaam"] . "</p></div>
-                            <form name=\"DagenSelect" . $row["ReceptID"] . "\" action=\"./DagenTerugzetten.php\" method=\"POST\">
-                                <input type=\"hidden\"  name=\"ReceptID\" value=\"" . $row["ReceptID"] . "\"/>
-                                <button type=\"submit\">DEL</button>
-                            </form>
-                            </li>";
-                    }
-                }
-                ?>
-            </td>
-            <td>
-                <?php
-                require_once("../Algemene files/DatabaseConnectie.php");
-                $conn->select_db("AntiFoodwaste");
-
-                $sql = "SELECT r.ReceptNaam,r.ReceptID,ReceptImage from recepten r INNER JOIN weekmenu w ON (r.ReceptID=w.ReceptID) WHERE w.Day='WO'; ";
-                $result = $conn->query($sql);
-
-                if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
-                        echo "<li class=\"Recept\" id=" . $row["ReceptID"] . ">
-                            <img src=\"" . $row["ReceptImage"] . "\" alt=\"" . $row["ReceptNaam"] . "\">
-                            <div><p>" . $row["ReceptNaam"] . "</p></div>
-                            <form name=\"DagenSelect" . $row["ReceptID"] . "\" action=\"./DagenTerugzetten.php\" method=\"POST\">
-                                <input type=\"hidden\"  name=\"ReceptID\" value=\"" . $row["ReceptID"] . "\"/>
-                                <button type=\"submit\">DEL</button>
-                            </form>
-                            </li>";
-                    }
-                }
-                ?>
-            </td>
-            <td>
-                <?php
-                require_once("../Algemene files/DatabaseConnectie.php");
-                $conn->select_db("AntiFoodwaste");
-
-                $sql = "SELECT r.ReceptNaam,r.ReceptID,ReceptImage from recepten r INNER JOIN weekmenu w ON (r.ReceptID=w.ReceptID) WHERE w.Day='DO'; ";
-                $result = $conn->query($sql);
-
-                if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
-                        echo "<li class=\"Recept\" id=" . $row["ReceptID"] . ">
-                            <img src=\"" . $row["ReceptImage"] . "\" alt=\"" . $row["ReceptNaam"] . "\">
-                            <div><p>" . $row["ReceptNaam"] . "</p></div>
-                            <form name=\"DagenSelect" . $row["ReceptID"] . "\" action=\"./DagenTerugzetten.php\" method=\"POST\">
-                                <input type=\"hidden\"  name=\"ReceptID\" value=\"" . $row["ReceptID"] . "\"/>
-                                <button type=\"submit\">DEL</button>
-                            </form>
-                            </li>";
-                    }
-                }
-                ?>
-            </td>
-            <td>
-                <?php
-                require_once("../Algemene files/DatabaseConnectie.php");
-                $conn->select_db("AntiFoodwaste");
-
-                $sql = "SELECT r.ReceptNaam,r.ReceptID,ReceptImage from recepten r INNER JOIN weekmenu w ON (r.ReceptID=w.ReceptID) WHERE w.Day='VR'; ";
-                $result = $conn->query($sql);
-
-                if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
-                        echo "<li class=\"Recept\" id=" . $row["ReceptID"] . ">
-                            <img src=\"" . $row["ReceptImage"] . "\" alt=\"" . $row["ReceptNaam"] . "\">
-                            <div><p>" . $row["ReceptNaam"] . "</p></div>
-                            <form name=\"DagenSelect" . $row["ReceptID"] . "\" action=\"./DagenTerugzetten.php\" method=\"POST\">
-                                <input type=\"hidden\"  name=\"ReceptID\" value=\"" . $row["ReceptID"] . "\"/>
-                                <button type=\"submit\">DEL</button>
-                            </form>
-                            </li>";
-                    }
-                }
-                ?>
-            </td>
-            <td>
-                <?php
-                require_once("../Algemene files/DatabaseConnectie.php");
-                $conn->select_db("AntiFoodwaste");
-
-                $sql = "SELECT r.ReceptNaam,r.ReceptID,ReceptImage from recepten r INNER JOIN weekmenu w ON (r.ReceptID=w.ReceptID) WHERE w.Day='ZA'; ";
-                $result = $conn->query($sql);
-
-                if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
-                        echo "<li class=\"Recept\" id=" . $row["ReceptID"] . ">
-                            <img src=\"" . $row["ReceptImage"] . "\" alt=\"" . $row["ReceptNaam"] . "\">
-                            <div><p>" . $row["ReceptNaam"] . "</p></div>
-                            <form name=\"DagenSelect" . $row["ReceptID"] . "\" action=\"./DagenTerugzetten.php\" method=\"POST\">
-                                <input type=\"hidden\"  name=\"ReceptID\" value=\"" . $row["ReceptID"] . "\"/>
-                                <button type=\"submit\">DEL</button>
-                            </form>
-                            </li>";
-                    }
-                }
-                ?>
-            </td>
-            <td>
-                <?php
-                require_once("../Algemene files/DatabaseConnectie.php");
-                $conn->select_db("AntiFoodwaste");
-
-                $sql = "SELECT r.ReceptNaam,r.ReceptID,ReceptImage from recepten r INNER JOIN weekmenu w ON (r.ReceptID=w.ReceptID) WHERE w.Day='ZO'; ";
-                $result = $conn->query($sql);
-
-                if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
-                        echo "<li class=\"Recept\" id=" . $row["ReceptID"] . ">
-                            <img src=\"" . $row["ReceptImage"] . "\" alt=\"" . $row["ReceptNaam"] . "\">
-                            <div><p>" . $row["ReceptNaam"] . "</p></div>
-                            <form name=\"DagenSelect" . $row["ReceptID"] . "\" action=\"./DagenTerugzetten.php\" method=\"POST\">
-                                <input type=\"hidden\"  name=\"ReceptID\" value=\"" . $row["ReceptID"] . "\"/>
-                                <button type=\"submit\">DEL</button>
-                            </form>
-                            </li>";
-                    }
-                }
-                ?>
-            </td>
-        </tr>
-    </table>
+    
 </body>
 
 </html>
