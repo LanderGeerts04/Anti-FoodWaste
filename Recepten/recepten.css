@@ -19,8 +19,6 @@ div {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* margin-left: 320px;
-  margin-top: 100px; */
 }
 
 #recept-foto {
@@ -36,7 +34,7 @@ div {
   border: 1px solid black;
   margin: 2px;
   min-width: 500px;
-  max-width: 600px;
+  max-width: 550px;
   font-size: 16px;
   font-family: VarelaRound;
   text-align: center;
@@ -54,7 +52,6 @@ div {
   border-radius: 15px;
   border-style: solid 1px black;
   background-color: white;
-  /* margin-left: 450px; */
   margin-top: 20px;
   margin-bottom: 20px;
 }
@@ -65,7 +62,6 @@ div {
 
 #lower {
   display: flex;
-  /* margin-left: 250px; */
 }
 #middle {
   display: flex;

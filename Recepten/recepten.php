@@ -7,7 +7,6 @@
   <link href="../Recepten/recepten.css" rel="stylesheet" />
   <link rel="icon" href="../Algemene files/Algemen iconen/garbage.png" type="image/icon type">
   <title>Recept page</title>
-  <script src="ingredients.js"></script>
   <script src="recipes.js"></script>
   <script src="checkbox.js"></script>
   <script src="../Algemene files/Navigatieverberg.js"></script>
@@ -39,22 +38,16 @@
         type="number"
         placeholder="0" />
     </div>
-    <br />
-    <button class="knop" id="knop1" onclick="getData()">Zoek</button>
-    <div id="lower">
-      <input
-        id="ingredients"
-        class="input"
-        type="text"
-        placeholder="Ingrediënten.." />
-      <input
-        class="numberInput"
-        id="Ingrediënten-hoeveelheid"
-        type="number"
-        placeholder="0" />
+    <div id="middle">
+      <input type="checkbox" name="ingredienten" id="ingredienten" onclick="checkBox()">
+      <label id="ingredient-label" for="ingredienten">Gebruik ingrediënten</label>
     </div>
-    <br />
-    <button class="knop" id="knop2" onclick="fetchData()">Zoek</button>
+    
+    <div id="lower">
+      <input type="text" class="input" name="ingredient" id="ingredient-input" placeholder="Ingrediënten..">
+      
+    </div>
+    <button class="knop" id="knop1" onclick="getData()">Zoek</button>
     <div id="recept-foto"></div>
   </div>
 </body>
