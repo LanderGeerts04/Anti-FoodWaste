@@ -4,11 +4,21 @@ async function getData() {
     const number = document
       .getElementById("recept-hoeveelheid")
       .value.toLowerCase();
+    const randomNum = Math.floor(Math.random() * 30) + 1;
+    const check = document.getElementById("ingredienten");
 
     const query = new URLSearchParams();
     query.append("apiKey", "ecba64142f2c4d04a206e6311d8d86b5");
     query.append("query", recepten);
     query.append("number", number);
+    query.append("fillIngredients", "True");
+    query.append("offset", randomNum);
+    if (check.checked === true) {
+      const ingredient = document
+        .getElementById("ingredient-input")
+        .value.toLowerCase();
+      query.append("includeIngredients", ingredient);
+    }
 
     console.log(query);
     const response = await fetch(
