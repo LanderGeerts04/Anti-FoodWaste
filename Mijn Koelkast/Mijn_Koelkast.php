@@ -112,7 +112,7 @@
 
           if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-              echo "<li>" . $row["IngrediëntNaam"] . "<ol><a href=\"?delete=" . $row["IngrediëntID"] . "\">DEL</a></ol><ol>" . $row["Hoeveelheid"] . " " . $row["IngrediëntEenheid"] . "</ol><ol>".$row["Vervaldatum"]." dagen over</ol></li>";
+              echo "<li>" . $row["IngrediëntNaam"] . "<ol id=\"delknop\"><a href=\"?delete=" . $row["IngrediëntID"] . "\">DEL</a></ol><ol id=\"hoeveelheid\">" . $row["Hoeveelheid"] . " " . $row["IngrediëntEenheid"] . "</ol><ol id=\"vervaldatum\">".$row["Vervaldatum"]." dagen over</ol></li>";
             }
           }
           $conn->close(); // Sluiten van de verbinding
