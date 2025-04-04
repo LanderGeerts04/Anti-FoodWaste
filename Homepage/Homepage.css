@@ -82,6 +82,7 @@ body{
 }
 .logout:hover{
     text-decoration: underline;
+    cursor: pointer;
 }
 
 .knoppen{

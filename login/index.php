@@ -24,6 +24,7 @@ function isActiveForm($formName,$activeForm){
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="../Algemene files/Algemen iconen/garbage.png" type="image/icon type">
     <title>Anti-Foodwaste</title>
     <script src="script.js"></script>
   </head>

@@ -13,6 +13,7 @@ if (!isset($_SESSION['email'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1.0">
+    <link rel="icon" href="../Algemene files/Algemen iconen/garbage.png" type="image/icon type">
     <title>Homepage</title>
     <link href="Homepage.css" rel="stylesheet" />
 </head>
