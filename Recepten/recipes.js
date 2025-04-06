@@ -54,3 +54,18 @@ function showRecipe(json, i) {
   title.append(json.results[i].title);
   image.src = json.results[i].image;
 }
+
+function sendData(number) {
+  let text = document.getElementById("title" + number).innerHTML;
+  let url = document.getElementById("img" + number).src;
+  let data = { title: text, image: url };
+  console.log(data);
+
+  fetch("databaseAdd.php", {
+    method: "POST",
+    headers: {
+      "Content-type": "application/json; charset=utf-8",
+    },
+    body: JSON.stringify(data),
+  });
+}
