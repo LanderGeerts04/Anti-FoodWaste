@@ -15,6 +15,8 @@ if (isset($_POST['register'])){
     $conn->query("INSERT INTO inlog (Naam, Email, Wachtwoord) VALUES ('$name', '$email', '$password')");
     }
 
+    
+
     header("location: index.php");
     exit();
 }
@@ -29,6 +31,7 @@ if (isset($_POST['login'])){
         if (password_verify($password,$user['Wachtwoord'])){
             $_SESSION['name'] = $user['Naam'];
             $_SESSION['email'] = $user['Email'];
+            $_SESSION['user_id'] = $user['InlogID'];
             header("location: ../Homepage/Homepage.php");
             exit();
         }
