@@ -2,6 +2,7 @@
 
 session_start();
 if (!isset($_SESSION['email'])){
+  echo $_SESSION['user_id'];
   header("location: ../login/index.php");
   exit();
 }
