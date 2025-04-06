@@ -5,31 +5,51 @@
 
 body{
     font-family: VarelaRound;
+    background-image: url(../Startpagina/Background.png);
+}
+
+#header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 h1{
-    text-align: center;
     font-family: VarelaRound;
 }
 
 #login{
-    display: flex;
+    border-radius: 15px;
+    justify-items: right;
     gap: 10px;
-    justify-content: end;
-    margin-right: 100px;
+    margin-right: 50px;
 }
 
 .knop{
     border: solid 2px black;
     border-radius: 15px;
     padding: 5px;
+    background-color: white;
 }
 
 .knop:hover{
     text-decoration: underline;
+    cursor: pointer;
 }
 
 a{
     text-decoration: none;
     color: black;
+}
+
+#text{
+    background-color: white;
+    border-radius: 15px;
+    padding: 5px;
+    text-align: center;
+}
+
+#slogan{
+    font-weight: bold;
+    font-style: italic;
 }

@@ -25,41 +25,40 @@ if (!isset($_SESSION['email'])){
 <body onload="checkBox()">
   <h1>ZOEK EEN RECEPT</h1>
   <hr />
-  <div class="navigatie">
-    <button class="hamburger" type="button" onclick="verberg()">
-      <img src="../Algemene files/Algemen iconen/menu.svg" alt="$" />
-    </button>
-    <ul id="nav">
-      <li id="top"><a href="../Homepage/Homepage.php">HOME</a></li>
-      <li><a href="../Mijn Koelkast/Mijn_Koelkast.php">MIJN KOELKAST</a></li>
-      <li><a href="../Weekmenu/Weekmenu.php">WEEKMENU</a></li>
-      <li>
-        <a href="../Boodschappenlijst/Boodschappenlijst.php">BOODSCHAPPENLIJST</a>
-      </li>
-      <li id="bottom" class="active" ><a href="../Recepten/recepten.php">RECEPTEN</a></li>
-    </ul>
-  </div>
-  <div class="main">
-    <div id="upper">
-      <input id="recepten" class="input" type="text" placeholder="Recept.." />
-      <input
-        class="numberInput"
-        id="recept-hoeveelheid"
-        type="number"
-        placeholder="0" />
+    <div class="navigatie">
+      <button class="hamburger" type="button" onclick="verberg()">
+        <img src="../Algemene files/Algemen iconen/menu.svg" alt="$" />
+      </button>
+      <ul id="nav">
+        <li id="top"><a href="../Homepage/Homepage.php">HOME</a></li>
+        <li><a href="../Mijn Koelkast/Mijn_Koelkast.php">MIJN KOELKAST</a></li>
+        <li><a href="../Weekmenu/Weekmenu.php">WEEKMENU</a></li>
+        <li>
+          <a href="../Boodschappenlijst/Boodschappenlijst.php">BOODSCHAPPENLIJST</a>
+        </li>
+        <li id="bottom" class="active" ><a href="../Recepten/recepten.php">RECEPTEN</a></li>
+      </ul>
     </div>
-    <div id="middle">
-      <input type="checkbox" name="ingredienten" id="ingredienten" onclick="checkBox()">
-      <label id="ingredient-label" for="ingredienten">Gebruik ingrediënten</label>
-    </div>
+    <div class="main">
+      <div id="upper">
+        <input id="recepten" class="input" type="text" placeholder="Recept.." />
+        <input
+          class="numberInput"
+          id="recept-hoeveelheid"
+          type="number"
+          placeholder="0" />
+      </div>
+      <div id="middle">
+        <input type="checkbox" name="ingredienten" id="ingredienten" onclick="checkBox()">
+        <label id="ingredient-label" for="ingredienten">Gebruik ingrediënten</label>
+      </div>
     
-    <div id="lower">
-      <input type="text" class="input" name="ingredient" id="ingredient-input" placeholder="Ingrediënten..">
+      <div id="lower">
+        <input type="text" class="input" name="ingredient" id="ingredient-input" placeholder="Ingrediënten..">
       
+      </div>
+      <button class="knop" id="knop1" onclick="getData()">Zoek</button>
+      <div id="recept-foto"></div>
     </div>
-    <button class="knop" id="knop1" onclick="getData()">Zoek</button>
-    <div id="recept-foto"></div>
-  </div>
 </body>
-
 </html>
