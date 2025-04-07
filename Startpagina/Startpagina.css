@@ -5,24 +5,29 @@
 
 body{
     font-family: VarelaRound;
-    background-image: url(../Startpagina/Background.png);
-}
-
-#header{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background-image: url(../Startpagina/Photos/Background.png);
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 h1{
     font-family: VarelaRound;
+    text-align: center;
+}
+
+#header{
+    background-color: white;
+    width: 80%;
+    justify-self: center;
+    padding: 3px;
+    border-radius: 15px;
 }
 
 #login{
     border-radius: 15px;
-    justify-items: right;
-    gap: 10px;
-    margin-right: 50px;
+    justify-self: right;
+    gap: 5px;
+    margin-top: 20px;
 }
 
 .knop{
@@ -47,9 +52,26 @@ a{
     border-radius: 15px;
     padding: 5px;
     text-align: center;
+    width: 80%;
+    justify-self: center;
+    margin: 20px;
 }
 
 #slogan{
     font-weight: bold;
     font-style: italic;
+}
+
+.photo{
+    padding: 10px;
+    border-radius: 15px;
+    width: 750px;
+    background-color: white;
+}
+
+#photos{
+    gap: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
