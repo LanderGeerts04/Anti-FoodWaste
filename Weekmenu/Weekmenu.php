@@ -91,7 +91,7 @@ if (!isset($_SESSION['email'])){
                     require_once("../Algemene files/DatabaseConnectie.php");
                     $conn->select_db("AntiFoodwaste");
 
-                    $sql = "SELECT r.ReceptNaam,r.ReceptID,ReceptImage from recepten r INNER JOIN weekmenu w ON (r.ReceptID=w.ReceptID) WHERE w.Day='MA'; ";
+                    $sql = "SELECT r.ReceptNaam,r.ReceptID,ReceptImage from recepten r INNER JOIN weekmenu w ON (r.ReceptID=w.ReceptID) WHERE w.Day='MA'  AND w.InlogID like $userid; ";
                     $result = $conn->query($sql);
 
                     if ($result->num_rows > 0) {
@@ -113,7 +113,7 @@ if (!isset($_SESSION['email'])){
                     require_once("../Algemene files/DatabaseConnectie.php");
                     $conn->select_db("AntiFoodwaste");
 
-                    $sql = "SELECT r.ReceptNaam,r.ReceptID,ReceptImage from recepten r INNER JOIN weekmenu w ON (r.ReceptID=w.ReceptID) WHERE w.Day='DI'; ";
+                    $sql = "SELECT r.ReceptNaam,r.ReceptID,ReceptImage from recepten r INNER JOIN weekmenu w ON (r.ReceptID=w.ReceptID) WHERE w.Day='DI' AND w.InlogID like $userid; ";
                     $result = $conn->query($sql);
 
                     if ($result->num_rows > 0) {
@@ -135,7 +135,7 @@ if (!isset($_SESSION['email'])){
                     require_once("../Algemene files/DatabaseConnectie.php");
                     $conn->select_db("AntiFoodwaste");
 
-                    $sql = "SELECT r.ReceptNaam,r.ReceptID,ReceptImage from recepten r INNER JOIN weekmenu w ON (r.ReceptID=w.ReceptID) WHERE w.Day='WO'; ";
+                    $sql = "SELECT r.ReceptNaam,r.ReceptID,ReceptImage from recepten r INNER JOIN weekmenu w ON (r.ReceptID=w.ReceptID) WHERE w.Day='WO' AND w.InlogID like $userid; ";
                     $result = $conn->query($sql);
 
                     if ($result->num_rows > 0) {
@@ -157,7 +157,7 @@ if (!isset($_SESSION['email'])){
                     require_once("../Algemene files/DatabaseConnectie.php");
                     $conn->select_db("AntiFoodwaste");
 
-                    $sql = "SELECT r.ReceptNaam,r.ReceptID,ReceptImage from recepten r INNER JOIN weekmenu w ON (r.ReceptID=w.ReceptID) WHERE w.Day='DO'; ";
+                    $sql = "SELECT r.ReceptNaam,r.ReceptID,ReceptImage from recepten r INNER JOIN weekmenu w ON (r.ReceptID=w.ReceptID) WHERE w.Day='DO' AND w.InlogID like $userid; ";
                     $result = $conn->query($sql);
 
                     if ($result->num_rows > 0) {
@@ -179,7 +179,7 @@ if (!isset($_SESSION['email'])){
                     require_once("../Algemene files/DatabaseConnectie.php");
                     $conn->select_db("AntiFoodwaste");
 
-                    $sql = "SELECT r.ReceptNaam,r.ReceptID,ReceptImage from recepten r INNER JOIN weekmenu w ON (r.ReceptID=w.ReceptID) WHERE w.Day='VR'; ";
+                    $sql = "SELECT r.ReceptNaam,r.ReceptID,ReceptImage from recepten r INNER JOIN weekmenu w ON (r.ReceptID=w.ReceptID) WHERE w.Day='VR' AND w.InlogID like $userid; ";
                     $result = $conn->query($sql);
 
                     if ($result->num_rows > 0) {
@@ -201,7 +201,7 @@ if (!isset($_SESSION['email'])){
                     require_once("../Algemene files/DatabaseConnectie.php");
                     $conn->select_db("AntiFoodwaste");
 
-                    $sql = "SELECT r.ReceptNaam,r.ReceptID,ReceptImage from recepten r INNER JOIN weekmenu w ON (r.ReceptID=w.ReceptID) WHERE w.Day='ZA'; ";
+                    $sql = "SELECT r.ReceptNaam,r.ReceptID,ReceptImage from recepten r INNER JOIN weekmenu w ON (r.ReceptID=w.ReceptID) WHERE w.Day='ZA' AND w.InlogID like $userid; ";
                     $result = $conn->query($sql);
 
                     if ($result->num_rows > 0) {
@@ -223,7 +223,7 @@ if (!isset($_SESSION['email'])){
                     require_once("../Algemene files/DatabaseConnectie.php");
                     $conn->select_db("AntiFoodwaste");
 
-                    $sql = "SELECT r.ReceptNaam,r.ReceptID,ReceptImage from recepten r INNER JOIN weekmenu w ON (r.ReceptID=w.ReceptID) WHERE w.Day='ZO'; ";
+                    $sql = "SELECT r.ReceptNaam,r.ReceptID,ReceptImage from recepten r INNER JOIN weekmenu w ON (r.ReceptID=w.ReceptID) WHERE w.Day='ZO' AND w.InlogID like $userid; ";
                     $result = $conn->query($sql);
 
                     if ($result->num_rows > 0) {
