@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+$userid = $_SESSION["user_id"];
 if (!isset($_SESSION['email'])){
   header("location: ../login/index.php");
   exit();
@@ -47,7 +48,8 @@ if (!isset($_SESSION['email'])){
                 require_once("../Algemene files/DatabaseConnectie.php");
                 $conn->select_db("AntiFoodwaste");
 
-                $sql = "SELECT ReceptID,ReceptNaam,ReceptImage from recepten where ReceptID NOT IN (SELECT ReceptID from weekmenu);";
+                $sql = "SELECT ReceptID,ReceptNaam,ReceptImage from recepten where ReceptID NOT IN (SELECT ReceptID from weekmenu)
+                 AND InlogID like $userid ;";
                 $result = $conn->query($sql);
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {

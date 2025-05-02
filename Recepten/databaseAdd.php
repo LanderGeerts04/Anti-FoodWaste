@@ -10,6 +10,7 @@ if (isset($_POST)) {
 
     $title = $recept["title"];
     $image = $recept["image"];
+    $userid = $_SESSION["user_id"];
 
-    $conn->query("INSERT INTO recepten (ReceptNaam,ReceptImage) VALUES ('$title','$image')");
+    $conn->query("INSERT INTO recepten (ReceptNaam,ReceptImage,InlogID) VALUES ('$title','$image','$userid')");
 }
