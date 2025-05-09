@@ -17,17 +17,11 @@ CREATE TABLE IF NOT EXISTS Ingrediënten (
     IngrediëntID INT AUTO_INCREMENT PRIMARY KEY,
     IngrediëntNaam VARCHAR(50) NOT NULL,
     IngrediëntCategorie VARCHAR(20),
-    IngrediëntEenheid VARCHAR(10)
-);
-
-CREATE TABLE IF NOT EXISTS Koelkast (
-    KoelkastID INT AUTO_INCREMENT PRIMARY KEY,
     Hoeveelheid INT,
     Vervaldatum DATE,
     InlogID INT,
-    IngrediëntID INT,
-    CONSTRAINT fk_Koelkast_Ingrediënten FOREIGN KEY (IngrediëntID) REFERENCES Ingrediënten(IngrediëntID) ON DELETE CASCADE,
-    CONSTRAINT fk_Koelkast_Inlog FOREIGN KEY (InlogID) REFERENCES Inlog(InlogID) ON DELETE CASCADE
+    IngrediëntEenheid VARCHAR(10),
+    CONSTRAINT fk_Ingrediënt_Inlog FOREIGN KEY (InlogID) REFERENCES Inlog(InlogID) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS Boodschappenlijst (

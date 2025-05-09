@@ -4,6 +4,7 @@ require_once '../Algemene files/DatabaseConnectie.php';
 $conn->select_db("AntiFoodwaste");
 $userid=$_SESSION["user_id"];
 
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["Naam"]) && isset($_POST["Categorie"]) && isset($_POST["Hoeveelheid"]) && isset($_POST["Date"])) {
         $naam = $_POST["Naam"];
@@ -16,6 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bind_param("sss",$naam,$categorie,$eenheid);
         $stmt->execute();
         $stmt->close();
+
 
         $stmt=$conn->prepare("INSERT INTO koelkast (IngrediëntID,Hoeveelheid,Vervaldatum,InlogID) SELECT IngrediëntID,?,?,? FROM ingrediënten WHERE IngrediëntNaam = ?");
         $stmt->bind_param("isis",$hoeveelheid,$date,$userid,$naam);
