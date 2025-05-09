@@ -48,10 +48,12 @@ body{
     background-color: white;
     text-align: center;
 }
+
 .hamburger:hover{
     outline: 3px;
     outline-color: black;
     outline-style: solid;
+    cursor: pointer;
 }
 #active{
     background-color: black;
@@ -266,3 +268,4 @@ body{
     margin-right: 40px;
     background-color: white;
 }
+

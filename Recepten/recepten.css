@@ -158,6 +158,7 @@ div {
   outline: 3px;
   outline-color: black;
   outline-style: solid;
+  cursor: pointer;
 }
 #active {
   background-color: black;

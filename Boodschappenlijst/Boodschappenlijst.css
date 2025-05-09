@@ -27,6 +27,7 @@ body {
   outline: 3px;
   outline-color: black;
   outline-style: solid;
+  cursor: pointer;
 }
 #nav a {
   display: block;
