@@ -39,33 +39,68 @@ async function getData() {
 }
 
 function showRecipe(json, i) {
+  let NumberOfMissedIngredients = json.results[i].missedIngredientCount;
+
   const div = document.createElement("div");
   div.setAttribute("class", "receptFoto");
-  div.setAttribute("onclick", `sendData(${i})`);
+  div.setAttribute(
+    "onclick",
+    `sendData(${i})` //${MissingIngredients},
+  );
   const image = document.createElement("img");
   image.setAttribute("id", "img" + i);
   const title = document.createElement("p");
   title.setAttribute("id", "title" + i);
-
+  const data = document.createElement("div");
+  data.setAttribute("id", "hidden");
   document.getElementById("recept-foto").append(div);
 
   div.append(image);
   div.append(title);
+  div.append(data);
   title.append(json.results[i].title);
   image.src = json.results[i].image;
+
+  for (let k = 0; k < NumberOfMissedIngredients; k++) {
+    const MissingIngredientsDiv = document.createElement("div");
+    data.append(MissingIngredientsDiv);
+    MissingIngredientsDiv.setAttribute("id", "missing" + k);
+
+    const MissingIngredientsName = document.createElement("p");
+    document.getElementById("missing" + k).append(MissingIngredientsName);
+    MissingIngredientsName.setAttribute("id", "name" + k);
+    document
+      .getElementById("name" + k)
+      .append(json.results[i].missedIngredients[k].name);
+
+    const MissingIngredientsAmount = document.createElement("p");
+    document.getElementById("missing" + k).append(MissingIngredientsAmount);
+    MissingIngredientsAmount.setAttribute("id", "amount" + k);
+    document
+      .getElementById("amount" + k)
+      .append(json.results[i].missedIngredients[k].amount);
+
+    const MissingIngredientsUnit = document.createElement("p");
+    document.getElementById("missing" + k).append(MissingIngredientsUnit);
+    MissingIngredientsUnit.setAttribute("id", "unit" + k);
+    document
+      .getElementById("unit" + k)
+      .append(json.results[i].missedIngredients[k].unit);
+  }
 }
 
 function sendData(number) {
   let text = document.getElementById("title" + number).innerHTML;
   let url = document.getElementById("img" + number).src;
-  let data = { title: text, image: url };
-  console.log(data);
+  let DBdata = { title: text, image: url };
+  DBdata = Object.assign({ ing: "kaas" }, DBdata);
+  console.log(DBdata);
 
   fetch("databaseAdd.php", {
     method: "POST",
     headers: {
       "Content-type": "application/json; charset=utf-8",
     },
-    body: JSON.stringify(data),
+    body: JSON.stringify(DBdata),
   });
 }

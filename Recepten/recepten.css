@@ -177,3 +177,6 @@ div {
   border-bottom-left-radius: 16px;
   background-color: black;
 }
+#hidden {
+  display: none;
+}
