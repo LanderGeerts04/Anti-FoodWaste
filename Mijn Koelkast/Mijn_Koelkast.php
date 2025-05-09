@@ -109,14 +109,14 @@ $userid=$_SESSION["user_id"];
           // UI genereren (met filter)
           if (isset($_POST["Categorie"])) {
             $cat = $_POST["Categorie"];
-            $stmt = $conn->prepare("SELECT i.IngrediëntID,i.IngrediëntNaam,k.Hoeveelheid,i.IngrediëntEenheid,DATEDIFF(k.Vervaldatum,now())'Vervaldatum' FROM koelkast k INNER JOIN ingrediënten i ON (i.IngrediëntID=k.IngrediëntID) WHERE i.IngrediëntCategorie LIKE ? AND k.InlogID LIKE $userid");
+            $stmt = $conn->prepare("SELECT i.IngrediëntID,i.IngrediëntNaam,i.Hoeveelheid,i.IngrediëntEenheid,DATEDIFF(i.Vervaldatum,now())'Vervaldatum' FROM ingrediënten i WHERE i.IngrediëntCategorie LIKE ? AND i.InlogID LIKE $userid");
             $stmt->bind_param("s", $cat);
             $stmt->execute(); // Uitvoeren van de query
             $result = $stmt->get_result(); // Ophalen van het resultaat
             $stmt->close(); // Sluiten van de statement
           } else {
             // UI genereren (zonder filter)
-            $sql = "SELECT i.IngrediëntID,i.IngrediëntNaam,k.Hoeveelheid,i.IngrediëntEenheid,DATEDIFF(k.Vervaldatum,now())'Vervaldatum' FROM koelkast k INNER JOIN ingrediënten i ON (i.IngrediëntID=k.IngrediëntID) WHERE k.InlogID LIKE $userid";
+            $sql = "SELECT i.IngrediëntID,i.IngrediëntNaam,i.Hoeveelheid,i.IngrediëntEenheid,DATEDIFF(i.Vervaldatum,now())'Vervaldatum' FROM ingrediënten i WHERE i.InlogID LIKE $userid";
             $result = $conn->query($sql);
           }
 

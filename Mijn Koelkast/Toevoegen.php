@@ -13,17 +13,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $eenheid= $_POST["eenheid"];
         $date=$_POST["Date"];
 
-        $stmt=$conn->prepare("INSERT INTO ingrediënten (IngrediëntNaam,IngrediëntCategorie,IngrediëntEenheid) VALUES (?,?,?)");
-        $stmt->bind_param("sss",$naam,$categorie,$eenheid);
+        $stmt=$conn->prepare("INSERT INTO ingrediënten (IngrediëntNaam,IngrediëntCategorie,IngrediëntEenheid,Hoeveelheid,Vervaldatum,InlogID) VALUES (?,?,?,?,?,?)");
+        $stmt->bind_param("sssisi",$naam,$categorie,$eenheid,$hoeveelheid,$date,$userid);
         $stmt->execute();
         $stmt->close();
-
-
-        $stmt=$conn->prepare("INSERT INTO koelkast (IngrediëntID,Hoeveelheid,Vervaldatum,InlogID) SELECT IngrediëntID,?,?,? FROM ingrediënten WHERE IngrediëntNaam = ?");
-        $stmt->bind_param("isis",$hoeveelheid,$date,$userid,$naam);
-        $stmt->execute();
-        $stmt->close();
-        
         
     } else {
         echo "Niet alle velden zijn ingevuld!";
