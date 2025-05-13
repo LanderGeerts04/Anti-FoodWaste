@@ -160,12 +160,15 @@ div {
   outline-style: solid;
   cursor: pointer;
 }
-#active {
+.active {
   background-color: black;
   border-bottom-right-radius: 15px;
 }
-#active a {
-  color: white;
+.active a {
+  color: white !important;
+}
+#bottom{
+  border-bottom-left-radius: 16px;
 }
 #top a:hover {
   border-top-right-radius: 16px;

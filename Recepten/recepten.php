@@ -36,7 +36,7 @@ if (!isset($_SESSION['email'])){
       <li>
         <a href="../Boodschappenlijst/Boodschappenlijst.php">BOODSCHAPPENLIJST</a>
       </li>
-      <li id="active"><a href="../Recepten/recepten.php">RECEPTEN</a></li>
+      <li id="bottom" class="active" ><a href="../Recepten/recepten.php">RECEPTEN</a></li>
     </ul>
   </div>
   <div class="main">

@@ -6,6 +6,8 @@ if (!isset($_SESSION['email'])){
   exit();
 }
 
+require_once("../Algemene files/DatabaseConnectie.php");
+$conn->select_db("AntiFoodwaste");
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +29,9 @@ if (!isset($_SESSION['email'])){
             <a href="../Homepage/Homepage.php"><img id="logo" align="right" src="../Boodschappenlijst/Photos/list-check.svg" alt="Geen foto beschikbaar"></a>
         </h1>
     </div>
-    <hr />
+    <hr>
+    <p class="Intro">Hier vind je het boodschappenlijstje</p>
+    <hr>
     <div>
         <button class="hamburger" type="button" onclick="verberg()"><img src="../Algemene files/Algemen iconen/menu.svg" alt="$"></button>
         <ul id="nav">
@@ -38,19 +42,6 @@ if (!isset($_SESSION['email'])){
             <li id="bottom"><a href="../Recepten/recepten.php">RECEPTEN</a></li>
         </ul>
     </div>
-    <ul>
-        <?php
-                require_once("../Algemene files/DatabaseConnectie.php");
-                $conn->select_db("AntiFoodwaste");
-
-                $sql = "SELECT i.IngrediëntNaam, (r.Hoeveelheid - k.Hoeveelheid) 'Hoeveelheid' from Ingrediënten i inner join Koelkast k on i.IngrediëntID = k.IngrediëntID inner join receptingrediënt r on k.IngrediëntID = r.IngrediëntID group by i.IngrediëntNaam having Hoeveelheid > 0";
-                $result = $conn->query($sql);
-                if ($result->num_rows > 0){
-                    $user = $result->fetch_assoc();
-                    echo [$user];
-                }
-        ?>
-    </ul>
     <div class="artikel">
         <div class="lijstje">
             <div id="veg">
@@ -58,54 +49,102 @@ if (!isset($_SESSION['email'])){
                 <h2>Groenten</h2>
             </div>
             <ul>
-                <li><input type="checkbox" name="groente" value="Sla">
-                    <label>Sla</label>
-                </li>
+                <?php
+                    $sql = "SELECT IngrediëntNaam FROM receptingrediënt INNER JOIN ingrediënten WHERE IngrediëntCategorie LIKE \"GR\" AND InlogID IS NULL";
+                    $result = $conn->query($sql);
+
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                        echo "<li><input type=\"checkbox\" name=\"groenten\" value=".$row["IngrediëntNaam"]."><label>".$row["IngrediëntNaam"]."</label>";
+                        }
+                    }
+                ?>
             </ul>
             <div id="Dairy">
                 <img class="menulogos" src="../Mijn Koelkast/Photos/Icons/egg.svg" alt="$">
                 <h2>Zuivel</h2>
             </div>
             <ul>
-                <li><input type="checkbox" name="zuivel" value="melk">
-                    <label>Melk</label>
-                </li>
+                <?php
+
+                    $sql = "SELECT IngrediëntNaam FROM receptingrediënt INNER JOIN ingrediënten WHERE IngrediëntCategorie LIKE \"ZU\" AND InlogID IS NULL";
+                    $result = $conn->query($sql);
+
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                        echo "<li><input type=\"checkbox\" name=\"groenten\" value=".$row["IngrediëntNaam"]."><label>".$row["IngrediëntNaam"]."</label>";
+                        }
+                    }
+                ?>
             </ul>
             <div id="fru">
                 <img class="menulogos" src="../Mijn Koelkast/Photos/Icons/apple.svg" alt="$">
                 <h2>Fruit</h2>
             </div>
             <ul>
-                <li><input type="checkbox" name="fruit" value="appel">
-                    <label>Appel</label>
-                </li>
+                <?php
+
+                    $sql = "SELECT IngrediëntNaam FROM receptingrediënt INNER JOIN ingrediënten WHERE IngrediëntCategorie LIKE \"FR\" AND InlogID IS NULL";
+                    $result = $conn->query($sql);
+
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                        echo "<li><input type=\"checkbox\" name=\"groenten\" value=".$row["IngrediëntNaam"]."><label>".$row["IngrediëntNaam"]."</label>";
+                        }
+                    }
+                ?>
             </ul>
             <div id="wheat">
                 <img class="menulogos" src="../Mijn Koelkast/Photos/Icons/wheat.svg" alt="$">
                 <h2>Deegwaren</h2>
             </div>
             <ul>
-                <li><input type="checkbox" name="deegwaren" value="Spaghetti">
-                    <label>Spaghetti</label>
-                </li>
+                <?php
+
+                    $sql = "SELECT IngrediëntNaam FROM receptingrediënt INNER JOIN ingrediënten WHERE IngrediëntCategorie LIKE \"DE\" AND InlogID IS NULL";
+                    $result = $conn->query($sql);
+
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                        echo "<li><input type=\"checkbox\" name=\"groenten\" value=".$row["IngrediëntNaam"]."><label>".$row["IngrediëntNaam"]."</label>";
+                        }
+                    }
+                ?>
             </ul>
             <div id="meat">
                 <img class="menulogos" src="../Mijn Koelkast/Photos/Icons/ham.svg" alt="$">
                 <h2>Vlees en vis</h2>
             </div>
             <ul>
-                <li><input type="checkbox" name="vleesvis" value="biefstuk">
-                    <label>Biefstuk</label>
-                </li>
+                <?php
+
+                    $sql = "SELECT IngrediëntNaam FROM receptingrediënt INNER JOIN ingrediënten WHERE IngrediëntCategorie LIKE \"VV\" AND InlogID IS NULL";
+                    $result = $conn->query($sql);
+
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                        echo "<li><input type=\"checkbox\" name=\"groenten\" value=".$row["IngrediëntNaam"]."><label>".$row["IngrediëntNaam"]."</label>";
+                        }
+                    }
+                ?>
             </ul>
             <div id="varia">
                 <img class="menulogos" src="../Mijn Koelkast/Photos/Icons/chef-hat.svg" alt="$">
                 <h2>Diversen</h2>
             </div>
             <ul>
-                <li><input type="checkbox" name="divers" value="BIER">
-                    <label>BIER</label>
-                </li>
+                <?php
+
+                    $sql = "SELECT IngrediëntNaam FROM receptingrediënt INNER JOIN ingrediënten  WHERE IngrediëntCategorie LIKE \"OV\" AND InlogID IS NULL";
+                    $result = $conn->query($sql);
+
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                        echo "<li><input type=\"checkbox\" name=\"groenten\" value=".$row["IngrediëntNaam"]."><label>".$row["IngrediëntNaam"]."</label>";
+                        }
+                    }
+                    $conn->close();
+                ?>
             </ul>
         </div>
     </div>
