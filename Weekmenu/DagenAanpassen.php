@@ -8,10 +8,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["Dagen"])&& isset($_POST["ReceptID"])) {
         $dagen=$_POST["Dagen"];
         $receptID=$_POST["ReceptID"];
-        $stmt=$conn->prepare("INSERT into weekmenu (Day,ReceptID,InlogID) VALUES(?,?,?)");
-        $stmt->bind_param("sii",$dagen,$receptID,$userid);
-        $stmt->execute();
-        $stmt->close();
+        if($dagen=="DEL")
+        {
+            $stmt=$conn->prepare("DELETE FROM recepten WHERE ReceptID LIKE ?");
+            $stmt->bind_param("i",$receptID);
+            $stmt->execute();
+            $stmt->close();
+        }
+        else
+        {
+            $stmt=$conn->prepare("INSERT into weekmenu (Day,ReceptID,InlogID) VALUES(?,?,?)");
+            $stmt->bind_param("sii",$dagen,$receptID,$userid);
+            $stmt->execute();
+            $stmt->close();
+        }
     } else {
         echo "Niet alle velden zijn ingevuld!";
         header("Location: ./Weekmenu.php");

@@ -18,6 +18,7 @@ if (!isset($_SESSION['email'])){
     <link rel="icon" href="../Algemene files/Algemen iconen/garbage.png" type="image/icon type">
     <title>Weekmenu</title>
     <link rel="stylesheet" href="./Weekmenu.css">
+    <script src="../Algemene files/Jquery.js"></script>
     <script src="../Algemene files/Navigatieverberg.js"></script>
     <script src="../Algemene files/Draging.js"></script>
     <script src="../Weekmenu/Dragchange.php"></script>
@@ -54,7 +55,7 @@ if (!isset($_SESSION['email'])){
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
                         echo "<li class=\"Recept\" id=" . $row["ReceptID"] . ">
-                            <img src=\"" . $row["ReceptImage"] . "\" alt=\"" . $row["ReceptNaam"] . "\">
+                            <img src=\"" . $row["ReceptImage"] . "\" alt=\"" . $row["ReceptNaam"] . "\" id=\"foto".$row["ReceptID"]."\">
                             <div><p>" . $row["ReceptNaam"] . "</p></div>
                             <form name=\"DagenSelect" . $row["ReceptID"] . "\" action=\"./DagenAanpassen.php\" method=\"POST\">
                                 <select name=\"Dagen\" id=\"\" onchange=\"DagenSelect" . $row["ReceptID"] . ".submit()\">
@@ -66,6 +67,7 @@ if (!isset($_SESSION['email'])){
                                     <Option value=\"VR\">VR</Option>
                                     <Option value=\"ZA\">ZA</Option>
                                     <Option value=\"ZO\">ZO</Option>
+                                    <Option style=\"color:red;\" value=\"DEL\">DEL</Option>
                                 </select>
                                 <input type=\"hidden\"  name=\"ReceptID\" value=\"" . $row["ReceptID"] . "\"/>
                             </form>
