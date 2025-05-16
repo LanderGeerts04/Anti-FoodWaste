@@ -170,7 +170,7 @@ div {
 .active a {
   color: white !important;
 }
-#bottom{
+#bottom {
   border-bottom-left-radius: 16px;
 }
 #top a:hover {
@@ -183,6 +183,6 @@ div {
   border-bottom-left-radius: 16px;
   background-color: black;
 }
-#hidden {
+.hidden {
   display: none;
 }
