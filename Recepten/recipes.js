@@ -52,48 +52,58 @@ function showRecipe(json, i) {
   const title = document.createElement("p");
   title.setAttribute("id", "title" + i);
   const data = document.createElement("div");
-  data.setAttribute("id", "hidden");
+  data.setAttribute("class", "hidden");
+  data.setAttribute("id", "hidden" + i);
   document.getElementById("recept-foto").append(div);
 
   div.append(image);
   div.append(title);
+
   div.append(data);
   title.append(json.results[i].title);
   image.src = json.results[i].image;
 
   for (let k = 0; k < NumberOfMissedIngredients; k++) {
     const MissingIngredientsDiv = document.createElement("div");
-    data.append(MissingIngredientsDiv);
-    MissingIngredientsDiv.setAttribute("id", "missing" + k);
+    document.getElementById("hidden" + i).append(MissingIngredientsDiv);
+    MissingIngredientsDiv.setAttribute("id", "missing" + i + k);
 
     const MissingIngredientsName = document.createElement("p");
-    document.getElementById("missing" + k).append(MissingIngredientsName);
-    MissingIngredientsName.setAttribute("id", "name" + k);
+    document.getElementById("missing" + i + k).append(MissingIngredientsName);
+    MissingIngredientsName.setAttribute("id", "name" + i + k);
     document
-      .getElementById("name" + k)
+      .getElementById("name" + i + k)
       .append(json.results[i].missedIngredients[k].name);
 
     const MissingIngredientsAmount = document.createElement("p");
-    document.getElementById("missing" + k).append(MissingIngredientsAmount);
-    MissingIngredientsAmount.setAttribute("id", "amount" + k);
+    document.getElementById("missing" + i + k).append(MissingIngredientsAmount);
+    MissingIngredientsAmount.setAttribute("id", "amount" + i + k);
     document
-      .getElementById("amount" + k)
+      .getElementById("amount" + i + k)
       .append(json.results[i].missedIngredients[k].amount);
 
     const MissingIngredientsUnit = document.createElement("p");
-    document.getElementById("missing" + k).append(MissingIngredientsUnit);
-    MissingIngredientsUnit.setAttribute("id", "unit" + k);
+    document.getElementById("missing" + i + k).append(MissingIngredientsUnit);
+    MissingIngredientsUnit.setAttribute("id", "unit" + i + k);
     document
-      .getElementById("unit" + k)
+      .getElementById("unit" + i + k)
       .append(json.results[i].missedIngredients[k].unit);
   }
+
+  let missingbutton = document.createElement("button");
+  missingbutton.innerHTML = "add missing";
+  missingbutton.setAttribute(
+    "onclick",
+    `getMissing(${i},${NumberOfMissedIngredients})`
+  );
+  div.append(missingbutton);
 }
 
 function sendData(number) {
   let text = document.getElementById("title" + number).innerHTML;
   let url = document.getElementById("img" + number).src;
   let DBdata = { title: text, image: url };
-  DBdata = Object.assign({ ing: "kaas" }, DBdata);
+
   console.log(DBdata);
 
   fetch("databaseAdd.php", {
@@ -103,4 +113,24 @@ function sendData(number) {
     },
     body: JSON.stringify(DBdata),
   });
+}
+
+function getMissing(number, NumberOfMissedIngredients) {
+  for (let k = 0; k < NumberOfMissedIngredients; k++) {
+    let name = document.getElementById("name" + number + k).innerHTML;
+    let amount = document.getElementById("amount" + number + k).innerHTML;
+    let unit = document.getElementById("unit" + number + k).innerHTML;
+    sendMissing(name, amount, unit);
+  }
+}
+function sendMissing(name, amount, unit) {
+  let missingData = { naam: name, hoeveelheid: amount, eenheid: unit };
+  console.log(missingData);
+  /* fetch("databaseAdd.php", {
+    method: "POST",
+    headers: {
+      "Content-type": "application/json; charset=utf-8",
+    },
+    body: JSON.stringify(missingData),
+  }); */
 }
