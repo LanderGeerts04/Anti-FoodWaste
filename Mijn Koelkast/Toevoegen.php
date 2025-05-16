@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $hoeveelheid = (int) $_POST["Hoeveelheid"];
         $eenheid= $_POST["eenheid"];
         $date=$_POST["Date"];
-
+        
         $stmt=$conn->prepare("INSERT INTO ingrediënten (IngrediëntNaam,IngrediëntCategorie,IngrediëntEenheid,Hoeveelheid,Vervaldatum,InlogID) VALUES (?,?,?,?,?,?)");
         $stmt->bind_param("sssisi",$naam,$categorie,$eenheid,$hoeveelheid,$date,$userid);
         $stmt->execute();

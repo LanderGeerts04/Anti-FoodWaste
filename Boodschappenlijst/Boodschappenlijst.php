@@ -20,6 +20,29 @@ $conn->select_db("AntiFoodwaste");
     <title>Boodschappenlijstje</title>
     <link rel="stylesheet" href="Boodschappenlijst.css" />
     <script src="../Algemene files/Navigatieverberg.js"></script>
+    <script src="../Algemene files/Jquery.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#veg").click(function(){
+                $("#vegpan").toggle();
+            })
+            $("#Dairy").click(function(){
+                $("#dairypan").toggle();
+            })
+            $("#fru").click(function(){
+                $("#frupan").toggle();
+            })
+            $("#wheat").click(function(){
+                $("#wheatpan").toggle();
+            })
+            $("#meat").click(function(){
+                $("#meatpan").toggle();
+            })
+            $("#varia").click(function(){
+                $("#variapan").toggle();
+            })
+        })
+    </script>
 </head>
 
 <body>
@@ -44,11 +67,11 @@ $conn->select_db("AntiFoodwaste");
     </div>
     <div class="artikel">
         <div class="lijstje">
-            <div id="veg">
+            <button id="veg" class="blaaszak">
                 <img class="menulogos" src="../Mijn Koelkast/Photos/Icons/carrot.svg" alt="$">
                 <h2>Groenten</h2>
-            </div>
-            <ul>
+            </button>
+            <ul class="panneel" id="vegpan">
                 <?php
                     $sql = "SELECT IngrediëntNaam FROM receptingrediënt INNER JOIN ingrediënten WHERE IngrediëntCategorie LIKE \"GR\" AND InlogID IS NULL";
                     $result = $conn->query($sql);
@@ -60,11 +83,11 @@ $conn->select_db("AntiFoodwaste");
                     }
                 ?>
             </ul>
-            <div id="Dairy">
+            <button id="Dairy" class="blaaszak">
                 <img class="menulogos" src="../Mijn Koelkast/Photos/Icons/egg.svg" alt="$">
                 <h2>Zuivel</h2>
-            </div>
-            <ul>
+            </button>
+            <ul class="panneel" id="dairypan">
                 <?php
 
                     $sql = "SELECT IngrediëntNaam FROM receptingrediënt INNER JOIN ingrediënten WHERE IngrediëntCategorie LIKE \"ZU\" AND InlogID IS NULL";
@@ -77,11 +100,11 @@ $conn->select_db("AntiFoodwaste");
                     }
                 ?>
             </ul>
-            <div id="fru">
+            <button id="fru" class="blaaszak">
                 <img class="menulogos" src="../Mijn Koelkast/Photos/Icons/apple.svg" alt="$">
                 <h2>Fruit</h2>
-            </div>
-            <ul>
+            </button>
+            <ul class="panneel" id="frupan">
                 <?php
 
                     $sql = "SELECT IngrediëntNaam FROM receptingrediënt INNER JOIN ingrediënten WHERE IngrediëntCategorie LIKE \"FR\" AND InlogID IS NULL";
@@ -94,11 +117,11 @@ $conn->select_db("AntiFoodwaste");
                     }
                 ?>
             </ul>
-            <div id="wheat">
+            <button id="wheat" class="blaaszak">
                 <img class="menulogos" src="../Mijn Koelkast/Photos/Icons/wheat.svg" alt="$">
                 <h2>Deegwaren</h2>
-            </div>
-            <ul>
+            </button>
+            <ul class="panneel" id="wheatpan">
                 <?php
 
                     $sql = "SELECT IngrediëntNaam FROM receptingrediënt INNER JOIN ingrediënten WHERE IngrediëntCategorie LIKE \"DE\" AND InlogID IS NULL";
@@ -111,11 +134,11 @@ $conn->select_db("AntiFoodwaste");
                     }
                 ?>
             </ul>
-            <div id="meat">
+            <button id="meat" class="blaaszak">
                 <img class="menulogos" src="../Mijn Koelkast/Photos/Icons/ham.svg" alt="$">
                 <h2>Vlees en vis</h2>
-            </div>
-            <ul>
+            </button>
+            <ul class="panneel" id="meatpan">
                 <?php
 
                     $sql = "SELECT IngrediëntNaam FROM receptingrediënt INNER JOIN ingrediënten WHERE IngrediëntCategorie LIKE \"VV\" AND InlogID IS NULL";
@@ -128,11 +151,11 @@ $conn->select_db("AntiFoodwaste");
                     }
                 ?>
             </ul>
-            <div id="varia">
+            <button id="varia" class="blaaszak">
                 <img class="menulogos" src="../Mijn Koelkast/Photos/Icons/chef-hat.svg" alt="$">
                 <h2>Diversen</h2>
-            </div>
-            <ul>
+            </button>
+            <ul class="panneel" id="variapan">
                 <?php
 
                     $sql = "SELECT IngrediëntNaam FROM receptingrediënt INNER JOIN ingrediënten  WHERE IngrediëntCategorie LIKE \"OV\" AND InlogID IS NULL";
