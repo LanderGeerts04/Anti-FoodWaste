@@ -26,9 +26,10 @@ CREATE TABLE IF NOT EXISTS Ingrediënten (
 
 CREATE TABLE IF NOT EXISTS Boodschappenlijst (
     BoodschappenlijstID INT AUTO_INCREMENT PRIMARY KEY,
-    IngrediëntID INT,
+    Name varchar(100),
+    Amount FLOAT,
+    Unit varchar(20),
     InlogID INT,
-    CONSTRAINT fk_Boodschappenlijst_Ingrediënten FOREIGN KEY (IngrediëntID) REFERENCES Ingrediënten(IngrediëntID) ON DELETE CASCADE,
     CONSTRAINT fk_Boodschappenlijst_Inlog FOREIGN KEY (InlogID) REFERENCES Inlog(InlogID) ON DELETE CASCADE
 );
 

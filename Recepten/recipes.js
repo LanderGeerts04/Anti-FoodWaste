@@ -1,3 +1,14 @@
+function checkBox() {
+  const checkbox = document.getElementById("ingredienten");
+  const input = document.getElementById("ingredient-input");
+
+  if (checkbox.checked === true) {
+    input.disabled = false;
+  } else {
+    input.disabled = true;
+  }
+}
+
 async function getData() {
   try {
     const recepten = document.getElementById("recepten").value.toLowerCase();
@@ -124,13 +135,14 @@ function getMissing(number, NumberOfMissedIngredients) {
   }
 }
 function sendMissing(name, amount, unit) {
-  let missingData = { naam: name, hoeveelheid: amount, eenheid: unit };
+  let missingData = { name: name, amount: amount, unit: unit };
   console.log(missingData);
-  /* fetch("databaseAdd.php", {
+
+   fetch("AddMissing.php", {
     method: "POST",
     headers: {
       "Content-type": "application/json; charset=utf-8",
     },
     body: JSON.stringify(missingData),
-  }); */
+  }); 
 }
