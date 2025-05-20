@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS Ingrediënten (
     IngrediëntID INT AUTO_INCREMENT PRIMARY KEY,
     IngrediëntNaam VARCHAR(50) NOT NULL,
     IngrediëntCategorie VARCHAR(20),
-    Hoeveelheid INT,
+    Hoeveelheid FLOAT,
     Vervaldatum DATE,
     InlogID INT,
     IngrediëntEenheid VARCHAR(10),

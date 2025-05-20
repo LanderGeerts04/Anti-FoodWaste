@@ -1,10 +1,12 @@
 <?php
 
 session_start();
-if (!isset($_SESSION['email'])){
-  header("location: ../login/index.php");
-  exit();
+if (!isset($_SESSION['email'])) {
+    header("location: ../login/index.php");
+    exit();
 }
+
+$userid = $_SESSION["user_id"];
 
 require_once("../Algemene files/DatabaseConnectie.php");
 $conn->select_db("AntiFoodwaste");
@@ -22,23 +24,23 @@ $conn->select_db("AntiFoodwaste");
     <script src="../Algemene files/Navigatieverberg.js"></script>
     <script src="../Algemene files/Jquery.js"></script>
     <script>
-        $(document).ready(function(){
-            $("#veg").click(function(){
+        $(document).ready(function() {
+            $("#veg").click(function() {
                 $("#vegpan").toggle();
             })
-            $("#Dairy").click(function(){
+            $("#Dairy").click(function() {
                 $("#dairypan").toggle();
             })
-            $("#fru").click(function(){
+            $("#fru").click(function() {
                 $("#frupan").toggle();
             })
-            $("#wheat").click(function(){
+            $("#wheat").click(function() {
                 $("#wheatpan").toggle();
             })
-            $("#meat").click(function(){
+            $("#meat").click(function() {
                 $("#meatpan").toggle();
             })
-            $("#varia").click(function(){
+            $("#varia").click(function() {
                 $("#variapan").toggle();
             })
         })
@@ -66,112 +68,61 @@ $conn->select_db("AntiFoodwaste");
         </ul>
     </div>
     <div class="artikel">
+        <div class="toevoegen">
+            <p id="toevoegen-tekst">Boodschappen toevoegen</p>
+            <form action="./toevoegen.php" method="POST">
+                <input type="text" name="Naam" id="Naam" placeholder="Name">
+                <input type="number" name="amount" id="amount" placeholder="0" step="0.1">
+                <select name="unit" id="unit" class="formdesign">
+                    <option value="g">Gram</option>
+                    <option value="ml">Mililiter</option>
+                    <option value="Cups">Cups</option>
+                    <option value="Stuks">Stuks</option>
+                </select>
+                <button type="submit">add</button>
+            </form>
+        </div>
         <div class="lijstje">
-            <button id="veg" class="blaaszak">
-                <img class="menulogos" src="../Mijn Koelkast/Photos/Icons/carrot.svg" alt="$">
-                <h2>Groenten</h2>
-            </button>
             <ul class="panneel" id="vegpan">
                 <?php
-                    $sql = "SELECT IngrediëntNaam FROM receptingrediënt INNER JOIN ingrediënten WHERE IngrediëntCategorie LIKE \"GR\" AND InlogID IS NULL";
-                    $result = $conn->query($sql);
 
-                    if ($result->num_rows > 0) {
-                        while ($row = $result->fetch_assoc()) {
-                        echo "<li><input type=\"checkbox\" name=\"groenten\" value=".$row["IngrediëntNaam"]."><label>".$row["IngrediëntNaam"]."</label>";
-                        }
+                if (isset($_GET["delete"]) && is_numeric($_GET["delete"])) {
+                    $id = $_GET["delete"];
+                    $stmt = $conn->prepare("DELETE FROM boodschappenlijst WHERE BoodschappenlijstID = ?");
+                    $stmt->bind_param("i", $id);
+                    if ($stmt->execute()) {
+                        // Succesvol verwijderd
+                    } else {
+                        error_log("Fout bij verwijderen: " . $stmt->error);
                     }
+                    $stmt->close();
+                }
+                if (isset($_GET["add"]) && is_numeric($_GET["add"])) {
+                    $id = $_GET["add"];
+                    $stmt = $conn->prepare("DELETE FROM boodschappenlijst WHERE BoodschappenlijstID = ?");
+                    $stmt->bind_param("i", $id);
+                    if ($stmt->execute()) {
+                        // Succesvol verwijderd
+                    } else {
+                        error_log("Fout bij verwijderen: " . $stmt->error);
+                    }
+                    $stmt->close();
+                }
+
+                $sql = "SELECT * FROM boodschappenlijst WHERE InlogID LIKE $userid ";
+                $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        echo "<li>" . $row["Name"] . "<ol id=\"delknop\"><a href=\"?delete=" . $row["BoodschappenlijstID"] . "\">DEL</a></ol><ol id=\"delknop\"><a href=\"?add=" . $row["BoodschappenlijstID"] . "\">ADD</a></ol><ol id=\"hoeveelheid\">" . $row["Amount"] . " " . $row["Unit"] . "</ol></li>";
+                    }
+                }
                 ?>
             </ul>
-            <button id="Dairy" class="blaaszak">
-                <img class="menulogos" src="../Mijn Koelkast/Photos/Icons/egg.svg" alt="$">
-                <h2>Zuivel</h2>
-            </button>
-            <ul class="panneel" id="dairypan">
-                <?php
 
-                    $sql = "SELECT IngrediëntNaam FROM receptingrediënt INNER JOIN ingrediënten WHERE IngrediëntCategorie LIKE \"ZU\" AND InlogID IS NULL";
-                    $result = $conn->query($sql);
-
-                    if ($result->num_rows > 0) {
-                        while ($row = $result->fetch_assoc()) {
-                        echo "<li><input type=\"checkbox\" name=\"groenten\" value=".$row["IngrediëntNaam"]."><label>".$row["IngrediëntNaam"]."</label>";
-                        }
-                    }
-                ?>
-            </ul>
-            <button id="fru" class="blaaszak">
-                <img class="menulogos" src="../Mijn Koelkast/Photos/Icons/apple.svg" alt="$">
-                <h2>Fruit</h2>
-            </button>
-            <ul class="panneel" id="frupan">
-                <?php
-
-                    $sql = "SELECT IngrediëntNaam FROM receptingrediënt INNER JOIN ingrediënten WHERE IngrediëntCategorie LIKE \"FR\" AND InlogID IS NULL";
-                    $result = $conn->query($sql);
-
-                    if ($result->num_rows > 0) {
-                        while ($row = $result->fetch_assoc()) {
-                        echo "<li><input type=\"checkbox\" name=\"groenten\" value=".$row["IngrediëntNaam"]."><label>".$row["IngrediëntNaam"]."</label>";
-                        }
-                    }
-                ?>
-            </ul>
-            <button id="wheat" class="blaaszak">
-                <img class="menulogos" src="../Mijn Koelkast/Photos/Icons/wheat.svg" alt="$">
-                <h2>Deegwaren</h2>
-            </button>
-            <ul class="panneel" id="wheatpan">
-                <?php
-
-                    $sql = "SELECT IngrediëntNaam FROM receptingrediënt INNER JOIN ingrediënten WHERE IngrediëntCategorie LIKE \"DE\" AND InlogID IS NULL";
-                    $result = $conn->query($sql);
-
-                    if ($result->num_rows > 0) {
-                        while ($row = $result->fetch_assoc()) {
-                        echo "<li><input type=\"checkbox\" name=\"groenten\" value=".$row["IngrediëntNaam"]."><label>".$row["IngrediëntNaam"]."</label>";
-                        }
-                    }
-                ?>
-            </ul>
-            <button id="meat" class="blaaszak">
-                <img class="menulogos" src="../Mijn Koelkast/Photos/Icons/ham.svg" alt="$">
-                <h2>Vlees en vis</h2>
-            </button>
-            <ul class="panneel" id="meatpan">
-                <?php
-
-                    $sql = "SELECT IngrediëntNaam FROM receptingrediënt INNER JOIN ingrediënten WHERE IngrediëntCategorie LIKE \"VV\" AND InlogID IS NULL";
-                    $result = $conn->query($sql);
-
-                    if ($result->num_rows > 0) {
-                        while ($row = $result->fetch_assoc()) {
-                        echo "<li><input type=\"checkbox\" name=\"groenten\" value=".$row["IngrediëntNaam"]."><label>".$row["IngrediëntNaam"]."</label>";
-                        }
-                    }
-                ?>
-            </ul>
-            <button id="varia" class="blaaszak">
-                <img class="menulogos" src="../Mijn Koelkast/Photos/Icons/chef-hat.svg" alt="$">
-                <h2>Diversen</h2>
-            </button>
-            <ul class="panneel" id="variapan">
-                <?php
-
-                    $sql = "SELECT IngrediëntNaam FROM receptingrediënt INNER JOIN ingrediënten  WHERE IngrediëntCategorie LIKE \"OV\" AND InlogID IS NULL";
-                    $result = $conn->query($sql);
-
-                    if ($result->num_rows > 0) {
-                        while ($row = $result->fetch_assoc()) {
-                        echo "<li><input type=\"checkbox\" name=\"groenten\" value=".$row["IngrediëntNaam"]."><label>".$row["IngrediëntNaam"]."</label>";
-                        }
-                    }
-                    $conn->close();
-                ?>
-            </ul>
         </div>
     </div>
-    
+
 </body>
 
 </html>

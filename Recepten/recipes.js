@@ -56,7 +56,7 @@ function showRecipe(json, i) {
   div.setAttribute("class", "receptFoto");
   div.setAttribute(
     "onclick",
-    `sendData(${i})` //${MissingIngredients},
+    `sendData(${i},${NumberOfMissedIngredients})` //${MissingIngredients},
   );
   const image = document.createElement("img");
   image.setAttribute("id", "img" + i);
@@ -100,17 +100,9 @@ function showRecipe(json, i) {
       .getElementById("unit" + i + k)
       .append(json.results[i].missedIngredients[k].unit);
   }
-
-  let missingbutton = document.createElement("button");
-  missingbutton.innerHTML = "add missing";
-  missingbutton.setAttribute(
-    "onclick",
-    `getMissing(${i},${NumberOfMissedIngredients})`
-  );
-  div.append(missingbutton);
 }
 
-function sendData(number) {
+function sendData(number,NumberOfMissedIngredients) {
   let text = document.getElementById("title" + number).innerHTML;
   let url = document.getElementById("img" + number).src;
   let DBdata = { title: text, image: url };
@@ -124,16 +116,14 @@ function sendData(number) {
     },
     body: JSON.stringify(DBdata),
   });
-}
-
-function getMissing(number, NumberOfMissedIngredients) {
   for (let k = 0; k < NumberOfMissedIngredients; k++) {
     let name = document.getElementById("name" + number + k).innerHTML;
     let amount = document.getElementById("amount" + number + k).innerHTML;
     let unit = document.getElementById("unit" + number + k).innerHTML;
     sendMissing(name, amount, unit);
-  }
+  };
 }
+
 function sendMissing(name, amount, unit) {
   let missingData = { name: name, amount: amount, unit: unit };
   console.log(missingData);

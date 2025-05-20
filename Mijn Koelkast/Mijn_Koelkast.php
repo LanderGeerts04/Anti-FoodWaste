@@ -1,11 +1,11 @@
 <?php
 
 session_start();
-if (!isset($_SESSION['email'])){
+if (!isset($_SESSION['email'])) {
   header("location: ../login/index.php");
   exit();
 }
-$userid=$_SESSION["user_id"];
+$userid = $_SESSION["user_id"];
 ?>
 
 <!DOCTYPE html>
@@ -60,7 +60,7 @@ $userid=$_SESSION["user_id"];
               </select>
             </li>
             <li>
-              <input type="number" id="Hoeveelheid" name="Hoeveelheid" placeholder="0" class="formdesign">
+              <input type="number" id="Hoeveelheid" name="Hoeveelheid" placeholder="0" class="formdesign" step="0.1">
               <select name="eenheid" id="eenheid" class="formdesign">
                 <option value="gram">gram</option>
                 <option value="liter">liter</option>
@@ -122,7 +122,7 @@ $userid=$_SESSION["user_id"];
 
           if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-              echo "<li>" . $row["IngrediëntNaam"] . "<ol id=\"delknop\"><a href=\"?delete=" . $row["IngrediëntID"] . "\">DEL</a></ol><ol id=\"hoeveelheid\">" . $row["Hoeveelheid"] . " " . $row["IngrediëntEenheid"] . "</ol><ol id=\"vervaldatum\">".$row["Vervaldatum"]." dagen over</ol></li>";
+              echo "<li>" . $row["IngrediëntNaam"] . "<ol id=\"delknop\"><a href=\"?delete=" . $row["IngrediëntID"] . "\">DEL</a></ol><ol id=\"hoeveelheid\">" . $row["Hoeveelheid"] . " " . $row["IngrediëntEenheid"] . "</ol><ol id=\"vervaldatum\">" . $row["Vervaldatum"] . " dagen over</ol></li>";
             }
           }
           $conn->close(); // Sluiten van de verbinding
@@ -132,4 +132,5 @@ $userid=$_SESSION["user_id"];
     </div>
   </div>
 </body>
+
 </html>

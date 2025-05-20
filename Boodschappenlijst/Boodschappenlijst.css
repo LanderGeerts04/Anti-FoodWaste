@@ -83,6 +83,7 @@ body {
 .artikel{
   margin-left: 300px;
   margin-right: 0px;
+  display: flex;
 }
 
 /*Logo layout*/
@@ -108,44 +109,82 @@ body {
 #keuzemenu {
   overflow-x: auto;
 }
-
-/*Opmaak specifieke blokken*/
-.blaaszak{
-  display: flex;
-  cursor: pointer;
-  padding: 10px;
-  width: 100%;
-  border: none;
-  outline: none;
-  font-size: 20px;
-  border-radius: 20px;
-  margin-bottom: 10px;
-}
-.blaaszak:hover{
-  filter: brightness(85%);
-}
-.panneel{
-  display: none;
-}
-#veg {
-  background-color: rgb(71, 156, 71);
-}
-#Dairy {
-  background-color: rgb(245, 245, 177);
-}
-#fru {
-  background-color: rgb(247, 79, 79);
-}
-#wheat {
-  background-color: rgb(215, 131, 15);
-}
-#meat {
-  background-color: rgb(225, 73, 171);
-}
-#varia {
-  background-color: rgb(125, 66, 6);
-}
-
 .lijstje{
+  font-family: VarelaRound;
   display: block;
+  background-color: white;
+  width: 70%;
+  height: auto;
+  border-radius: 10px;
+  padding: 10px;
 }
+.lijstje li{
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: solid black;
+  border-radius: 16px;
+  padding: 20px;
+}
+.lijstje ol{
+    float: right;
+    color: black;
+}
+#delknop a{
+  border: 1px solid black;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-left: 5px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: black;
+}
+#delknop a:hover{
+  outline: 2px solid black;
+}
+.toevoegen{
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  height: auto;
+  font-family: VarelaRound;
+  background-color: white;
+  border-radius: 10px;
+  margin-right: 3%;
+}
+.toevoegen input{
+  font-family: VarelaRound;
+  width: 80%;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  border: 1px solid gray;
+  font-size: 15px;
+}
+.toevoegen select{
+  font-family: VarelaRound;
+  width: 87%;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  border: 1px solid gray;
+  font-size: 15px;
+}
+.toevoegen button{
+  font-family: VarelaRound;
+  width: 87%;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  border: 1px solid gray;
+  font-size: 15px;
+  
+}
+.toevoegen button:hover{
+  border: 2px solid black;
+}
+#toevoegen-tekst{
+  text-align: center;
+  font-size: larger;
+}
+
