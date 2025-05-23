@@ -10,6 +10,10 @@ function checkBox() {
 }
 
 async function getData() {
+  var div = document.getElementById("recept-foto");
+  while (div.firstChild) {
+    div.removeChild(div.firstChild);
+  }
   try {
     const recepten = document.getElementById("recepten").value.toLowerCase();
     const number = document
@@ -102,7 +106,7 @@ function showRecipe(json, i) {
   }
 }
 
-function sendData(number,NumberOfMissedIngredients) {
+function sendData(number, NumberOfMissedIngredients) {
   let text = document.getElementById("title" + number).innerHTML;
   let url = document.getElementById("img" + number).src;
   let DBdata = { title: text, image: url };
@@ -121,18 +125,18 @@ function sendData(number,NumberOfMissedIngredients) {
     let amount = document.getElementById("amount" + number + k).innerHTML;
     let unit = document.getElementById("unit" + number + k).innerHTML;
     sendMissing(name, amount, unit);
-  };
+  }
 }
 
 function sendMissing(name, amount, unit) {
   let missingData = { name: name, amount: amount, unit: unit };
   console.log(missingData);
 
-   fetch("AddMissing.php", {
+  fetch("AddMissing.php", {
     method: "POST",
     headers: {
       "Content-type": "application/json; charset=utf-8",
     },
     body: JSON.stringify(missingData),
-  }); 
+  });
 }
