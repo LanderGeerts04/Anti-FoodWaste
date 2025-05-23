@@ -44,7 +44,7 @@ $userid = $_SESSION["user_id"];
   </ul>
   <div class="artikel">
     <div class="toevoegen">
-      <div id="ADD">Voeg hier uw producten toe</div>
+      <div id="ADD"><p>Voeg hier uw producten toe</p></div>
       <div id="informatie">
         <form action="./Toevoegen.php" method="POST">
           <ul>

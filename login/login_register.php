@@ -12,7 +12,10 @@ if (isset($_POST['register'])){
     $_SESSION['register_error'] = 'Email is already registered!';
     $_SESSION['active_form'] = 'register';
     }else{
-    $conn->query("INSERT INTO inlog (Naam, Email, Wachtwoord) VALUES ('$name', '$email', '$password')");
+    $stmt=$conn->prepare("INSERT INTO inlog (Naam, Email, Wachtwoord) VALUES (?,?,?)");
+    $stmt->bind_param("sss",$name,$email,$password);
+    $stmt->execute();
+    $stmt->close();
     }
 
     

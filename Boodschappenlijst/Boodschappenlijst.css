@@ -167,7 +167,8 @@ body {
   padding: 10px;
   margin: 10px;
   border-radius: 10px;
-  border: 1px solid gray;
+  background-color: white;
+  border: 1px solid grey;
   font-size: 15px;
 }
 .toevoegen button{
@@ -176,12 +177,13 @@ body {
   padding: 10px;
   margin: 10px;
   border-radius: 10px;
+  background-color: white;
   border: 1px solid gray;
   font-size: 15px;
   
 }
 .toevoegen button:hover{
-  border: 2px solid black;
+  outline: 2px solid black;
 }
 #toevoegen-tekst{
   text-align: center;
