@@ -180,26 +180,26 @@ div {
 .hidden {
   display: none;
 }
-#title{
-    font-family: VarelaRound;
-    font-size: 60px;
+#title {
+  font-family: VarelaRound;
+  font-size: 60px;
 }
-.Intro{
-    font-family: VarelaRound;
-    font-size: 30px;
+.Intro {
+  font-family: VarelaRound;
+  font-size: 30px;
 }
 /*Logo layout*/
-@media(max-width: 800px){
-    #logo{
-        display: none;
-    }   
+@media (max-width: 800px) {
+  #logo {
+    display: none;
+  }
 }
-#logo{
-    margin-right: 70px;
-    width: 80px;
+#logo {
+  margin-right: 70px;
+  width: 80px;
 }
-.menulogos{
-    width: 50px;
-    float: left;
-    margin-right: 10px;
+.menulogos {
+  width: 50px;
+  float: left;
+  margin-right: 10px;
 }
