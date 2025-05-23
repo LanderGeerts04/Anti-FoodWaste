@@ -1,7 +1,7 @@
 /*Fonts*/
-@font-face{
-    font-family: VarelaRound;
-    src: url(../Boodschappenlijst/VarelaRound-Regular.ttf);
+@font-face {
+  font-family: VarelaRound;
+  src: url(../Boodschappenlijst/VarelaRound-Regular.ttf);
 }
 
 /*Achtergrond*/
@@ -10,7 +10,7 @@ body {
 }
 
 /*Navigatie elementen*/
-.hamburger{
+.hamburger {
   border-style: none;
   font-family: VarelaRound;
   display: block;
@@ -23,7 +23,7 @@ body {
   background-color: white;
   text-align: center;
 }
-.hamburger:hover{
+.hamburger:hover {
   outline: 3px;
   outline-color: black;
   outline-style: solid;
@@ -80,7 +80,7 @@ body {
   font-family: VarelaRound;
   font-size: 30px;
 }
-.artikel{
+.artikel {
   margin-left: 300px;
   margin-right: 0px;
   display: flex;
@@ -104,12 +104,11 @@ body {
 
 /*Blok element*/
 
-
 /*Blok tabel*/
 #keuzemenu {
   overflow-x: auto;
 }
-.lijstje{
+.lijstje {
   font-family: VarelaRound;
   display: block;
   background-color: white;
@@ -118,7 +117,7 @@ body {
   border-radius: 10px;
   padding: 10px;
 }
-.lijstje li{
+.lijstje li {
   display: block;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -126,11 +125,11 @@ body {
   border-radius: 16px;
   padding: 20px;
 }
-.lijstje ol{
-    float: right;
-    color: black;
+.lijstje ol {
+  float: right;
+  color: black;
 }
-#delknop a{
+#delknop a {
   border: 1px solid black;
   padding-left: 5px;
   padding-right: 5px;
@@ -139,20 +138,20 @@ body {
   text-decoration: none;
   color: black;
 }
-#delknop a:hover{
+#delknop a:hover {
   outline: 2px solid black;
 }
-.toevoegen{
+.toevoegen {
   display: flex;
   flex-direction: column;
   width: 25%;
-  height: auto;
+  height: 320px;
   font-family: VarelaRound;
   background-color: white;
   border-radius: 10px;
   margin-right: 3%;
 }
-.toevoegen input{
+.toevoegen input {
   font-family: VarelaRound;
   width: 80%;
   padding: 10px;
@@ -161,7 +160,7 @@ body {
   border: 1px solid gray;
   font-size: 15px;
 }
-.toevoegen select{
+.toevoegen select {
   font-family: VarelaRound;
   width: 87%;
   padding: 10px;
@@ -170,7 +169,7 @@ body {
   border: 1px solid gray;
   font-size: 15px;
 }
-.toevoegen button{
+.toevoegen button {
   font-family: VarelaRound;
   width: 87%;
   padding: 10px;
@@ -178,13 +177,11 @@ body {
   border-radius: 10px;
   border: 1px solid gray;
   font-size: 15px;
-  
 }
-.toevoegen button:hover{
+.toevoegen button:hover {
   border: 2px solid black;
 }
-#toevoegen-tekst{
+#toevoegen-tekst {
   text-align: center;
   font-size: larger;
 }
-

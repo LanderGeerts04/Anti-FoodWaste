@@ -75,7 +75,7 @@ $conn->select_db("AntiFoodwaste");
                 <input type="number" name="amount" id="amount" placeholder="0" step="0.1">
                 <select name="unit" id="unit" class="formdesign">
                     <option value="g">Gram</option>
-                    <option value="ml">Mililiter</option>
+                    <option value="ml">ml</option>
                     <option value="Cups">Cups</option>
                     <option value="Stuks">Stuks</option>
                 </select>
@@ -97,17 +97,7 @@ $conn->select_db("AntiFoodwaste");
                     }
                     $stmt->close();
                 }
-                if (isset($_GET["add"]) && is_numeric($_GET["add"])) {
-                    $id = $_GET["add"];
-                    $stmt = $conn->prepare("DELETE FROM boodschappenlijst WHERE BoodschappenlijstID = ?");
-                    $stmt->bind_param("i", $id);
-                    if ($stmt->execute()) {
-                        // Succesvol verwijderd
-                    } else {
-                        error_log("Fout bij verwijderen: " . $stmt->error);
-                    }
-                    $stmt->close();
-                }
+            
 
                 $sql = "SELECT * FROM boodschappenlijst WHERE InlogID LIKE $userid ";
                 $result = $conn->query($sql);
@@ -116,6 +106,36 @@ $conn->select_db("AntiFoodwaste");
                     while ($row = $result->fetch_assoc()) {
                         echo "<li>" . $row["Name"] . "<ol id=\"delknop\"><a href=\"?delete=" . $row["BoodschappenlijstID"] . "\">DEL</a></ol><ol id=\"delknop\"><a href=\"?add=" . $row["BoodschappenlijstID"] . "\">ADD</a></ol><ol id=\"hoeveelheid\">" . $row["Amount"] . " " . $row["Unit"] . "</ol></li>";
                     }
+                }
+                if (isset($_GET["add"]) && is_numeric($_GET["add"])) {
+                    $id = $_GET["add"];
+                    $sql = "SELECT * FROM boodschappenlijst WHERE BoodschappenlijstID LIKE $id ";
+                    $result = $conn->query($sql);
+                    
+                    if ($result->num_rows > 0) {
+                        $row = $result->fetch_assoc();
+
+                        $stmt = $conn->prepare("INSERT INTO ingrediënten(IngrediëntNaam,IngrediëntEenheid,Hoeveelheid,InlogID) VALUES(?,?,?,?)");
+                        $stmt->bind_param("ssdi", $row['Name'],$row['Unit'],$row['Amount'],$userid );
+                        if ($stmt->execute()) {
+                        //executed correctly
+                        } else {
+                        error_log("Fout bij toevoegen: " . $stmt->error);
+                        }
+                        $stmt->close();
+                    }
+                    $stmt = $conn->prepare("DELETE FROM boodschappenlijst WHERE BoodschappenlijstID = ?");
+                    $stmt->bind_param("i", $id);
+                    if ($stmt->execute()) {
+                    // Succesvol verwijderd
+                    } else {
+                    error_log("Fout bij verwijderen: " . $stmt->error);
+                    }
+                    $stmt->close();
+                    
+                    $page = $_SERVER['PHP_SELF'];
+                    $sec = "10";
+                    header("Refresh: $sec; url=$page");
                 }
                 ?>
             </ul>
