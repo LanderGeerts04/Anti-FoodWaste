@@ -22,8 +22,13 @@ if (!isset($_SESSION['email'])) {
 </head>
 
 <body onload="checkBox()">
-  <h1>ZOEK EEN RECEPT</h1>
-  <hr />
+  <h1 id="title">
+      Recepten
+      <a href="../Homepage/Homepage.php"><img id="logo" align="right" src="./Photos/chef-hat.svg" alt="Geen foto beschikbaar"></a>
+  </h1>
+  <hr>
+  <p class="Intro">Als je klikt op een recept gaat deze naar je weekmenu</p>
+  <hr>
   <div class="navigatie">
     <button class="hamburger" type="button" onclick="verberg()">
       <img src="../Algemene files/Algemen iconen/menu.svg" alt="$" />

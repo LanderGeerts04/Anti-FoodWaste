@@ -52,7 +52,7 @@ if (!isset($_SESSION['email'])){
         <a class="knop" id="recept" href="../Recepten/recepten.php">
           <img
             class="menulogos"
-            src="../Recepten/Photos/cooking-pot.svg"
+            src="./Photos/chef-hat.svg"
             alt="$"/>Recepten</a>
       </div>
      </div>
