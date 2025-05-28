@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="Startpagina.css" rel="stylesheet" />
+    <link href="index.css" rel="stylesheet" />
     <title>Startpagina</title>
 </head>
+
 <body>
     <div class="header">
         <div class="banner">
             <h1>Startpagina</h1>
         </div>
         <div id="login">
-            <a class="knop" onclick="window.location.href='../login/index.php'">Log in</a>
+            <a class="knop" onclick="window.location.href='./login/index.php'">Log in</a>
         </div>
     </div>
     <div class="inhoud">
@@ -25,13 +27,14 @@
             <p id="slogan">Kortom: minder verspillen, slimmer plannen en duurzamer leven.</p>
         </div>
         <div id="photos">
-            <img class="photo" src="../Startpagina/Photos/Home.png">
-            <img class="photo" src="../Startpagina/Photos/Koelkast2.png">
-            <img class="photo" src="../Startpagina/Photos/Recepten2.png">
-            <img class="photo" src="../Startpagina/Photos/Weekmenu2.png">
-            <img class="photo" src="../Startpagina/Photos/Weekmenu3.png">
-            <img class="photo" src="../Startpagina/Photos/Boodschappenlijst2.png">
+            <img class="photo" src="./Startpagina/Photos/Home.png">
+            <img class="photo" src="./Startpagina/Photos/Koelkast2.png">
+            <img class="photo" src="./Startpagina/Photos/Recepten2.png">
+            <img class="photo" src="./Startpagina/Photos/Weekmenu2.png">
+            <img class="photo" src="./Startpagina/Photos/Weekmenu3.png">
+            <img class="photo" src="./Startpagina/Photos/Boodschappenlijst2.png">
         </div>
     </div>
 </body>
+
 </html>

@@ -1,11 +1,11 @@
 @font-face{
     font-family: VarelaRound;
-    src: url(VarelaRound-Regular.ttf);
+    src: url(./Startpagina/VarelaRound-Regular.ttf);
 }
 
 body{
     font-family: VarelaRound;
-    background-image: url(../Startpagina/Photos/Background.png);
+    background-image: url(./Startpagina/Photos/Background.png);
     background-size: cover;
     background-attachment: fixed;
 }
